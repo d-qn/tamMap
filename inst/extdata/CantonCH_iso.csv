@@ -1,0 +1,27 @@
+iso2,iso4,français,français2,français3,allemand,allemand2,allemand3,italien,english,romanche,mixed,order,isLatin,lon,lat
+AG,CH-AG,Argovie,Argovie,Argovie,Aargau,Aargau,Aargau,Argovia,Argovia,Argovia,Aargau,19,FALSE,8.2554295,47.3876664
+AI,CH-AI,Appenzell Rhodes-Intérieures,Appenzell Rhodes-Intérieures,Appenzell Rh.-I.,Appenzell Innerrhoden,Appenzell Innerrhoden,Appenzell I.-Rh.,Appenzello Interno,Appenzell Inner Rhodes,Appenzell Dadens,Appenzell Innerrhoden,15,FALSE,9.4316573,47.3161925
+AR,CH-AR,Appenzell Rhodes-Extérieures,Appenzell Rhodes-Extérieures,Appenzell Rh.-E.,Appenzell Ausserrhoden,Appenzell Ausserrhoden,Appenzell A.-Rh.,Appenzello Esterno,Appenzell Outer Rhodes,Appenzell Dador,Appenzell Ausserrhoden,16,FALSE,9.3000916,47.366481
+BE,CH-BE,Berne,Berne,Berne,Bern,Bern,Bern,Berna,Berne,Berna,Bern,2,FALSE,7.4446085,46.9479222
+BL,CH-BL,Canton de Bâle-Campagne,Bâle-Campagne,Bâle-Campagne,Basel-Landschaft,Basel-Landschaft,Basel-Landschaft,Basilea-Campagna,Basle-Country,Basilea-Champagna,Basel-Landschaft,13,FALSE,7.5975507,47.5674422
+BS,CH-BS,Bâle-Ville,Bâle-Ville,Bâle-Ville,Basel-Stadt,Basel-Stadt,Basel-Stadt,Basilea-Città,Basle-City,Basilea-Citad,Basel-Stadt,12,FALSE,7.5975507,47.5674422
+FR,CH-FR,Fribourg,Fribourg,Fribourg,Freiburg,Freiburg,Freiburg,Friburgo,Fribourg,Friburg,Fribourg,10,TRUE,7.1455683,46.8016663
+GE,CH-GE,Genève,Genève,Genève,Genf,Genf,Genf,Ginevra,Geneva,Genevra,Genève,25,TRUE,6.1422961,46.1983922
+GL,CH-GL,Glaris,Glaris,Glaris,Glarus,Glarus,Glarus,Glarona,Glarus,Glaruna,Glarus,8,FALSE,9.0672085,47.0404265
+GR,CH-GR,Grisons,Grisons,Grisons,Graubünden,Graubünden,Graubünden,Grigioni,Grisons,Grischun,Graubünden,18,FALSE,9.5780257,46.6569871
+JU,CH-JU,Jura,Jura,Jura,Jura,Jura,Jura,Giura,Jura,Giura,Jura,26,TRUE,7.1430608,47.3444474
+LU,CH-LU,Lucerne,Lucerne,Lucerne,Luzern,Luzern,Luzern,Lucerna,Lucerne,Lucerna,Luzern,3,FALSE,8.3089295,47.0500376
+NE,CH-NE,Neuchâtel,Neuchâtel,Neuchâtel,Neuenburg,Neuenburg,Neuenburg,Neuchâtel,Neuchâtel,Neuchâtel,Neuchâtel,24,TRUE,6.9319325,46.9929793
+NW,CH-NW,Nidwald,Nidwald,Nidwald,Nidwalden,Nidwalden,Nidwalden,Nidwaldo,Nidwald,Sutsilvaniao,Nidwalden,7,FALSE,8.3849982,46.9267016
+OW,CH-OW,Obwald,Obwald,Obwald,Obwalden,Obwalden,Obwalden,Obwaldo,Obwald,Sursilvaniao,Obwalden,6,FALSE,8.251249,46.877858
+SG,CH-SG,Saint-Gall,St-Gall,St-Gall,Sankt Gallen,St. Gallen,St. Gallen,San-Gallo,St-Gall,Son Gagl,St. Gallen,17,FALSE,9.3643968,47.4179284
+SH,CH-SH,Schaffhouse,Schaffhouse,Schaffhouse,Schaffhausen,Schaffhausen,Schaffhausen,Sciaffusa,Schaffhausen,Schaffusa,Schaffhausen,14,FALSE,8.6414424,47.7077664
+SO,CH-SO,Soleure,Soleure,Soleure,Solothurn,Solothurn,Solothurn,Soletta,Solothurn,Soloturn,Solothurn,11,FALSE,7.5379549,47.2086574
+SZ,CH-SZ,Schwytz,Schwytz,Schwytz,Schwyz,Schwyz,Schwyz,Svitto,Schwyz,Sviz,Schwyz,5,FALSE,8.6473977,47.0198346
+TG,CH-TG,Thurgovie,Thurgovie,Thurgovie,Thurgau,Thurgau,Thurgau,Turgovia,Thurgovia,Turgovia,Thurgau,20,FALSE,9.0557371,47.6037856
+TI,CH-TI,Tessin,Tessin,Tessin,Tessin,Tessin,Tessin,Ticino,Ticino,Tessin,Ticino,21,TRUE,8.8004529,46.331734
+UR,CH-UR,Uri,Uri,Uri,Uri,Uri,Uri,Uri,Uri,Uri,Uri,4,FALSE,8.6025153,46.7738629
+VD,CH-VD,Vaud,Vaud,Vaud,Waadt,Waadt,Waadt,Vaud,Vaud,Vad,Vaud,22,TRUE,6.536765,46.5613135
+VS,CH-VS,Valais,Valais,Valais,Wallis,Wallis,Wallis,Vallese,Valais,Vallais,Valais,23,TRUE,7.5449226,46.1904614
+ZG,CH-ZG,Zoug,Zoug,Zoug,Zug,Zug,Zug,Zugo,Zug,Zug,Zug,9,FALSE,8.513854,47.1745887
+ZH,CH-ZH,Zurich,Zurich,Zurich,Zürich,Zürich,Zürich,Zurigo,Zurich,Turitg,Zürich,1,FALSE,8.5391825,47.3686498

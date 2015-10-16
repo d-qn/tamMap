@@ -1,0 +1,18 @@
+Package: swiMap
+Type: Package
+Title: Functions to plot geographic maps, mainly swiss maps (cantonal,
+    districts and communes)
+Version: 1.0
+Date: 2015-04-14
+Author: Duc-Quang Nguyen
+Maintainer: Duc-Quang Nguyen <ducquang.nguyen@swssinfo.ch>
+Imports:
+    rgdal,
+    rgeos,
+    countrycode,
+    readxl,
+    ggplot2,
+    XML,
+    scales
+Description: More about what it does (maybe more than one line)
+License: What license is it under?
