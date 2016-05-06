@@ -6,6 +6,9 @@
 ##' @param start,end Date objets: the timeframe at which to query the list of communes changes
 ##' @return a data.frame
 ##' @details
+##' 
+##' \url{http://www.bfs.admin.ch/bfs/portal/fr/index/news/publikationen.Document.92111.pdf}
+##' 
 ##' GINIART code:
 ##' 11 Commune politique
 ##' 12 Territoire non attribué à une commune
