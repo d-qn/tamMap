@@ -4,6 +4,7 @@
 ##' 
 ##' @name mapShapefiles
 ##' @param geo a character, either 'CH' or 'world'
+##' @param year a numeric, year for data to use (default 2015)
 ##' @return a character, the path to the shapefiles folder
 ##' @export
 ##' @examples
@@ -34,13 +35,21 @@
 ##' bfsnName <- ch.df[!duplicated(ch.df$BFSNR),c('BFSNR', 'GEMNAME')]
 ##' bfsnName[order(bfsnName[,1]),]
 ##' }
-getPathShp <- function(geo = "CH") {
+getPathShp <- function(geo = "CH", year = 2015) {
   # check
   if(!geo %in% c('CH', 'world')) {
     stop ("geo has to be one of 'CH' or 'world'!")
   }
   if(geo == 'CH') {
-    path <- 'CH/2015/ch'
+    years.available <- as.numeric(list.files(system.file("extdata/shp/CH", package="swiMap")))
+    if(!year %in% years.available) {
+      stop("\nThe year provided ", year, " does not have any data/folder available!\n")
+    }
+    if(year == 2015) {
+      path <- 'CH/2015/ch'
+    } else {
+      path <- 'CH/2014/ch'      
+    }
   } else {
     path <- 'TM_WORLD_BORDERS_SIMPL-0'
   }

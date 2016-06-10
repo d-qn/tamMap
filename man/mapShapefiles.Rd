@@ -6,12 +6,14 @@
 \alias{mapShapefiles}
 \title{Geographical map with shapefiles}
 \usage{
-getPathShp(geo = "CH")
+getPathShp(geo = "CH", year = 2015)
 
 formatShp(shp)
 }
 \arguments{
 \item{geo}{a character, either 'CH' or 'world'}
+
+\item{year}{a numeric, year for data to use (default 2015)}
 
 \item{shp}{shapefile contents loaded ojbect, as returned by \code{readOGR}}
 }
