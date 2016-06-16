@@ -29,6 +29,7 @@ Helper functions to draw geographical map based on shapefiles
 require(rgdal)
 require(rgeos)
 require(ggplot2)
+require(maptools)
 path <- getPathShp('world')
 layers <-  ogrListLayers(path)
 # read shapefiles for given layer
