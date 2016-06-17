@@ -18,8 +18,19 @@
 ##' world <- readOGR(path, layer = layers[1])
 ##' world.df <- formatShp(world)
 ##' # plot world map
-##' ggplot(world.df, aes(x = long, y = lat, group = group)) + geom_polygon(size = 0.01, aes(fill = FIPS)) + 
-##' theme_minimal() + theme(legend.position = "none", panel.grid = element_blank(), axis.ticks = element_blank(), axis.title = element_blank(), axis.text = element_blank())
+##' wm <- ggplot(world.df, aes(x = long, y = lat, group = group)) + 
+##'   geom_polygon(size = 0.01, aes(fill = FIPS)) + 
+##'   theme_minimal() + 
+##'   theme(
+##'     legend.position = "none", 
+##'     panel.grid = element_blank(), 
+##'     axis.ticks = element_blank(), 
+##'     axis.title = element_blank(), 
+##'     axis.text = element_blank()
+##'   )
+##'  wm
+##'  # With nice orthographic projection
+##'  wm + coord_map("ortho")
 ##' # Same with swiss commune map (slow!)
 ##' \dontrun{
 ##' path.ch <- getPathShp('CH')
