@@ -248,35 +248,35 @@ VG,VGB,92,British Virgin Islands,Britische Jungferninseln,Îles Vierges britanni
 VI,VIR,850,U.S. Virgin Islands,US-Jungferninseln,Îles Vierges des États-Unis,Isole Vergini americane,Islas Vírgenes de Estados Unidos,Ilhas Virgens dos EUA,Виргинские острова США,美属维尔京群岛,米領バージン諸島,جزر فيرجن الأمريكية
 WF,WLF,876,Wallis and Futuna,Wallis und Futuna,Wallis et Futuna,Wallis e Futuna,Islas Wallis y Futuna,Wallis e Futuna,Уоллис и Футуна,瓦利斯和富图纳群岛,ワリー·エ·フトゥーナ,واليس وفوتونا
 EH,ESH,732,Western Sahara,Westsahara,Sahara Occidental,Sahara occidentale,Sáhara Occidental,Saara Ocidental,Западная Сахара,西撒哈拉,西サハラ,الصحراء الغربية
-1A,ARB,NA,Arab World,Arabische Welt,Monde arabe,Mondo arabo,,Mundo Árabe,Арабский мир,阿拉伯世界,アラブ世界,العالم العربي
-1W,WLD,NA,World,Welt,Monde,Mondo,,Mundo,Мир,世界,世界,عالم
-4E,EAP,NA,East Asia & Pacific,East Asia & Pacific,Asie de l'Est et Pacifique,Asia Orientale e Pacifico,,Leste Asiático e Pacífico,Восточная Азия и Тихий Океан,东亚与太平洋地区,東アジア·太平洋,شرق آسيا والمحيط الهادئ
-7E,ECA,NA,Europe & Central Asia,Europa und Zentralasien,Europe,Europa e Asia Centrale,,Europa,Европа и Центральная Азия,欧洲和中亚,ヨーロッパ·中央アジア,أوروبا وآسيا الوسطى
-8S,SAS,NA,South Asia,Südasien,Asie du Sud,Asia del sud,,Sul da Asia,Южная Азия,南亚,南アジア,جنوب آسيا
-EU,EUU,NA,European Union,Europäische Union,Union européenne,Unione europea,,União Europeia,Европейский союз,欧盟,欧州連合,الاتحاد الأوروبي
-OE,OED,NA,OECD members,OECD-Mitglieder,membres de l'OCDE,Membri dell'OCSE,,OCDE,Государства-члены ОЭСР,经合组织成员国,OECD加盟国,أعضاءOECD
-S1,SST,NA,Small states,Kleinstaaten,Les petits états,Piccolo Stati,,Pequenos estados,Малые страны,小国,小国,الدول الصغيرة
-S2,PSS,NA,Pacific island small states,Pazifik-Insel Kleinstaaten,Petits états insulaires du Pacifique,Piccoli Stati insulari del Pacifico,,Estados insulares pequenos do Pacífico,Полинезия,太平洋岛屿小国,太平洋島嶼小国,الدول الجزرية الصغيرة في المحيط الهادئ
-S3,CSS,NA,Caribbean small states,Karibischen Kleinstaaten,Petits états des Caraïbes,Piccoli Stati caraibici,,Pequenos Estados do Caribe,Малые страны Карибского бассейна,加勒比小国,カリブ海の小国,الدول الصغيرة في منطقة البحر الكاريبي
-S4,OSS,NA,Other small states,Andere Kleinstaaten,Autres petits états,Altri piccoli Stati,,Outros estados pequenos,Другие малые страны,其他小国,その他の小国,الدول الصغيرة الأخرى
-XC,EMU,NA,Eurozone,Euro-Raum,zone Euro,Eurozona,,eurozona,Зона хождения евро,欧元区,ユーロ圏,منطقة اليورو
-XD,HIC,NA,High income,Hohes Einkommen,revenu élevé,Reddito alto,,alta renda,Высокие доходы,高收入,高額所得,ذات الدخل المرتفع
-XE,HPC,NA,Heavily indebted poor countries,Hochverschuldeten armen Länder,Pays pauvres très endettés,Paesi fortemente indebitati,,Países pobres altamente endividados,Бедные страны с высоким уровнем задолженности,重债穷国,重債務貧困国,البلدان الفقيرة المثقلة بالديون
-XJ,LAC,NA,Latin America & Caribbean,Lateinamerika & Karibik,Amérique latine et Caraïbes,America Latina e Caraibi,,América Latina e Caribe,Латинская Америка и Карибские острова,拉美与加勒比地区,ラテンアメリカ·カリブ海,أمريكا اللاتينية والبحر الكاريبي
-XL,LDC,NA,Least developed countries: UN classification,Am wenigsten entwickelte Länder: UN Klassifikation,Pays les moins avancés: classement de l'ONU,Paesi meno sviluppati: la classifica delle Nazioni Unite,,Países menos desenvolvidos: classificação da ONU,Наименее развитые страны по классификации ООН,最不发达国家：联合国分类,少なくとも先進国：国連分類,أقل البلدان نموا:تصنيف الأمم المتحدة
-XM,LIC,NA,Low income,Niedriges Einkommen,faible revenu,Reddito basso,,baixa renda,Низкие доходы,低收入,低所得,دخل منخفض
-XN,LMC,NA,Lower middle income,Niedrigem mittleren Einkommen,Revenu moyen inférieur,Reddito medio basso,,Renda média inferior,Низкий средний доход,中等偏下收入,低中所得,ذات الدخل المتوسط ​​أقل
-XO,LMY,NA,Low & middle income,Low & mittlerem Einkommen,Revenu faible et intermédiaire,Reddito basso e medio,,Baixa renda e intermediário,Низкий и средний доход,低与中等收入,低・中所得,ذات الدخل المنخفض والمتوسط
-XP,MIC,NA,Middle income,Mittleren Einkommen,revenu intermédiaire,Reddito medio,,renda intermediária,Средний доход,中等收入,中所得,ذات الدخل المتوسط
-XQ,MNA,NA,Middle East & North Africa,Naher Osten und Nordafrika,Moyen-Orient et Afrique du Nord,Medio Oriente e Nord Africa,,Oriente Médio e Norte da África,Ближний Восток и Северная Африка,中东和北非,中東·北アフリカ,الشرق الأوسط وشمال أفريقيا
-XR,NOC,NA,High income: non-OECD,Guter Verdienst: nonOECD,Revenu élevé: non OCDE,Reddito alto: non OCSE,,Renda alta: Não OCDE,"Высокие заработки (страны, не входящие в ОЭСР)",高收入：非经合组织,高所得：非OECD加盟国,عالية الدخل: nonOECD
-XS,OEC,NA,High income: OECD,Guter Verdienst: OECD,Revenu élevé: OCDE,Reddito alto: OCSE,,Renda alta: OCDE,"Высокие заработки (страны, входящие в ОЭСР)",高收入：经合组织,高所得：OECD加盟国,عالية الدخل:منظمة التعاون والتنمية
-XT,UMC,NA,Upper middle income,Oberen mittleren Einkommen,Revenu moyen supérieur,Reddito medio alto,,Renda média superior,Высокий и средний уровень доходов,中高收入,上位中間層の所得,ذات الدخل المتوسط ​​الأعلى
-XU,NAC,NA,North America,Nordamerika,Amérique du Nord,Nord America,,América do Norte,Северная Америка,北美,北米,امريكا الشمالية
-XY,INX,NA,Not classified,Nicht eingestuft,non classé,Non classificato,,não avaliado,Без классификации,未分类,未分類,غير مصنفة
-Z4,EAS,NA,East Asia & Pacific,East Asia & Pacific,Asie de l'Est et Pacifique,Asia Orientale e Pacifico,,Leste Asiático e Pacífico,Восточная Азия и Тихий Океан,东亚与太平洋地区,東アジア·太平洋,شرق آسيا والمحيط الهادئ
-Z7,ECS,NA,Europe & Central Asia,Europa und Zentralasien,Europe et Asie centrale,Europa e Asia Centrale,,Europa e Ásia Central,Европа и Центральная Азия,欧洲和中亚,ヨーロッパ·中央アジア,أوروبا وآسيا الوسطى
-ZF,SSA,NA,Sub-Saharan Africa,Afrika südlich der Sahara,Afrique sub-saharienne,Africa sub-sahariana,,África Sub-Saariana,Африка к югу от Сахары,撒哈拉以南非洲地区,サハラ以南のアフリカ,أفريقيا جنوب الصحراء الكبرى
-ZG,SSF,NA,Sub-Saharan Africa,Afrika südlich der Sahara,Afrique sub-saharienne,Africa sub-sahariana,,África Sub-Saariana,Африка к югу от Сахары,撒哈拉以南非洲地区,サハラ以南のアフリカ,أفريقيا جنوب الصحراء الكبرى
-ZJ,LCN,NA,Latin America & Caribbean,Lateinamerika & Karibik,Amérique latine et Caraïbes,America Latina e Caraibi,,América Latina e Caribe,Латинская Америка и Карибские острова,拉美与加勒比地区,ラテンアメリカ·カリブ海,أمريكا اللاتينية والبحر الكاريبي
-ZQ,MEA,NA,Middle East & North Africa,Naher Osten und Nordafrika,Moyen-Orient et Afrique du Nord,Medio Oriente e Nord Africa,,Oriente Médio e Norte da África,Ближний Восток и Северная Африка,中东和北非,中東·北アフリカ,الشرق الأوسط وشمال أفريقيا
+1A,ARB,NA,Arab World,Arabische Welt,Monde arabe,Mondo arabo,Mundo árabe,Mundo Árabe,Арабский мир,阿拉伯世界,アラブ世界,العالم العربي
+1W,WLD,NA,World,Welt,Monde,Mondo,Mundo,Mundo,Мир,世界,世界,عالم
+4E,EAP,NA,East Asia & Pacific,East Asia & Pacific,Asie de l'Est et Pacifique,Asia Orientale e Pacifico,Este asiático y Pacífico,Leste Asiático e Pacífico,Восточная Азия и Тихий Океан,东亚与太平洋地区,東アジア·太平洋,شرق آسيا والمحيط الهادئ
+7E,ECA,NA,Europe & Central Asia,Europa und Zentralasien,Europe,Europa e Asia Centrale,Europa y Asia central,Europa,Европа и Центральная Азия,欧洲和中亚,ヨーロッパ·中央アジア,أوروبا وآسيا الوسطى
+8S,SAS,NA,South Asia,Südasien,Asie du Sud,Asia del sud,Asia del sur,Sul da Asia,Южная Азия,南亚,南アジア,جنوب آسيا
+EU,EUU,NA,European Union,Europäische Union,Union européenne,Unione europea,Unión Europea,União Europeia,Европейский союз,欧盟,欧州連合,الاتحاد الأوروبي
+OE,OED,NA,OECD members,OECD-Mitglieder,membres de l'OCDE,Membri dell'OCSE,Miembros de la OCDE,OCDE,Государства-члены ОЭСР,经合组织成员国,OECD加盟国,أعضاءOECD
+S1,SST,NA,Small states,Kleinstaaten,Les petits états,Piccolo Stati,Pequeños Estados,Pequenos estados,Малые страны,小国,小国,الدول الصغيرة
+S2,PSS,NA,Pacific island small states,Pazifik-Insel Kleinstaaten,Petits états insulaires du Pacifique,Piccoli Stati insulari del Pacifico,Pequeños Estados insulares del Pacífico,Estados insulares pequenos do Pacífico,Полинезия,太平洋岛屿小国,太平洋島嶼小国,الدول الجزرية الصغيرة في المحيط الهادئ
+S3,CSS,NA,Caribbean small states,Karibischen Kleinstaaten,Petits états des Caraïbes,Piccoli Stati caraibici,Pequeños Estados del Caribe,Pequenos Estados do Caribe,Малые страны Карибского бассейна,加勒比小国,カリブ海の小国,الدول الصغيرة في منطقة البحر الكاريبي
+S4,OSS,NA,Other small states,Andere Kleinstaaten,Autres petits états,Altri piccoli Stati,Otros pequeños Estados,Outros estados pequenos,Другие малые страны,其他小国,その他の小国,الدول الصغيرة الأخرى
+XC,EMU,NA,Eurozone,Euro-Raum,zone Euro,Eurozona,Eurozona,eurozona,Зона хождения евро,欧元区,ユーロ圏,منطقة اليورو
+XD,HIC,NA,High income,Hohes Einkommen,revenu élevé,Reddito alto,Ingreso alto,alta renda,Высокие доходы,高收入,高額所得,ذات الدخل المرتفع
+XE,HPC,NA,Heavily indebted poor countries,Hochverschuldeten armen Länder,Pays pauvres très endettés,Paesi fortemente indebitati,Países muy endeudados,Países pobres altamente endividados,Бедные страны с высоким уровнем задолженности,重债穷国,重債務貧困国,البلدان الفقيرة المثقلة بالديون
+XJ,LAC,NA,Latin America & Caribbean,Lateinamerika & Karibik,Amérique latine et Caraïbes,America Latina e Caraibi,América Latina y el Caribe,América Latina e Caribe,Латинская Америка и Карибские острова,拉美与加勒比地区,ラテンアメリカ·カリブ海,أمريكا اللاتينية والبحر الكاريبي
+XL,LDC,NA,Least developed countries: UN classification,Am wenigsten entwickelte Länder: UN Klassifikation,Pays les moins avancés: classement de l'ONU,Paesi meno sviluppati: la classifica delle Nazioni Unite,Los países menos desarrollados: clasificación de la ONU,Países menos desenvolvidos: classificação da ONU,Наименее развитые страны по классификации ООН,最不发达国家：联合国分类,少なくとも先進国：国連分類,أقل البلدان نموا:تصنيف الأمم المتحدة
+XM,LIC,NA,Low income,Niedriges Einkommen,faible revenu,Reddito basso,Ingreso bajo,baixa renda,Низкие доходы,低收入,低所得,دخل منخفض
+XN,LMC,NA,Lower middle income,Niedrigem mittleren Einkommen,Revenu moyen inférieur,Reddito medio basso,Ingreso medio bajo,Renda média inferior,Низкий средний доход,中等偏下收入,低中所得,ذات الدخل المتوسط ​​أقل
+XO,LMY,NA,Low & middle income,Low & mittlerem Einkommen,Revenu faible et intermédiaire,Reddito basso e medio,Ingreso bajo y medio,Baixa renda e intermediário,Низкий и средний доход,低与中等收入,低・中所得,ذات الدخل المنخفض والمتوسط
+XP,MIC,NA,Middle income,Mittleren Einkommen,revenu intermédiaire,Reddito medio,Ingreso medio ,renda intermediária,Средний доход,中等收入,中所得,ذات الدخل المتوسط
+XQ,MNA,NA,Middle East & North Africa,Naher Osten und Nordafrika,Moyen-Orient et Afrique du Nord,Medio Oriente e Nord Africa,Medio Oriente y África del norte,Oriente Médio e Norte da África,Ближний Восток и Северная Африка,中东和北非,中東·北アフリカ,الشرق الأوسط وشمال أفريقيا
+XR,NOC,NA,High income: non-OECD,Guter Verdienst: nonOECD,Revenu élevé: non OCDE,Reddito alto: non OCSE,Ingreso alto: fuera de la OCDE,Renda alta: Não OCDE,"Высокие заработки (страны, не входящие в ОЭСР)",高收入：非经合组织,高所得：非OECD加盟国,عالية الدخل: nonOECD
+XS,OEC,NA,High income: OECD,Guter Verdienst: OECD,Revenu élevé: OCDE,Reddito alto: OCSE,Ingreso alto: OCDE,Renda alta: OCDE,"Высокие заработки (страны, входящие в ОЭСР)",高收入：经合组织,高所得：OECD加盟国,عالية الدخل:منظمة التعاون والتنمية
+XT,UMC,NA,Upper middle income,Oberen mittleren Einkommen,Revenu moyen supérieur,Reddito medio alto,Ingreso medio superior,Renda média superior,Высокий и средний уровень доходов,中高收入,上位中間層の所得,ذات الدخل المتوسط ​​الأعلى
+XU,NAC,NA,North America,Nordamerika,Amérique du Nord,Nord America,Norteamérica,América do Norte,Северная Америка,北美,北米,امريكا الشمالية
+XY,INX,NA,Not classified,Nicht eingestuft,non classé,Non classificato,No clasificado,não avaliado,Без классификации,未分类,未分類,غير مصنفة
+Z4,EAS,NA,East Asia & Pacific,East Asia & Pacific,Asie de l'Est et Pacifique,Asia Orientale e Pacifico,Asia Oriental y zona del Pacífico,Leste Asiático e Pacífico,Восточная Азия и Тихий Океан,东亚与太平洋地区,東アジア·太平洋,شرق آسيا والمحيط الهادئ
+Z7,ECS,NA,Europe & Central Asia,Europa und Zentralasien,Europe et Asie centrale,Europa e Asia Centrale,Europa y Asia central,Europa e Ásia Central,Европа и Центральная Азия,欧洲和中亚,ヨーロッパ·中央アジア,أوروبا وآسيا الوسطى
+ZF,SSA,NA,Sub-Saharan Africa,Afrika südlich der Sahara,Afrique sub-saharienne,Africa sub-sahariana,África subsahariana,África Sub-Saariana,Африка к югу от Сахары,撒哈拉以南非洲地区,サハラ以南のアフリカ,أفريقيا جنوب الصحراء الكبرى
+ZG,SSF,NA,Sub-Saharan Africa,Afrika südlich der Sahara,Afrique sub-saharienne,Africa sub-sahariana,África subsahariana,África Sub-Saariana,Африка к югу от Сахары,撒哈拉以南非洲地区,サハラ以南のアフリカ,أفريقيا جنوب الصحراء الكبرى
+ZJ,LCN,NA,Latin America & Caribbean,Lateinamerika & Karibik,Amérique latine et Caraïbes,America Latina e Caraibi,América Latina y el Caribe,América Latina e Caribe,Латинская Америка и Карибские острова,拉美与加勒比地区,ラテンアメリカ·カリブ海,أمريكا اللاتينية والبحر الكاريبي
+ZQ,MEA,NA,Middle East & North Africa,Naher Osten und Nordafrika,Moyen-Orient et Afrique du Nord,Medio Oriente e Nord Africa,Medio Oriente y África del norte,Oriente Médio e Norte da África,Ближний Восток и Северная Африка,中东和北非,中東·北アフリカ,الشرق الأوسط وشمال أفريقيا
