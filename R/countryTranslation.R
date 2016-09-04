@@ -21,14 +21,15 @@ countryTranslations  <- read.csv(system.file("extdata", "countrynames_ordered.cs
 ##' countryTranslation(query = c('AF', 'FR', 'US', 'CH', 'JP'), output = "EN")
 countryTranslation <- function (query, output) {
   # check format query and output
-  stopifnot(length(query) > 0, sapply(query, nchar) <= 3)
+  idx <- which(!is.na(query) | query != "")
+  stopifnot(length(idx) > 0, sapply(query[idx], nchar) <= 3)
   stopifnot(output %in% colnames(countryTranslations))
   
-  if(all(sapply(query, nchar) == 2)) {
+  if(all(sapply(query[idx], nchar) == 2)) {
     idx.row <- match(query, countryTranslations[,1])   
-  } else if (all(sapply(query, nchar) == 3) || !all(grepl("^\\d+", query))) {
+  } else if (all(sapply(query[idx], nchar) == 3) || !all(grepl("^\\d+", query[idx]))) {
     idx.row <- match(query, countryTranslations[,2])  
-  } else if (all(sapply(query, nchar) == 3) && all(grepl("^\\d+", query))) {
+  } else if (all(sapply(query[idx], nchar) == 3) && all(grepl("^\\d+", query[idx]))) {
     idx.row <- match(query, countryTranslations[,3])  
   } else {
     stop("query format not valid!")
