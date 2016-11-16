@@ -1,7 +1,7 @@
 ##' Geographical map with shapefiles
 ##'
 ##' Helper functions to draw geographical map based on shapefiles
-##' 
+##'
 ##' @name mapShapefiles
 ##' @param geo a character, either 'CH' or 'world'
 ##' @param year a numeric, year for data to use (default 2015)
@@ -18,14 +18,14 @@
 ##' world <- readOGR(path, layer = layers[1])
 ##' world.df <- formatShp(world)
 ##' # plot world map
-##' wm <- ggplot(world.df, aes(x = long, y = lat, group = group)) + 
-##'   geom_polygon(size = 0.01, aes(fill = FIPS)) + 
-##'   theme_minimal() + 
+##' wm <- ggplot(world.df, aes(x = long, y = lat, group = group)) +
+##'   geom_polygon(size = 0.01, aes(fill = FIPS)) +
+##'   theme_minimal() +
 ##'   theme(
-##'     legend.position = "none", 
-##'     panel.grid = element_blank(), 
-##'     axis.ticks = element_blank(), 
-##'     axis.title = element_blank(), 
+##'     legend.position = "none",
+##'     panel.grid = element_blank(),
+##'     axis.ticks = element_blank(),
+##'     axis.title = element_blank(),
 ##'     axis.text = element_blank()
 ##'   )
 ##'  wm
@@ -33,11 +33,11 @@
 ##'  wm + coord_map("ortho")
 ##' # Same with swiss commune map (slow!)
 ##' \dontrun{
-##' path.ch <- getPathShp('CH')
+##' path.ch <- getPathShp('CH', year = 2015)
 ##' ch <- readOGR(path.ch, layer = 'municipalities-without-lakes')
 ##' ch.df <- formatShp(ch)
 ##' # plot swiss commune map
-##' ch.communes <- ggplot(ch.df, aes(x = long, y = lat, group = group)) + geom_polygon(size = 0, aes(fill = GEMNAME)) + 
+##' ch.communes <- ggplot(ch.df, aes(x = long, y = lat, group = group)) + geom_polygon(size = 0, aes(fill = GEMNAME)) +
 ##' theme_minimal() + theme(legend.position = "none", panel.grid = element_blank(), axis.ticks = element_blank(), axis.title = element_blank(), axis.text = element_blank())
 ##' ch.communes
 ##' # add the lake
@@ -47,7 +47,7 @@
 ##' bfsnName <- ch.df[!duplicated(ch.df$BFSNR),c('BFSNR', 'GEMNAME')]
 ##' bfsnName[order(bfsnName[,1]),]
 ##' }
-getPathShp <- function(geo = "CH", year = 2015) {
+getPathShp <- function(geo = "CH", year = 2016) {
   # check
   if(!geo %in% c('CH', 'world')) {
     stop ("geo has to be one of 'CH' or 'world'!")
@@ -57,15 +57,18 @@ getPathShp <- function(geo = "CH", year = 2015) {
     if(!year %in% years.available) {
       stop("\nThe year provided ", year, " does not have any data/folder available!\n")
     }
-    if(year == 2015) {
+
+    if(year == 2016) {
+      path <- 'CH/2016'
+    } else if(year == 2015) {
       path <- 'CH/2015/ch'
     } else {
-      path <- 'CH/2014/ch'      
+      path <- 'CH/2014/ch'
     }
   } else {
     path <- 'TM_WORLD_BORDERS_SIMPL-0'
   }
-  
+
   system.file(paste("extdata/shp/", path, sep = ""), package="swiMap")
 }
 ##' @rdname mapShapefiles
@@ -83,4 +86,4 @@ formatShp <- function(shp) {
 
 
 
-  
+

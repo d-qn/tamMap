@@ -6,7 +6,7 @@
 \alias{mapShapefiles}
 \title{Geographical map with shapefiles}
 \usage{
-getPathShp(geo = "CH", year = 2015)
+getPathShp(geo = "CH", year = 2016)
 
 formatShp(shp)
 }
@@ -36,14 +36,14 @@ layers <-  ogrListLayers(path)
 world <- readOGR(path, layer = layers[1])
 world.df <- formatShp(world)
 # plot world map
-wm <- ggplot(world.df, aes(x = long, y = lat, group = group)) + 
-  geom_polygon(size = 0.01, aes(fill = FIPS)) + 
-  theme_minimal() + 
+wm <- ggplot(world.df, aes(x = long, y = lat, group = group)) +
+  geom_polygon(size = 0.01, aes(fill = FIPS)) +
+  theme_minimal() +
   theme(
-    legend.position = "none", 
-    panel.grid = element_blank(), 
-    axis.ticks = element_blank(), 
-    axis.title = element_blank(), 
+    legend.position = "none",
+    panel.grid = element_blank(),
+    axis.ticks = element_blank(),
+    axis.title = element_blank(),
     axis.text = element_blank()
   )
  wm
@@ -51,11 +51,11 @@ wm <- ggplot(world.df, aes(x = long, y = lat, group = group)) +
  wm + coord_map("ortho")
 # Same with swiss commune map (slow!)
 \dontrun{
-path.ch <- getPathShp('CH')
+path.ch <- getPathShp('CH', year = 2015)
 ch <- readOGR(path.ch, layer = 'municipalities-without-lakes')
 ch.df <- formatShp(ch)
 # plot swiss commune map
-ch.communes <- ggplot(ch.df, aes(x = long, y = lat, group = group)) + geom_polygon(size = 0, aes(fill = GEMNAME)) + 
+ch.communes <- ggplot(ch.df, aes(x = long, y = lat, group = group)) + geom_polygon(size = 0, aes(fill = GEMNAME)) +
 theme_minimal() + theme(legend.position = "none", panel.grid = element_blank(), axis.ticks = element_blank(), axis.title = element_blank(), axis.text = element_blank())
 ch.communes
 # add the lake
