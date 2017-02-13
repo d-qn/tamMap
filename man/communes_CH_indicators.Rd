@@ -4,11 +4,20 @@
 \alias{communes_CH_indicators}
 \alias{loadCHzipcode}
 \alias{loadCommunesCHportraits}
+\alias{processPortraitsRegionauxCommune}
 \title{Swiss communes socio-demographic indicators}
 \usage{
 loadCommunesCHportraits()
 
+processPortraitsRegionauxCommune(file = "je-f-21.03.01.xls",
+  output = "communesCH_2016_indicators_je-f-21.03.01.csv")
+
 loadCHzipcode()
+}
+\arguments{
+\item{file}{the raw excel file name from the Swiss Statistical office with indicators by commune}
+
+\item{output}{the output file name to be saved in the package inst/extdata}
 }
 \value{
 a matrix
@@ -18,9 +27,13 @@ a data.frame
 \description{
 Load socio-demographic data by the Swiss Statistical Office.
 
+Process Portraits régionaux de la Suisse commune xls
+
 Load the NPA/PLZ/ Zip code for Switzerland
 }
 \details{
+Run processPortraitsRegionauxCommune() to generate a readable csv file for loadCommunesCHportraits
+
 The matrix has the commune BFS code as rowname and 3 attributes: \itemize{
 \item \code{communeName} the text name of the commune (same length as the matrix length)
 \item \code{indicatorYear} & \code{indicatorGroup} respectively the year and the category of the communal indicator (both of same length as the matrix width). See \url{http://www.bfs.admin.ch/bfs/portal/fr/index/regionen/02/key.html}
@@ -37,9 +50,12 @@ head(communeData[,colIdx])
 
 zipcode <- loadCHzipcode()
 match(zipcode$Gemeindename, attr(communeData, "communeName"))
+\dontrun{
+processPortraitsRegionauxCommune()
+}
 }
 \seealso{
-Office fédéral de la statistique > Les Régions > Communes > Données et explications (portraits): \url{http://www.bfs.admin.ch/bfs/portal/fr/index/regionen/02/daten.html} \cr
+Office fédéral de la statistique > Les Régions > Communes > Données et explications (portraits): \url{https://www.bfs.admin.ch/bfs/fr/home/statistiques/statistique-regions/portraits-regionaux-chiffres-cles/communes.assetdetail.328133.html} \cr
 The cleaning up of raw xls file: \itemize{
   \item Remove all the empty lines (header has 3 lines: Indicator type, indicator, year)
   \item Reorder the header for: indicator type, year, indicator
@@ -47,6 +63,8 @@ The cleaning up of raw xls file: \itemize{
   \item Remove the text at the bottom
   \item Save as csv
 }
+
+\url{http://opendata.admin.ch/de/dataset/ch-swisstopo-vd-ortschaftenverzeichnis_plz/resource/35001b61-e7c1-4124-89fa-17fac7b1139e} from: \url{http://opendata.admin.ch/de/dataset/ch-swisstopo-vd-ortschaftenverzeichnis_plz}
 
 \url{http://opendata.admin.ch/de/dataset/ch-swisstopo-vd-ortschaftenverzeichnis_plz/resource/35001b61-e7c1-4124-89fa-17fac7b1139e} from: \url{http://opendata.admin.ch/de/dataset/ch-swisstopo-vd-ortschaftenverzeichnis_plz}
 }

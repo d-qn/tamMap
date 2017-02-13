@@ -3,12 +3,10 @@
 \alias{swiMap}
 \docType{package}
 \title{
-Functions to plot geographic maps, mainly swiss maps (cantonal, districts and communes)
-~~ package title ~~
+Functions to plot geographic maps, mainly swiss maps (cantonal, districts and communes). Socio economic indicators by commune. And country translations
 }
 \description{
-More about what it does (maybe more than one line)
-~~ A concise (1-5 lines) description of the package ~~
+Misc helper functions regarding map, Swiss commune indicators
 }
 \details{
 \tabular{ll}{

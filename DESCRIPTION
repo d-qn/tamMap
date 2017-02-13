@@ -1,7 +1,7 @@
 Package: swiMap
 Type: Package
-Title: Functions to plot geographic maps, mainly swiss maps (cantonal,
-    districts and communes)
+Title: Misc Functions to plot geographic maps, mainly swiss maps (cantonal,
+    districts and communes). 
 Version: 1.0
 Date: 2015-04-14
 Author: Duc-Quang Nguyen
@@ -14,7 +14,12 @@ Imports:
     readxl,
     ggplot2,
     XML,
-    scales
-Description: More about what it does (maybe more than one line)
+    scales,
+    dplyr,
+    tidyr,
+    readxl,
+    pxR,
+    stringr
+Description: Functions to plot geographic maps, mainly swiss maps (cantonal, districts and communes). Socio economic indicators by commune. And country translations
 License: What license is it under?
 RoxygenNote: 5.0.1
