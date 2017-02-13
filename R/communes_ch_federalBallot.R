@@ -1,20 +1,17 @@
-##' Federal ballot results by cantons
+##' Federal ballot results by communes
 ##'
-##' Load any federal ballots resuts by cantons: https://www.pxweb.bfs.admin.ch/Selection.aspx?px_language=fr&px_db=px-x-1703030000_100&px_tableid=px-x-1703030000_100\px-x-1703030000_100.px&px_type=PX
+##' Load any federal ballots resuts by communes: https://www.pxweb.bfs.admin.ch/DownloadFile.aspx?file=px-x-1703030000_101
 ##' 
-##' Run processFederalBallotByCantons() to generate a readable csv file for loadCantonsCHFederalBallot
+##' Run processFederalBallotByCommunes() to generate a readable csv file for loadCommunesCHFederalBallot
 ##'
-##' @rdname cantonal_ch_federalBallot
-##' @param file the name of the csv file processed by processFederalBallotByCantons to load
-##' @return a matrix, rownames are cantons (2 letters name) and colnames are federal ballot IDs. Check the attributes ballotName and date
+##' @rdname communes_ch_federalBallot
+##' @param file the name of the csv file processed by processFederalBallotByCommunes to load
+##' @return a matrix, rownames are cantons (2 letters name) and colnames are federal ballot IDs. Check the attributes ballotName and date (same length as ncol) and communeName (same lenghth as nrow)
 ##' @export
 ##' @examples
 ##' \dontrun{
-##' fBallot <- loadCantonsCHFederalBallot()
+##' fBallot <- loadCommunesCHFederalBallot()
 ##' attr(fBallot, "ballotName")
-##' cidx <- grep("naturalisation", attr(fBallot, "ballotName"), ignore.case = T)
-##' attr(fBallot, "ballotName")[cidx]
-##' attr(fBallot, "date")[cidx]
 ##' # get only naturalisation facilitée ballots
 ##' cidx <- match(c("3150", "4110", "5100", "5110"), colnames(fBallot))
 ##' attr(fBallot, "ballotName")[cidx]
@@ -29,14 +26,14 @@
 ##' # get canton shapefiles as a data.frame
 ##' path.ch <- getPathShp('CH')
 ##' layers <-  ogrListLayers(path.ch)
-##' ca <- readOGR(path.ch, layer = 'cantons')
-##' ca.df <- formatShp(ca) %>% select(long, lat, group, KANTONSNUM)
-##' # duplicte canton data.frame for each ballot
+##' mu <- readOGR(path.ch, layer = 'municipalities')
+##' mu.df <- formatShp(mu) %>% select(long, lat, group, BFS_NUMMER)
+##' r.idx <- match(mu.df$BFS_NUMMER, rownames(fBallot))
+##' # duplicate commune data.frame for each ballot
 ##' df <- do.call(rbind, lapply(cidx, function(idx) {
 ##'   value <- fBallot[,idx]
-##'   names(value) <- canton_CH[match(names(value), canton_CH[,1]), "order"]
-##'   res <- ca.df
-##'   res$value <- value[match(res$KANTONSNUM, names(value))]
+##'   res <- mu.df
+##'   res$value <- value[r.idx]
 ##'   res$ballot <- attr(fBallot, "ballotName")[idx]
 ##'   res$date <- attr(fBallot, "date")[idx]
 ##'   res
@@ -51,16 +48,16 @@
 ##' facet_wrap(~ ballot) + scale_fill_brewer(palette = "BrBG" , drop = F) + 
 ##' coord_quickmap(expand = F)
 ##' }
-loadCantonsCHFederalBallot <- function(file = "federalBallot_cantons.RData") {
+loadCommunesCHFederalBallot <- function(file = "federalBallot_communes.RData") {
   data.path <- dir(system.file("extdata", package="swiMap"), file, full.names = T)
   load(data.path)
   ddd
 }
 
-##' Process Portraits régionaux de la Suisse canton px file
+##' Process Portraits régionaux de la Suisse commune px file
 ##' This will download the px file from \url{https://www.bfs.admin.ch/bfs/en/home/statistics/politics/popular-votes.assetdetail.1363949.html}, process it and save it as a Rdata file
-##' Necessary to run it before using loadCantonsCHFederalBallot
-##' @rdname cantonal_ch_federalBallot
+##' Necessary to run it before using loadCommunesCHFederalBallot
+##' @rdname communes_ch_federalBallot
 ##' @param url the URL to the px file with all federal ballots
 ##' @param output the output file name to be saved in the package inst/extdata
 ##' @return NULL
@@ -69,11 +66,11 @@ loadCantonsCHFederalBallot <- function(file = "federalBallot_cantons.RData") {
 ##' @export
 ##' @examples
 ##' \dontrun{
-##' processPortraitsRegionauxCantons()
+##' processFederalBallotByCommunes()
 ##' }
-processFederalBallotByCantons <- function(
-  url = 'https://www.pxweb.bfs.admin.ch/DownloadFile.aspx?file=px-x-1703030000_100', 
-  output = 'federalBallot_cantons.RData'  
+processFederalBallotByCommunes <- function(
+  url = 'https://www.pxweb.bfs.admin.ch/DownloadFile.aspx?file=px-x-1703030000_101', 
+  output = 'federalBallot_communes.RData'  
 ) {
   out.path <- paste0(getwd(), "/inst/extdata/", output)
   
@@ -111,20 +108,20 @@ processFederalBallotByCantons <- function(
   # get the canton and ballot ID
   code <- px.read$CODES.fr.
   cantons <- structure(
-    unlist(strsplit(code[['Canton']], '", ?"')), 
-    names = unlist(strsplit(fr[['Canton']], '", ?"'))
+    unlist(strsplit(code[['Canton.......District........Commune.........']], '", ?"')), 
+    names = unlist(strsplit(fr[['Canton.......District........Commune.........']], '", ?"'))
   )
   ballot <- structure(
     unlist(strsplit(code[['Date.et.objet']], '", ?"')), 
     names = unlist(strsplit(fr[['Date.et.objet']], '", ?"'))   
   )
   
-  ## subset to take only %oui and not results over the whole Switzerland
-  dd <- data %>% filter(Résultats == 'Oui en %', Canton != "Suisse") %>%
-    select(-Résultats)
+  ## subset to take only %oui and municipality results
+  dd <- data %>% filter(Résultats == 'Oui en %', grepl("...... ", `Canton.......District........Commune.........`, fixed = T)) %>%
+    select(-Résultats) %>% rename(commune = `Canton.......District........Commune.........`)
  
-   # get canton 2 letters code
-  dd$Canton <- cantons[match(dd$Canton, names(cantons))]
+   # get commune 2 letters code
+  dd$communeID <- cantons[match(dd$commune, names(cantons))]
   # get ballot id
   dd$ballot <- as.numeric(ballot[match(dd$`Date.et.objet`, names(ballot))])
   # split date and ballot name
@@ -132,17 +129,22 @@ processFederalBallotByCantons <- function(
   dd$date <- as.Date(gsub("(\\d{2}\\.\\d{2}\\.\\d{4}) .*", "\\1", xx, perl = T), format = "%d.%m.%Y")
   dd$ballotName <- gsub("(\\d{2}\\.\\d{2}\\.\\d{4}) (.*$)", "\\2", xx, perl = T)
   
-  ddd <- dd %>% select(Canton, ballot, value) %>% 
+  ddd <- dd %>% select(communeID, ballot, value) %>% 
     tidyr::spread(key = ballot, value = value)
-  rownames(ddd) <- ddd$Canton
-  ddd <- data.matrix( ddd %>% select(-Canton))
+  rownames(ddd) <- ddd$communeID
+  ddd <- data.matrix( ddd %>% select(-communeID))
   
   attr(ddd, "ballotName") <- dd[match(colnames(ddd), dd$ballot), 'ballotName']
   attr(ddd, "date") <- dd[match(colnames(ddd), dd$ballot), 'date']
+  attr(ddd, "communeName") <- gsub("...... ", "", names(cantons)[match(rownames(ddd), cantons)], fixed = T)
+  rownames(ddd) <- as.numeric(rownames(ddd))
+
   stopifnot(
     ncol(ddd) == length(attr(ddd, "ballotName")), 
-    length(attr(ddd, "ballotName")) == length(attr(ddd, "date"))
+    length(attr(ddd, "ballotName")) == length(attr(ddd, "date")),
+    nrow(ddd) == length(attr(ddd, "communeName"))
   )
+  
   save(ddd, file = out.path)
   cat("\n\n ------ \n Saved in:" , out.path, "\n\n")
 }
