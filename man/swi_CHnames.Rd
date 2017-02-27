@@ -6,7 +6,7 @@
 \alias{canton_namesStrict}
 \alias{swi_CHnames}
 \title{Swiss names}
-\format{An object of class \code{data.frame} with 26 rows and 22 columns.}
+\format{An object of class \code{data.frame} with 26 rows and 23 columns.}
 \usage{
 canton_CH
 
