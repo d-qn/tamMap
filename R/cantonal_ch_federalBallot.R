@@ -1,7 +1,7 @@
 ##' Federal ballot results by cantons
 ##'
-##' Load any federal ballots resuts by cantons: https://www.pxweb.bfs.admin.ch/Selection.aspx?px_language=fr&px_db=px-x-1703030000_100&px_tableid=px-x-1703030000_100\px-x-1703030000_100.px&px_type=PX
-##' 
+##' Load any federal ballots resuts by cantons: \url{https://www.pxweb.bfs.admin.ch/Selection.aspx?px_language=fr&px_db=px-x-1703030000_100&px_tableid=px-x-1703030000_100\px-x-1703030000_100.px&px_type=PX}
+##'
 ##' Run processFederalBallotByCantons() to generate a readable csv file for loadCantonsCHFederalBallot
 ##'
 ##' @rdname cantonal_ch_federalBallot
@@ -25,7 +25,7 @@
 ##' require(ggplot2)
 ##' require(maptools)
 ##' require(dplyr)
-##' 
+##'
 ##' # get canton shapefiles as a data.frame
 ##' path.ch <- getPathShp('CH')
 ##' layers <-  ogrListLayers(path.ch)
@@ -46,9 +46,9 @@
 ##' df$bins <- cut(df$value, breaks = brks, right = F)
 ##' df$ballot <- factor(df$ballot, levels = attr(fBallot, "ballotName")[cidx])
 ##' ggplot(df, aes(x = long, y = lat, group = group)) + geom_polygon(size = 0, aes(fill = bins)) +
-##' theme_minimal() + theme(legend.position = "bottom", panel.grid = element_blank(), 
+##' theme_minimal() + theme(legend.position = "bottom", panel.grid = element_blank(),
 ##' axis.ticks = element_blank(), axis.title = element_blank(), axis.text = element_blank()) +
-##' facet_wrap(~ ballot) + scale_fill_brewer(palette = "BrBG" , drop = F) + 
+##' facet_wrap(~ ballot) + scale_fill_brewer(palette = "BrBG" , drop = F) +
 ##' coord_quickmap(expand = F)
 ##' }
 loadCantonsCHFederalBallot <- function(file = "federalBallot_cantons.RData") {
@@ -72,24 +72,24 @@ loadCantonsCHFederalBallot <- function(file = "federalBallot_cantons.RData") {
 ##' processPortraitsRegionauxCantons()
 ##' }
 processFederalBallotByCantons <- function(
-  url = 'https://www.pxweb.bfs.admin.ch/DownloadFile.aspx?file=px-x-1703030000_100', 
-  output = 'federalBallot_cantons.RData'  
+  url = 'https://www.pxweb.bfs.admin.ch/DownloadFile.aspx?file=px-x-1703030000_100',
+  output = 'federalBallot_cantons.RData'
 ) {
   out.path <- paste0(getwd(), "/inst/extdata/", output)
-  
+
   tmpdir <- tempdir()
   px.file <- download.file(url, paste0(tmpdir, "/", "federalBallot.px"))
   px.read <- read.px(filename = paste0(tmpdir, "/", "federalBallot.px"))
-  
+
   data <- px.read$DATA[[1]]
-  
+
   # get the French terms
   fr <- px.read$VALUES.fr.
   de <- px.read$VALUES
 
-  # get French colnames 
+  # get French colnames
   colnames(data)[-ncol(data)] <- rev(names(fr))
-  
+
   ## helper to translate PX file
   translate <- function(colname = 'Result.variable', data, fr, de) {
     # find which colname idx
@@ -97,11 +97,11 @@ processFederalBallotByCantons <- function(
     # split single string to a string vector
     translations <- unlist(strsplit(fr[[i]], '", ?"'))
     stopifnot(length(translations) == length(de[[i]]))
-    
+
     # match each term of the data to the levels
     idx <- match(data[[colname]], de[[i]])
     stopifnot(all(!is.na(idx)))
-    
+
     factor(translations[idx])
   }
   # apply translation
@@ -111,18 +111,18 @@ processFederalBallotByCantons <- function(
   # get the canton and ballot ID
   code <- px.read$CODES.fr.
   cantons <- structure(
-    unlist(strsplit(code[['Canton']], '", ?"')), 
+    unlist(strsplit(code[['Canton']], '", ?"')),
     names = unlist(strsplit(fr[['Canton']], '", ?"'))
   )
   ballot <- structure(
-    unlist(strsplit(code[['Date.et.objet']], '", ?"')), 
-    names = unlist(strsplit(fr[['Date.et.objet']], '", ?"'))   
+    unlist(strsplit(code[['Date.et.objet']], '", ?"')),
+    names = unlist(strsplit(fr[['Date.et.objet']], '", ?"'))
   )
-  
+
   ## subset to take only %oui and not results over the whole Switzerland
   dd <- data %>% filter(Résultats == 'Oui en %', Canton != "Suisse") %>%
     select(-Résultats)
- 
+
    # get canton 2 letters code
   dd$Canton <- cantons[match(dd$Canton, names(cantons))]
   # get ballot id
@@ -131,16 +131,16 @@ processFederalBallotByCantons <- function(
   xx <- as.character(dd$`Date.et.objet`)
   dd$date <- as.Date(gsub("(\\d{2}\\.\\d{2}\\.\\d{4}) .*", "\\1", xx, perl = T), format = "%d.%m.%Y")
   dd$ballotName <- gsub("(\\d{2}\\.\\d{2}\\.\\d{4}) (.*$)", "\\2", xx, perl = T)
-  
-  ddd <- dd %>% select(Canton, ballot, value) %>% 
+
+  ddd <- dd %>% select(Canton, ballot, value) %>%
     tidyr::spread(key = ballot, value = value)
   rownames(ddd) <- ddd$Canton
   ddd <- data.matrix( ddd %>% select(-Canton))
-  
+
   attr(ddd, "ballotName") <- dd[match(colnames(ddd), dd$ballot), 'ballotName']
   attr(ddd, "date") <- dd[match(colnames(ddd), dd$ballot), 'date']
   stopifnot(
-    ncol(ddd) == length(attr(ddd, "ballotName")), 
+    ncol(ddd) == length(attr(ddd, "ballotName")),
     length(attr(ddd, "ballotName")) == length(attr(ddd, "date"))
   )
   save(ddd, file = out.path)

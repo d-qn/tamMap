@@ -22,7 +22,7 @@ loadCantonsCHFederalBallot(file = "federalBallot_cantons.RData")
 a matrix, rownames are cantons (2 letters name) and colnames are federal ballot IDs. Check the attributes ballotName and date
 }
 \description{
-Load any federal ballots resuts by cantons: https://www.pxweb.bfs.admin.ch/Selection.aspx?px_language=fr&px_db=px-x-1703030000_100&px_tableid=px-x-1703030000_100\px-x-1703030000_100.px&px_type=PX
+Load any federal ballots resuts by cantons: \url{https://www.pxweb.bfs.admin.ch/Selection.aspx?px_language=fr&px_db=px-x-1703030000_100&px_tableid=px-x-1703030000_100\px-x-1703030000_100.px&px_type=PX}
 
 Process Portraits régionaux de la Suisse canton px file
 This will download the px file from \url{https://www.bfs.admin.ch/bfs/en/home/statistics/politics/popular-votes.assetdetail.1363949.html}, process it and save it as a Rdata file
@@ -69,9 +69,9 @@ brks <- seq(from = 0, to = 1, length.out = 11) * 100
 df$bins <- cut(df$value, breaks = brks, right = F)
 df$ballot <- factor(df$ballot, levels = attr(fBallot, "ballotName")[cidx])
 ggplot(df, aes(x = long, y = lat, group = group)) + geom_polygon(size = 0, aes(fill = bins)) +
-theme_minimal() + theme(legend.position = "bottom", panel.grid = element_blank(), 
+theme_minimal() + theme(legend.position = "bottom", panel.grid = element_blank(),
 axis.ticks = element_blank(), axis.title = element_blank(), axis.text = element_blank()) +
-facet_wrap(~ ballot) + scale_fill_brewer(palette = "BrBG" , drop = F) + 
+facet_wrap(~ ballot) + scale_fill_brewer(palette = "BrBG" , drop = F) +
 coord_quickmap(expand = F)
 }
 \dontrun{
