@@ -30,6 +30,13 @@
 ##' 
 ##' zipcode <- loadCHzipcode()
 ##' match(zipcode$Gemeindename, attr(communeData, "communeName"))
+##' ##' \dontrun{
+##'   colnames(data)
+##'   g1 <- ggplot(data = as.data.frame(data), aes(x = `Etrangers en %`, y = UDC)) + 
+##'   geom_point(aes(size = Habitants), alpha = 0.5, colour = swiTheme::swi_col[1]) 
+##'   g1 + swiTheme::swi_theme()
+##' }
+##'
 loadCommunesCHportraits <- function() {
 
   # get the path to communes data txt file 

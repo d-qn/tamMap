@@ -1,7 +1,7 @@
 Package: swiMap
 Type: Package
 Title: Misc Functions to plot geographic maps, mainly swiss maps (cantonal,
-    districts and communes). 
+    districts and communes)
 Version: 1.0
 Date: 2015-04-14
 Author: Duc-Quang Nguyen
