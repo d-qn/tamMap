@@ -2,9 +2,9 @@
 % Please edit documentation in R/communes_ch_indicators.R
 \name{communes_CH_indicators}
 \alias{communes_CH_indicators}
-\alias{loadCHzipcode}
 \alias{loadCommunesCHportraits}
 \alias{processPortraitsRegionauxCommune}
+\alias{loadCHzipcode}
 \title{Swiss communes socio-demographic indicators}
 \usage{
 loadCommunesCHportraits()
@@ -50,6 +50,13 @@ head(communeData[,colIdx])
 
 zipcode <- loadCHzipcode()
 match(zipcode$Gemeindename, attr(communeData, "communeName"))
+##' \dontrun{
+  colnames(data)
+  g1 <- ggplot(data = as.data.frame(data), aes(x = `Etrangers en \%`, y = UDC)) + 
+  geom_point(aes(size = Habitants), alpha = 0.5, colour = swiTheme::swi_col[1]) 
+  g1 + swiTheme::swi_theme()
+}
+
 \dontrun{
 processPortraitsRegionauxCommune()
 }
@@ -68,4 +75,3 @@ The cleaning up of raw xls file: \itemize{
 
 \url{http://opendata.admin.ch/de/dataset/ch-swisstopo-vd-ortschaftenverzeichnis_plz/resource/35001b61-e7c1-4124-89fa-17fac7b1139e} from: \url{http://opendata.admin.ch/de/dataset/ch-swisstopo-vd-ortschaftenverzeichnis_plz}
 }
-

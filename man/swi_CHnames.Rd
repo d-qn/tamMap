@@ -2,9 +2,9 @@
 % Please edit documentation in R/canton_CH.R
 \docType{data}
 \name{swi_CHnames}
+\alias{swi_CHnames}
 \alias{canton_CH}
 \alias{canton_namesStrict}
-\alias{swi_CHnames}
 \title{Swiss names}
 \format{An object of class \code{data.frame} with 26 rows and 23 columns.}
 \usage{
@@ -33,4 +33,3 @@ canton_namesStrict(canton_query)
 canton_namesStrict(canton_query, output = "english")
 }
 \keyword{datasets}
-

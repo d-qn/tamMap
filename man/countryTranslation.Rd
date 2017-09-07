@@ -4,6 +4,7 @@
 \name{countryTranslation}
 \alias{countryTranslation}
 \alias{countryTranslations}
+\alias{countryTranslation}
 \title{country translation}
 \format{An object of class \code{data.frame} with 281 rows and 13 columns.}
 \usage{
@@ -29,4 +30,3 @@ print(countryTranslations)
 countryTranslation(query = c('AF', 'FR', 'US', 'CH', 'JP'), output = "EN")
 }
 \keyword{datasets}
-

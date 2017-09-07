@@ -59,4 +59,3 @@ result <- lapply(ginimut, function(i) {
 names(result) <- ginimut
 result
 }
-

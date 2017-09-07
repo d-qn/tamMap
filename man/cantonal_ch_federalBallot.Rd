@@ -81,4 +81,3 @@ processPortraitsRegionauxCantons()
 \seealso{
 \url{https://www.bfs.admin.ch/bfs/en/home/statistics/politics/popular-votes.assetdetail.1363949.html}
 }
-

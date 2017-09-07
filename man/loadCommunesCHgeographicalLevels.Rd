@@ -19,4 +19,3 @@ The portrait includes non political OFS ID, i.e. lakes
 data <- loadCommunesCHgeographicalLevels()
 head(data)
 }
-

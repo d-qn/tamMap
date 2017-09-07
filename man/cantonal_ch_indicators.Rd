@@ -40,4 +40,3 @@ swiMap:::processPortraitsRegionauxCantons()
 \seealso{
 \url{https://www.bfs.admin.ch/bfs/en/home/statistics/catalogues-databases.assetdetail.je-f-21.03.02.html}
 }
-
