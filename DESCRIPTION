@@ -20,7 +20,8 @@ Imports:
     readxl,
     pxR,
     stringr,
-    geofacet
+    geofacet,
+    geojsonio
 Description: Functions to plot geographic maps, mainly swiss maps (cantonal, districts and communes). Socio economic indicators by commune. And country translations
 License: What license is it under?
 RoxygenNote: 6.0.1

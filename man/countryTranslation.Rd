@@ -6,7 +6,7 @@
 \alias{countryTranslations}
 \alias{countryTranslation}
 \title{country translation}
-\format{An object of class \code{data.frame} with 281 rows and 13 columns.}
+\format{An object of class \code{data.frame} with 282 rows and 13 columns.}
 \usage{
 countryTranslations
 
