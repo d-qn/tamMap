@@ -7,11 +7,30 @@
 \url{https://github.com/ernstbaslerpartner/Switzerland_Tilemap}
 }
 \usage{
-tilemap_ch(withLake = F)
+tilemap_ch(fortified = T, withLake = F)
 }
 \arguments{
+\item{fortified, }{a logical a data.frame instead of spatial object to be returned}
+
 \item{withLake, }{a logical have Leman and Bodensee lakes?}
 }
+\value{
+a data.frame or a spatial object tilemap
+}
 \description{
-Tilemap Switzerland
+A data.frame (or spatial object) of Switzerland's tilemap
+}
+\examples{
+tmap_ch <- tilemap_ch()
+\dontrun{
+# cantonal label
+tmap.label <- tmap_ch \%>\% 
+  group_by(Name) \%>\% 
+  summarise(long = mean(long), lat = mean(lat), group = first(group)) \%>\%
+  ungroup()
+ggplot(tmap_ch, aes(x = long, y = lat, group = group)) + 
+geom_polygon(aes(fill = Name)) + 
+theme_minimal() +
+geom_text(data = tmap.label, aes(x = long, y = lat, label = Name), hjust = 0.5, vjust = 0.5)
+}
 }
