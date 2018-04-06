@@ -12,11 +12,9 @@ processPortraitsRegionauxCantons(file = "je-f-21.03.02.xls",
   output = "cantonal_CH_2016_indicators_je-f-21.03.02.csv")
 }
 \arguments{
-\item{file}{the name of the csv file processed by processPortraitsRegionauxCantons to load}
+\item{file}{the name of the csv file to load (output by \code{processPortraitsRegionauxCantons}) or the raw excel file name from the Swiss Statistical office with indicators by canton to be processed by the aforementionned function}
 
 \item{output}{the output file name to be saved in the package inst/extdata}
-
-\item{file}{the raw excel file name from the Swiss Statistical office with indicators by canton}
 }
 \value{
 a data.frame
@@ -24,7 +22,8 @@ a data.frame
 \description{
 Load socio-demographic data by the Swiss Statistical Office.
 
-Process Portraits régionaux de la Suisse canton xls
+Run it when new data are available: \url{https://www.bfs.admin.ch/bfs/en/home/statistics/catalogues-databases.assetdetail.je-f-21.03.02.html}
+Warning of possible break if the OFS changes the data structure of the xls file!!
 }
 \details{
 Run processPortraitsRegionauxCantons() to generate a readable csv file for loadCantonsCHportraits
@@ -34,7 +33,7 @@ Run processPortraitsRegionauxCantons() to generate a readable csv file for loadC
 cantonalI <- loadCantonsCHportraits()
 }
 \dontrun{
-swiMap:::processPortraitsRegionauxCantons()
+tamMap:::processPortraitsRegionauxCantons()
 }
 }
 \seealso{

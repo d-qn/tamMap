@@ -23,14 +23,44 @@ A data.frame (or spatial object) of Switzerland's tilemap
 \examples{
 tmap_ch <- tilemap_ch()
 \dontrun{
+require(tidyverse)
 # cantonal label
 tmap.label <- tmap_ch \%>\% 
   group_by(Name) \%>\% 
-  summarise(long = mean(long), lat = mean(lat), group = first(group)) \%>\%
-  ungroup()
+  summarise(
+    long = (nth(long, 1) + nth(long, 2) + nth(long, 3)) / 3, 
+    latmax = max(lat),
+    latmin = min(lat),
+    group = first(group)) \%>\%
+  ungroup() \%>\%
+  mutate(lat = ifelse(Name \%in\% c('BL', 'AI', 'OW'), latmin + 0.1, latmax- 0.1)) \%>\%
+  select(-latmax, -latmin)
+map_theme <- theme(
+  legend.position = "none",
+  panel.grid = element_blank(),
+  axis.ticks = element_blank(),
+  axis.title = element_blank(),
+  axis.text = element_blank()
+)  
+# PLOT
+map_CH <- map_data("world") \%>\% 
+  filter(region == "Switzerland") 
 ggplot(tmap_ch, aes(x = long, y = lat, group = group)) + 
-geom_polygon(aes(fill = Name)) + 
-theme_minimal() +
-geom_text(data = tmap.label, aes(x = long, y = lat, label = Name), hjust = 0.5, vjust = 0.5)
+geom_polygon(data= map_CH, aes(x = long, y = lat, group = group), fill = NA, colour = "lightgrey") +
+geom_polygon(aes(fill = Name), colour = "white") + 
+theme_minimal() + map_theme
+# add canton 2 letters labels
+geom_text(data = tmap.label, aes(x = long, y = lat, label = Name), hjust = 0.5, vjust = 1) +
+## Plot ballot map, Loi fédérale sur la radio et la télévision 5950
+fballot_canton <- loadCantonsCHFederalBallot() 
+vote <- fballot_canton[,which(colnames(fballot_canton) == "5950")] \%>\% enframe()
+tmap_ch <- left_join(tmap_ch, vote, by = c("Name" = "name"))
+ggplot(tmap_ch, aes(x = long, y = lat, group = group)) + 
+geom_polygon(aes(fill = value), colour = "white") + 
+ theme_minimal() +
+ # add canton 2 letters labels
+ geom_text(data = tmap.label, aes(x = long, y = lat, label = Name), 
+ hjust = 0.5, vjust = 0.5, colour = "white", size = 2.5) +
+ map_theme
 }
 }

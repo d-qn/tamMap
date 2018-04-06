@@ -22,14 +22,15 @@ loadCantonsCHFederalBallot(file = "federalBallot_cantons.RData")
 a matrix, rownames are cantons (2 letters name) and colnames are federal ballot IDs. Check the attributes ballotName and date
 }
 \description{
-Load any federal ballots resuts by cantons: \url{https://www.pxweb.bfs.admin.ch/Selection.aspx?px_language=fr&px_db=px-x-1703030000_100&px_tableid=px-x-1703030000_100\px-x-1703030000_100.px&px_type=PX}
+Load all federal ballots resuts by cantons: \url{https://www.pxweb.bfs.admin.ch/Selection.aspx?px_language=fr&px_db=px-x-1703030000_100&px_tableid=px-x-1703030000_100\px-x-1703030000_100.px&px_type=PX}
 
-Process Portraits régionaux de la Suisse canton px file
-This will download the px file from \url{https://www.bfs.admin.ch/bfs/en/home/statistics/politics/popular-votes.assetdetail.1363949.html}, process it and save it as a Rdata file
-Necessary to run it before using loadCantonsCHFederalBallot
+Process Portraits régionaux de la Suisse canton px file to be used by loadCantonsCHFederalBallot
+This will download the px file from \url{https://www.bfs.admin.ch/bfs/en/home/statistics/politics/popular-votes.assetdetail.1363949.html}, 
+process it and save it as a Rdata file in inst/extdata. 
+Run it when new data are available.
 }
 \details{
-Run processFederalBallotByCantons() to generate a readable csv file for loadCantonsCHFederalBallot
+Run \code{processFederalBallotByCantons()} to generate a readable csv file for loadCantonsCHFederalBallot
 }
 \examples{
 \dontrun{

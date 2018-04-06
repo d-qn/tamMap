@@ -6,7 +6,7 @@
 ##' @examples
 ##' print(countryTranslations)
 ##' @export
-countryTranslations  <- read.csv(system.file("extdata", "countrynames_ordered.csv", package="swiMap"), stringsAsFactors = FALSE, check.names = F,  na.strings = "")
+countryTranslations  <- read.csv(system.file("extdata", "countrynames_ordered.csv", package="tamMap"), stringsAsFactors = FALSE, check.names = F,  na.strings = "")
 
 ##' Convert iso country codes to their full names in 10 possible languages
 ##' 

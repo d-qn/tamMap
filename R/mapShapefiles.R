@@ -53,7 +53,7 @@ getPathShp <- function(geo = "CH", year = 2016) {
     stop ("geo has to be one of 'CH' or 'world'!")
   }
   if(geo == 'CH') {
-    years.available <- as.numeric(list.files(system.file("extdata/shp/CH", package="swiMap")))
+    years.available <- as.numeric(list.files(system.file("extdata/shp/CH", package="tamMap")))
     if(!year %in% years.available) {
       stop("\nThe year provided ", year, " does not have any data/folder available!\n")
     }
@@ -69,7 +69,7 @@ getPathShp <- function(geo = "CH", year = 2016) {
     path <- 'TM_WORLD_BORDERS_SIMPL-0'
   }
 
-  system.file(paste("extdata/shp/", path, sep = ""), package="swiMap")
+  system.file(paste("extdata/shp/", path, sep = ""), package="tamMap")
 }
 ##' @rdname mapShapefiles
 ##' @param shp shapefile contents loaded ojbect, as returned by \code{readOGR}

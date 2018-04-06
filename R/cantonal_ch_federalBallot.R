@@ -1,8 +1,8 @@
 ##' Federal ballot results by cantons
 ##'
-##' Load any federal ballots resuts by cantons: \url{https://www.pxweb.bfs.admin.ch/Selection.aspx?px_language=fr&px_db=px-x-1703030000_100&px_tableid=px-x-1703030000_100\px-x-1703030000_100.px&px_type=PX}
+##' Load all federal ballots resuts by cantons: \url{https://www.pxweb.bfs.admin.ch/Selection.aspx?px_language=fr&px_db=px-x-1703030000_100&px_tableid=px-x-1703030000_100\px-x-1703030000_100.px&px_type=PX}
 ##'
-##' Run processFederalBallotByCantons() to generate a readable csv file for loadCantonsCHFederalBallot
+##' Run \code{processFederalBallotByCantons()} to generate a readable csv file for loadCantonsCHFederalBallot
 ##'
 ##' @rdname cantonal_ch_federalBallot
 ##' @param file the name of the csv file processed by processFederalBallotByCantons to load
@@ -52,14 +52,16 @@
 ##' coord_quickmap(expand = F)
 ##' }
 loadCantonsCHFederalBallot <- function(file = "federalBallot_cantons.RData") {
-  data.path <- dir(system.file("extdata", package="swiMap"), file, full.names = T)
+  data.path <- dir(system.file("extdata", package="tamMap"), file, full.names = T)
   load(data.path)
   ddd
 }
 
-##' Process Portraits régionaux de la Suisse canton px file
-##' This will download the px file from \url{https://www.bfs.admin.ch/bfs/en/home/statistics/politics/popular-votes.assetdetail.1363949.html}, process it and save it as a Rdata file
-##' Necessary to run it before using loadCantonsCHFederalBallot
+##' Process Portraits régionaux de la Suisse canton px file to be used by loadCantonsCHFederalBallot
+##' This will download the px file from \url{https://www.bfs.admin.ch/bfs/en/home/statistics/politics/popular-votes.assetdetail.1363949.html}, 
+##' process it and save it as a Rdata file in inst/extdata. 
+##' Run it when new data are available. 
+##  Warning of possible break if the OFS changes the data structure of the px file!!
 ##' @rdname cantonal_ch_federalBallot
 ##' @param url the URL to the px file with all federal ballots
 ##' @param output the output file name to be saved in the package inst/extdata

@@ -1,20 +1,18 @@
-##' Swiss names
+##' Swiss canton names
 ##'
 ##' Functions to convert Switzerland's cantons, districts and communes names to their abbreviations and official BFS ID
-##' TODO: expand countrycode for more languages (see in inst/ countrynames.csv )
 ##' 
-##' @name swi_CHnames
+##' @name tam_CHnames
 ##' @examples
+##' \dontrun{
 ##' print(canton_CH)
+##' }
 ##' @export
-canton_CH  <- read.csv(system.file("extdata", "CantonCH_iso.csv", package="swiMap"))
-
+canton_CH  <- read.csv(system.file("extdata", "CantonCH_iso.csv", package="tamMap"))
 
 ##' Convert Swiss canton names to different languages and abbreviations
 ##' 
-##' Convert Swiss canton names to different languages and abbreviations
-##' 
-##' @rdname swi_CHnames
+##' @rdname tam_CHnames
 ##' @param query a character vector of Swiss canton names in any language
 ##' @param output a character string, the ouput format 
 ##' @details See \code{canton_CH}

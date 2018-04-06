@@ -2,7 +2,7 @@
 ##'
 ##' Load socio-demographic data by the Swiss Statistical Office.  
 ##' 
-##' Run processPortraitsRegionauxCommune() to generate a readable csv file for loadCommunesCHportraits
+##' Run \code{processPortraitsRegionauxCommune()} to generate a readable csv file for \code{loadCommunesCHportraits}
 ##' 
 ##' @name communes_CH_indicators
 ##' @return a matrix
@@ -22,7 +22,7 @@
 ##' @examples
 ##' communeData <- loadCommunesCHportraits()
 ##' colnames(communeData)
-##' rownames(communeData)
+##' head(rownames(communeData))
 ##' 
 ##' # Select only "surface" indicators
 ##' colIdx <- which(attr(communeData, "indicatorGroup") == "Surface")
@@ -30,7 +30,7 @@
 ##' 
 ##' zipcode <- loadCHzipcode()
 ##' match(zipcode$Gemeindename, attr(communeData, "communeName"))
-##' ##' \dontrun{
+##' \dontrun{
 ##'   colnames(data)
 ##'   g1 <- ggplot(data = as.data.frame(data), aes(x = `Etrangers en %`, y = UDC)) + 
 ##'   geom_point(aes(size = Habitants), alpha = 0.5, colour = swiTheme::swi_col[1]) 
@@ -40,7 +40,7 @@
 loadCommunesCHportraits <- function() {
 
   # get the path to communes data txt file 
-  data.path <- dir(system.file("extdata", package="swiMap"), "communesCH_2016_indicators_je-f-21.03.01.csv", full.names = T)
+  data.path <- dir(system.file("extdata", package="tamMap"), "communesCH_2016_indicators_je-f-21.03.01.csv", full.names = T)
   data.read <- read.csv(data.path, skip = 3, header = TRUE, stringsAsFactors = F, check.names = FALSE)
  
    # save ony the indicator values as a matrix
@@ -66,6 +66,9 @@ loadCommunesCHportraits <- function() {
 
 ##' Process Portraits régionaux de la Suisse commune xls
 ##' 
+##' Useful to update the source data of commune socio-economic indicators loaded by \code{loadCommunesCHportraits}
+##' Warning of possible break if the OFS changes the data structure of the xls file!!
+##' 
 ##' @rdname communes_CH_indicators
 ##' @param file the raw excel file name from the Swiss Statistical office with indicators by commune
 ##' @param output the output file name to be saved in the package inst/extdata
@@ -85,7 +88,7 @@ processPortraitsRegionauxCommune <- function(
   out.path <- paste0(getwd(), "/inst/extdata/", output)
   
   # get the path to communes data txt file 
-  data.path <- dir(system.file("extdata", package="swiMap"), file, full.names = T)
+  data.path <- dir(system.file("extdata", package="tamMap"), file, full.names = T)
   data.read <- readxl::read_excel(data.path, skip = 3, col_names = F)
   # discard empty lines
   row.idx <- apply(data.read, 1, function(ll) !all(is.na(ll)))
@@ -129,6 +132,6 @@ processPortraitsRegionauxCommune <- function(
 loadCHzipcode <- function() {
   
   # get the path to communes data txt file 
-  data.path <- dir(system.file("extdata", package="swiMap"), "PLZO_CSV_LV03.csv", full.names = T)
+  data.path <- dir(system.file("extdata", package="tamMap"), "PLZO_CSV_LV03.csv", full.names = T)
   read.csv(data.path, sep = ";", header = TRUE, stringsAsFactors = F, check.names = FALSE, encoding = "latin1")
 }

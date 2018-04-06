@@ -53,7 +53,7 @@ loadCommunesCHdata <- function(start = "2012-01-01", end = Sys.Date()) {
   end <- as.Date(end)
   
   # get the path to communes data txt file 
-  data.path <- dir(system.file("extdata", package="swiMap"), "GDEHist_GDE\\.txt", full.names = T)
+  data.path <- dir(system.file("extdata", package="tamMap"), "GDEHist_GDE\\.txt", full.names = T)
   data <- read.csv(data.path, sep ="\t",  header = FALSE, stringsAsFactors = F, encoding = "latin1")
   # colnames
   colnames(data) <- c('GHSTNR', 'BHSTNR', 'KTKZ', 'GBFSNR', 'GNAME', 'GNAMK', 'GARTE', 

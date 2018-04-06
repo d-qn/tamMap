@@ -2,7 +2,7 @@
 ##'
 ##' Load any federal ballots resuts by communes: https://www.pxweb.bfs.admin.ch/DownloadFile.aspx?file=px-x-1703030000_101
 ##' 
-##' Run processFederalBallotByCommunes() to generate a readable csv file for loadCommunesCHFederalBallot
+##' Run \code{processFederalBallotByCommunes()} to generate a readable csv file for loadCommunesCHFederalBallot
 ##'
 ##' @rdname communes_ch_federalBallot
 ##' @param file the name of the csv file processed by processFederalBallotByCommunes to load
@@ -49,14 +49,15 @@
 ##' coord_quickmap(expand = F)
 ##' }
 loadCommunesCHFederalBallot <- function(file = "federalBallot_communes.RData") {
-  data.path <- dir(system.file("extdata", package="swiMap"), file, full.names = T)
+  data.path <- dir(system.file("extdata", package="tamMap"), file, full.names = T)
   load(data.path)
   ddd
 }
 
 ##' Process Portraits régionaux de la Suisse commune px file
 ##' This will download the px file from \url{https://www.bfs.admin.ch/bfs/en/home/statistics/politics/popular-votes.assetdetail.1363949.html}, process it and save it as a Rdata file
-##' Necessary to run it before using loadCommunesCHFederalBallot
+##' Useful to update the ballot results loaded by  \code{loadCommunesCHFederalBallot}
+##' Warning of possible break if the OFS changes the data structure of the px file!!
 ##' @rdname communes_ch_federalBallot
 ##' @param url the URL to the px file with all federal ballots
 ##' @param output the output file name to be saved in the package inst/extdata

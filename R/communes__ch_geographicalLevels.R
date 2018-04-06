@@ -10,7 +10,7 @@
 ##' data <- loadCommunesCHgeographicalLevels()
 ##' head(data)
 loadCommunesCHgeographicalLevels <- function() {
-  data.path <- dir(system.file("extdata", package="swiMap"), "^be-b-00.04-rgs-01\\.xlsx", full.names = T)
+  data.path <- dir(system.file("extdata", package="tamMap"), "^be-b-00.04-rgs-01\\.xlsx", full.names = T)
   data.read <- readxl::read_excel(data.path, skip = 4)
 
   #discard row without OFS #

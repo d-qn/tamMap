@@ -52,7 +52,7 @@
 ##'  map_theme
 ##' }
 tilemap_ch <- function(fortified =T, withLake = F) {
-  geojson.file <- list.files(system.file("extdata/geojson", package="swiMap"), 
+  geojson.file <- list.files(system.file("extdata/geojson", package="tamMap"), 
                              'Switzerland_Tiles_EPSG4326_WGS1984.geojson', full.names = T)
   geojson <- readOGR(geojson.file, "OGRGeoJSON")
   if(fortified) {

@@ -27,12 +27,13 @@ a data.frame
 \description{
 Load socio-demographic data by the Swiss Statistical Office.
 
-Process Portraits régionaux de la Suisse commune xls
+Useful to update the source data of commune socio-economic indicators loaded by \code{loadCommunesCHportraits}
+Warning of possible break if the OFS changes the data structure of the xls file!!
 
 Load the NPA/PLZ/ Zip code for Switzerland
 }
 \details{
-Run processPortraitsRegionauxCommune() to generate a readable csv file for loadCommunesCHportraits
+Run \code{processPortraitsRegionauxCommune()} to generate a readable csv file for \code{loadCommunesCHportraits}
 
 The matrix has the commune BFS code as rowname and 3 attributes: \itemize{
 \item \code{communeName} the text name of the commune (same length as the matrix length)
@@ -42,7 +43,7 @@ The matrix has the commune BFS code as rowname and 3 attributes: \itemize{
 \examples{
 communeData <- loadCommunesCHportraits()
 colnames(communeData)
-rownames(communeData)
+head(rownames(communeData))
 
 # Select only "surface" indicators
 colIdx <- which(attr(communeData, "indicatorGroup") == "Surface")
@@ -50,7 +51,7 @@ head(communeData[,colIdx])
 
 zipcode <- loadCHzipcode()
 match(zipcode$Gemeindename, attr(communeData, "communeName"))
-##' \dontrun{
+\dontrun{
   colnames(data)
   g1 <- ggplot(data = as.data.frame(data), aes(x = `Etrangers en \%`, y = UDC)) + 
   geom_point(aes(size = Habitants), alpha = 0.5, colour = swiTheme::swi_col[1]) 
