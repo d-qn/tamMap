@@ -1,8 +1,9 @@
 Package: tamMap
 Type: Package
-Title: Misc Functions to plot geographic maps, mainly swiss maps (cantonal,
-    districts and communes)
-Version: 1.0
+Title: Convenience functions for geomapping Swiss data
+Description: Misc functions to process and plot geographic maps, mainly swiss maps (cantonal,
+    districts and communes). It contains also a bunch of socio-economic indicators and ballot data that can be mapped (cantons and communes). 
+Version: 0.7
 Date: 2018-04-05
 Author: Duc-Quang Nguyen
 Maintainer: Duc-Quang Nguyen <ducquang.nguyen@gmail.com>
@@ -12,15 +13,13 @@ Imports:
     maptools,
     countrycode,
     ggplot2,
-    XML,
     scales,
     dplyr,
     tidyr,
     readxl,
     pxR,
     stringr,
-    geofacet,
-    geojsonio
+    geofacet
 Description: Functions to plot geographic maps, mainly swiss maps (cantonal, districts and communes). Socio economic indicators by commune. And country translations
-License: What license is it under?
+License: GPL-3
 RoxygenNote: 6.0.1

@@ -18,9 +18,9 @@ canton_CH  <- read.csv(system.file("extdata", "CantonCH_iso.csv", package="tamMa
 ##' @details See \code{canton_CH}
 ##' @export
 ##' @examples
-##' canton_query <- c('Argovie', 'Appenzell Rh.-I.', 'St. Gallen', 'Zürich', 'randomChar', 'Vaudx')
+##' canton_query <- c('Argovie', 'Appenzell Rh.-I.', 'St. Gallen', 'Zürich', 'Vaud')
 ##' canton_namesStrict(canton_query)
-##' canton_namesStrict(canton_query, output = "english")
+##' canton_namesStrict(canton_query, output = "eng")
 canton_namesStrict <- function(query, output = 'iso2') {
   stopifnot(exists("canton_CH"))
   if (!output %in% colnames(canton_CH) || length(output) != 1) {

@@ -26,9 +26,11 @@ Convert Swiss canton names to different languages and abbreviations
 See \code{canton_CH}
 }
 \examples{
+\dontrun{
 print(canton_CH)
-canton_query <- c('Argovie', 'Appenzell Rh.-I.', 'St. Gallen', 'Zürich', 'randomChar', 'Vaudx')
+}
+canton_query <- c('Argovie', 'Appenzell Rh.-I.', 'St. Gallen', 'Zürich', 'Vaud')
 canton_namesStrict(canton_query)
-canton_namesStrict(canton_query, output = "english")
+canton_namesStrict(canton_query, output = "eng")
 }
 \keyword{datasets}
