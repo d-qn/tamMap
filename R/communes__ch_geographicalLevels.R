@@ -11,6 +11,16 @@
 ##' head(data)
 loadCommunesCHgeographicalLevels <- function() {
   data.path <- dir(system.file("extdata", package="tamMap"), "^be-b-00.04-rgs-01\\.xlsx", full.names = T)
+  
+  # get the data date
+  metadata <- readxl::read_excel(data.path, range = "N1:N1", col_names = F)
+  if(length(metadata) == 0) {
+    warning(paste0("Metadata of ", data.path, " could not be parsed!\n"))
+  } else {
+    date <- gsub(".*( \\d+\\.\\d+\\.\\d+).*", "\\1", metadata)
+    cat("\n\n----------  Load: Niveaux geographiques de la Suisse, au ", 
+        date, "  ----------\n\n")
+  }
   data.read <- readxl::read_excel(data.path, skip = 4)
 
   #discard row without OFS #

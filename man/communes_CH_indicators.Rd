@@ -44,6 +44,8 @@ The matrix has the commune BFS code as rowname and 3 attributes: \itemize{
 communeData <- loadCommunesCHportraits()
 colnames(communeData)
 head(rownames(communeData))
+attr(communeData, "indicatorYear")
+attr(communeData, "indicatorGroup")
 
 # Select only "surface" indicators
 colIdx <- which(attr(communeData, "indicatorGroup") == "Surface")
