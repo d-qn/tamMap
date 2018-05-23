@@ -4,6 +4,7 @@
 ##'
 ##' @return a data.frame with tons of geographical features, check the source excel for more details
 ##' @details The portrait includes non political OFS ID, i.e. lakes
+##' @seealso Typologie des communes et typologie urbain-rural 2012: \url{https://www.bfs.admin.ch/bfs/fr/home/actualites/quoi-de-neuf.assetdetail.2543324.html}
 ##' @import readxl dplyr
 ##' @export
 ##' @examples

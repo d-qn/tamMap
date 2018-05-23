@@ -23,6 +23,7 @@
 ##'   ungroup() %>%
 ##'   mutate(lat = ifelse(Name %in% c('BL', 'AI', 'OW'), latmin + 0.1, latmax- 0.1)) %>%
 ##'   select(-latmax, -latmin)
+##'   
 ##' map_theme <- theme(
 ##'   legend.position = "none",
 ##'   panel.grid = element_blank(),
@@ -33,12 +34,14 @@
 ##' # PLOT
 ##' map_CH <- map_data("world") %>% 
 ##'   filter(region == "Switzerland") 
-##' ggplot(tmap_ch, aes(x = long, y = lat, group = group)) + 
+##' tm_ch <- ggplot(tmap_ch, aes(x = long, y = lat, group = group)) + 
 ##' geom_polygon(data= map_CH, aes(x = long, y = lat, group = group), fill = NA, colour = "lightgrey") +
 ##' geom_polygon(aes(fill = Name), colour = "white") + 
-##' theme_minimal() + map_theme
+##' theme_minimal() + map_theme + coord_quickmap()
+##' 
 ##' # add canton 2 letters labels
-##' geom_text(data = tmap.label, aes(x = long, y = lat, label = Name), hjust = 0.5, vjust = 1) +
+##' tm_ch + geom_text(data = tmap.label, aes(x = long, y = lat, label = Name), hjust = 0.5, vjust = 1)
+##' 
 ##' ## Plot ballot map, Loi fédérale sur la radio et la télévision 5950
 ##' fballot_canton <- loadCantonsCHFederalBallot() 
 ##' vote <- fballot_canton[,which(colnames(fballot_canton) == "5950")] %>% enframe()
@@ -49,7 +52,7 @@
 ##'  # add canton 2 letters labels
 ##'  geom_text(data = tmap.label, aes(x = long, y = lat, label = Name), 
 ##'  hjust = 0.5, vjust = 0.5, colour = "white", size = 2.5) +
-##'  map_theme
+##'  map_theme + coord_quickmap()
 ##' }
 tilemap_ch <- function(fortified =T, withLake = F) {
   geojson.file <- list.files(system.file("extdata/geojson", package="tamMap"), 

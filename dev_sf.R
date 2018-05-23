@@ -4,8 +4,6 @@ require(tamMap)
 require(ggplot2)
 
 
-
-
 fBallot <- loadCantonsCHFederalBallot()
 attr(fBallot, "ballotName")
 cidx <- grep("naturalisation", attr(fBallot, "ballotName"), ignore.case = T)
@@ -14,7 +12,7 @@ attr(fBallot, "date")[cidx]
 # get only naturalisation facilitée ballots
 cidx <- match(c("3150", "4110", "5100", "5110"), colnames(fBallot))
 attr(fBallot, "ballotName")[cidx]
-fBallot[,cidx]
+glimpse(fBallot[,cidx])
 
 
 path.cantons <-  dir(system.file("extdata/shp/CH/2016", package="tamMap"), "cantons.shp", full.names = T)
@@ -33,17 +31,24 @@ df <- do.call(rbind, lapply(cidx, function(idx) {
 }))
 # plot maps
 brks <- seq(from = 0, to = 1, length.out = 11) * 100
-df$bins <- cut(df$value, breaks = brks, right = F)
-df$ballot <- factor(df$ballot, levels = attr(fBallot, "ballotName")[cidx])
-ggplot(df) +
-  geom_sf(fill = bins) +
-  facet_wrap(~ ballot)
+df <- df %>% mutate(
+  bins = cut(value, breaks = brks, right = F),
+  ballot = factor(ballot, levels = attr(fBallot, "ballotName")[cidx])
+)
 
-ggplot(df, aes(x = long, y = lat, group = group)) + geom_polygon(size = 0, aes(fill = bins)) +
-  theme_minimal() + theme(legend.position = "bottom", panel.grid = element_blank(),
-                          axis.ticks = element_blank(), axis.title = element_blank(), axis.text = element_blank()) +
-  facet_wrap(~ ballot) + scale_fill_brewer(palette = "BrBG" , drop = F) +
-  coord_quickmap(expand = F)
+# df$bins <- cut(df$value, breaks = brks, right = F)
+# df$ballot <- factor(df$ballot, levels = attr(fBallot, "ballotName")[cidx])
+gp <- ggplot(df) +
+  geom_sf(aes(fill = bins), size = 0) +
+  scale_fill_viridis_d() + 
+  facet_wrap(~ ballot) + 
+  theme_minimal()
+
+# ggplot(df, aes(x = long, y = lat, group = group)) + geom_polygon(size = 0, aes(fill = bins)) +
+#   theme_minimal() + theme(legend.position = "bottom", panel.grid = element_blank(),
+#                           axis.ticks = element_blank(), axis.title = element_blank(), axis.text = element_blank()) +
+#   facet_wrap(~ ballot) + scale_fill_brewer(palette = "BrBG" , drop = F) +
+#   coord_quickmap(expand = F)
 
 
 

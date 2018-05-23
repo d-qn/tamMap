@@ -8,7 +8,7 @@ Date: 2018-04-05
 Author: Duc-Quang Nguyen
 Maintainer: Duc-Quang Nguyen <ducquang.nguyen@gmail.com>
 Imports:
-    ggplot2 (>= 2.2.1),
+    ggplot2 (>= 2.2.1.9000),
     sf,
     rgdal,
     rgeos,
