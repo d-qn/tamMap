@@ -18,7 +18,7 @@ loadCantonsCHportraits <- function(file = "cantonal_CH_2016_indicators_je-f-21.0
   data.read
 }
 
-##' Process Portraits régionaux de la Suisse canton xls
+##' Process Portraits regionaux de la Suisse canton xls
 ##' 
 ##' Run it when new data are available: \url{https://www.bfs.admin.ch/bfs/en/home/statistics/catalogues-databases.assetdetail.je-f-21.03.02.html}
 ##' Warning of possible break if the OFS changes the data structure of the xls file!!

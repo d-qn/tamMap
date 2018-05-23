@@ -57,7 +57,7 @@ loadCantonsCHFederalBallot <- function(file = "federalBallot_cantons.RData") {
   ddd
 }
 
-##' Process Portraits régionaux de la Suisse canton px file to be used by loadCantonsCHFederalBallot
+##' Process Portraits regionaux de la Suisse canton px file to be used by loadCantonsCHFederalBallot
 ##' This will download the px file from \url{https://www.bfs.admin.ch/bfs/en/home/statistics/politics/popular-votes.assetdetail.1363949.html}, 
 ##' process it and save it as a Rdata file in inst/extdata. 
 ##' Run it when new data are available. 

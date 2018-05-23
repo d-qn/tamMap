@@ -10,7 +10,7 @@ loadCommunesCHgeographicalLevels()
 a data.frame with tons of geographical features, check the source excel for more details
 }
 \description{
-Load the Swiss statistical office communes data from: \url{http://www.bfs.admin.ch/bfs/portal/fr/index/regionen/thematische_karten/01/01.html}
+Load the Swiss statistical office communes data from: \url{https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/niveaux-geographiques.html}
 }
 \details{
 The portrait includes non political OFS ID, i.e. lakes

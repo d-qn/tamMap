@@ -55,8 +55,10 @@ path.ch <- getPathShp('CH', year = 2015)
 ch <- readOGR(path.ch, layer = 'municipalities-without-lakes')
 ch.df <- formatShp(ch)
 # plot swiss commune map
-ch.communes <- ggplot(ch.df, aes(x = long, y = lat, group = group)) + geom_polygon(size = 0, aes(fill = GEMNAME)) +
-theme_minimal() + theme(legend.position = "none", panel.grid = element_blank(), axis.ticks = element_blank(), axis.title = element_blank(), axis.text = element_blank())
+ch.communes <- ggplot(ch.df, aes(x = long, y = lat, group = group)) + 
+geom_polygon(size = 0, aes(fill = GEMNAME)) +
+theme_minimal() + 
+theme(legend.position = "none", panel.grid = element_blank(), axis.ticks = element_blank(), axis.title = element_blank(), axis.text = element_blank())
 ch.communes
 # add the lake
 lake.df <- formatShp(readOGR(path.ch, layer = "lakes"))

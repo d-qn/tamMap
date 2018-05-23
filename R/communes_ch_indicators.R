@@ -75,6 +75,7 @@ loadCommunesCHportraits <- function() {
 ##' @return NULL
 ##' @seealso \url{http://opendata.admin.ch/de/dataset/ch-swisstopo-vd-ortschaftenverzeichnis_plz/resource/35001b61-e7c1-4124-89fa-17fac7b1139e} from: \url{http://opendata.admin.ch/de/dataset/ch-swisstopo-vd-ortschaftenverzeichnis_plz}
 ##' @import tidyr dplyr readxl
+##' @importFrom utils write.csv
 ##' @export
 ##' @examples
 ##' \dontrun{
@@ -127,11 +128,12 @@ processPortraitsRegionauxCommune <- function(
 ##' 
 ##' @rdname communes_CH_indicators
 ##' @return a data.frame
+##' @importFrom utils read.csv2
 ##' @seealso \url{http://opendata.admin.ch/de/dataset/ch-swisstopo-vd-ortschaftenverzeichnis_plz/resource/35001b61-e7c1-4124-89fa-17fac7b1139e} from: \url{http://opendata.admin.ch/de/dataset/ch-swisstopo-vd-ortschaftenverzeichnis_plz}
 ##' @export
 loadCHzipcode <- function() {
   
   # get the path to communes data txt file 
   data.path <- dir(system.file("extdata", package="tamMap"), "PLZO_CSV_LV03.csv", full.names = T)
-  read.csv(data.path, sep = ";", header = TRUE, stringsAsFactors = F, check.names = FALSE, encoding = "latin1")
+  return(read.csv2(data.path, header = TRUE, stringsAsFactors = F, check.names = FALSE, encoding = "latin1"))
 }

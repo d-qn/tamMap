@@ -8,11 +8,13 @@ Date: 2018-04-05
 Author: Duc-Quang Nguyen
 Maintainer: Duc-Quang Nguyen <ducquang.nguyen@gmail.com>
 Imports:
+    ggplot2 (>= 2.2.1),
+    sf,
     rgdal,
     rgeos,
     maptools,
+    mapproj,
     countrycode,
-    ggplot2,
     scales,
     dplyr,
     tidyr,
@@ -20,6 +22,5 @@ Imports:
     pxR,
     stringr,
     geofacet
-Description: Functions to plot geographic maps, mainly swiss maps (cantonal, districts and communes). Socio economic indicators by commune. And country translations
 License: GPL-3
 RoxygenNote: 6.0.1

@@ -24,7 +24,7 @@ a matrix, rownames are cantons (2 letters name) and colnames are federal ballot 
 \description{
 Load all federal ballots resuts by cantons: \url{https://www.pxweb.bfs.admin.ch/Selection.aspx?px_language=fr&px_db=px-x-1703030000_100&px_tableid=px-x-1703030000_100\px-x-1703030000_100.px&px_type=PX}
 
-Process Portraits régionaux de la Suisse canton px file to be used by loadCantonsCHFederalBallot
+Process Portraits regionaux de la Suisse canton px file to be used by loadCantonsCHFederalBallot
 This will download the px file from \url{https://www.bfs.admin.ch/bfs/en/home/statistics/politics/popular-votes.assetdetail.1363949.html}, 
 process it and save it as a Rdata file in inst/extdata. 
 Run it when new data are available.
