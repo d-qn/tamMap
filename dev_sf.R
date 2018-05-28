@@ -100,9 +100,9 @@ encircle_coord <- function(geo_subset) {
 # )
 # inlet_zoomInBg <- inletMap_zoomInBg(geo_subset)
 
-shiftM <- c(-13000, 120000)
-scaleF <- 3
-inletMap_shiftScale <- function(geo_subset, shiftM = c(-12000, 125000), scaleF = 3) {
+# shiftM <- c(-13000, 120000)
+# scaleF <- 3
+inletMap_shiftScale <- function(geo_subset, shiftM = c(-9000, 150000), scaleF = 3) {
   stopifnot(any(class(geo_subset) %in% c('sf', 'sfc')))
   stopifnot(is.list(layers))
   stopifnot(length(shiftM) == 2, is.numeric(shiftM))
@@ -140,17 +140,39 @@ inletMap <- inletMap_shiftScale(geo_subset)
 inletMap_encircled <- encircle_coord(inletMap)
 inletMap_cicrleBg <- st_buffer(inletMap_encircled$centre, inletMap_encircled$radius) %>% st_sf()
 
+## create the polygon 
+inlet_bgCone <- c(inlet_zoomInBg_coords$centre - c(inlet_zoomInBg_coords$radius, 0), 
+  inlet_zoomInBg_coords$centre + c(inlet_zoomInBg_coords$radius, 0), 
+  inletMap_encircled$centre + c(inletMap_encircled$radius, 0),
+  inletMap_encircled$centre - c(inletMap_encircled$radius,0)
+) %>% st_set_crs(st_crs(inlet_zoomInBg_coords$centre)) %>% 
+  st_cast("POINT") %>% 
+  st_combine() %>% 
+  st_cast("POLYGON") %>% 
+  st_sf() %>% 
+  # crop
+  st_difference(inletMap_cicrleBg) %>%
+  st_difference(inlet_zoomInBg)
+
 
 ggplot() +
-  geom_sf(data = inlet_zoomInBg, fill = "lightgrey", lwd = 0, alpha = 0.5) +  
-  geom_sf(data = inletMap_cicrleBg, fill = "lightgrey", lwd = 0, alpha = 0.5) + 
+  geom_sf(data = inlet_bgCone, fill = "lightgrey", lwd = 0, alpha = 0.2) +  
+  geom_sf(data = inlet_zoomInBg, fill = "lightgrey", lwd = 0, alpha = 0.5) +
+  geom_sf(data = inletMap_cicrleBg, fill = "lightgrey", lwd = 0, alpha = 0.5) +
   geom_sf(data = munid, aes(fill = `Typologie urbainrural 2012`), lwd = 0.05, colour = "white") +
   geom_sf(data = cantons, lwd = 0.15, colour = "#333333", fill = NA) +
   geom_sf(data = country, lwd = 0.25, colour = "#000d1a", fill = NA) +
   geom_sf(data = lakes, lwd = 0, fill = "#0066cc") +
-  geom_sf(data = inletMap, aes(fill = `Typologie urbainrural 2012`), lwd = 0.2) + 
+  geom_sf(data = inletMap, aes(fill = `Typologie urbainrural 2012`), lwd = 0.2, colour = "white") + 
   theme_map + 
   coord_sf(datum = NA, expand = F) 
+
+
+
+
+
+
+
 
 
 
