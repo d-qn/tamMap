@@ -10,7 +10,6 @@
 ##' @export
 ##' @examples
 ##' \dontrun{
-##' 
 ##' fBallot <- loadCantonsCHFederalBallot()
 ##' attr(fBallot, "ballotName")
 ##' cidx <- grep("naturalisation", attr(fBallot, "ballotName"), ignore.case = T)

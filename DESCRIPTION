@@ -15,6 +15,7 @@ Imports:
     maptools,
     mapproj,
     countrycode,
+    rmapshaper,
     scales,
     dplyr,
     tidyr,
