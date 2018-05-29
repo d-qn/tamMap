@@ -72,8 +72,9 @@ gp <- ggplot() +
 gp + coord_sf(datum = NA, expand = F) 
 # hack to remove grid/graticule lines: https://github.com/tidyverse/ggplot2/issues/2071
 
-
-### Functions for inlet maps
+###
+### Functions for inlet maps ###
+####
 
 geo_subset <- munid %>% filter(Canton == 25)
 
@@ -104,7 +105,6 @@ encircle_coord <- function(geo_subset) {
 # scaleF <- 3
 inletMap_shiftScale <- function(geo_subset, shiftM = c(-9000, 150000), scaleF = 3) {
   stopifnot(any(class(geo_subset) %in% c('sf', 'sfc')))
-  stopifnot(is.list(layers))
   stopifnot(length(shiftM) == 2, is.numeric(shiftM))
   stopifnot(is.numeric(scaleF))
   
@@ -153,7 +153,6 @@ inlet_bgCone <- c(inlet_zoomInBg_coords$centre - c(inlet_zoomInBg_coords$radius,
   # crop
   st_difference(inletMap_cicrleBg) %>%
   st_difference(inlet_zoomInBg)
-
 
 ggplot() +
   geom_sf(data = inlet_bgCone, fill = "lightgrey", lwd = 0, alpha = 0.2) +  
