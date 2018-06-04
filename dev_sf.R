@@ -108,7 +108,6 @@ inletMap_shiftScale <- function(geo_subset, shiftM = c(-9000, 150000), scaleF = 
   stopifnot(length(shiftM) == 2, is.numeric(shiftM))
   stopifnot(is.numeric(scaleF))
   
-  
   # shift
   geo_shift <- st_set_geometry(geo_subset, st_geometry(geo_subset) + shiftM)
   geo_shift_sf <- st_geometry(geo_shift)
@@ -165,86 +164,3 @@ ggplot() +
   geom_sf(data = inletMap, aes(fill = `Typologie urbainrural 2012`), lwd = 0.2, colour = "white") + 
   theme_map + 
   coord_sf(datum = NA, expand = F) 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### INLET ###
-
-## create a zoom map for Geneva, making a vertical shift
-gvad <- munid %>% filter(Canton == 25)
-###### With rotating
-gvad_shift <- st_set_geometry(gvad, st_geometry(gvad) + c(-13000, 120000))
-gvad_shift_sf <- st_geometry(gvad_shift)
-gvad_shift_sf <- st_set_crs(gvad_shift_sf, st_crs(gvad))
-
-# scale up
-gvad_shift_scaled_sf <- gvad_shift_sf * 3
-gvad_shift_scaled_sf <- st_set_crs(gvad_shift_scaled_sf, st_crs(gvad))
-
-# shift back
-#   get the centroids, to get the shifting coordinates
-gvad_shift_scaled_sf.centroid <- st_centroid(st_combine(gvad_shift_scaled_sf))
-gvad_shift_sf.centroid <- st_centroid(st_combine(gvad_shift_sf))
-scaling_shift <- c(gvad_shift_scaled_sf.centroid[[1]][1] - gvad_shift_sf.centroid[[1]][1],
-  gvad_shift_scaled_sf.centroid[[1]][2] - gvad_shift_sf.centroid[[1]][2])
-
-gvad_inlet <- gvad_shift
-gvad_inlet <- st_set_geometry(gvad_inlet, gvad_shift_scaled_sf - scaling_shift)
-gvad_inlet <- st_set_crs(gvad_inlet, st_crs(gvad))
-
-### add round grey shading
-# https://walkerke.github.io/2016/06/reproducing-the-washington-post-housing-price-maps-with-r-and-ggplot2/
-inlet_bg.centr <- gvad_inlet %>% st_bbox() %>% st_as_sfc() %>% st_centroid()
-# compute max distance
-
-# compute distances 
-# https://stackoverflow.com/questions/48447680/how-to-compute-the-greatest-distance-between-a-centroid-and-the-edge-of-the-poly?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
-pol <- gvad_inlet %>%
-  st_bbox() %>% 
-  st_as_sfc() 
-radius <- pol %>%  
-  st_cast("POINT") %>% 
-  st_distance(st_centroid(pol)) %>% 
-  max() %>% 
-  as.numeric()
-#plot(st_buffer(inlet_bg.centr, radius))
-
-inlet.bg <- st_sf(data.frame(bonker = 1, geom = st_buffer(inlet_bg.centr, radius)))
-list(centre = st_centroid(pol), radius = radius)
-
-# list(
-#   circle = st_buffer(st_centroid(pol), radius) %>% st_sf(),
-#   line = c(st_centroid(pol) - radius, st_centroid(pol)  + radius) %>% st_cast("POINT")
-# )
-inlet_zoomInBg_coords <- encircle_coord(geo_subset)
-inlet_zoomInBg <- st_buffer(inlet_zoomInBg_coords$centre, inlet_zoomInBg_coords$radius) %>% st_sf()
-
-
-
-ggplot() +
-  geom_sf(data = inlet_zoomInBg, fill = "lightgrey", lwd = 0, alpha = 0.6) +  
-  geom_sf(data = inlet.bg, fill = "lightgrey", lwd = 0, alpha = 0.5) + 
-  geom_sf(data = munid, aes(fill = `Typologie urbainrural 2012`), lwd = 0.05, colour = "white") +
-  geom_sf(data = cantons, lwd = 0.15, colour = "#333333", fill = NA) +
-  geom_sf(data = country, lwd = 0.25, colour = "#000d1a", fill = NA) +
-  geom_sf(data = lakes, lwd = 0, fill = "#0066cc") +
-  geom_sf(data = gvad_inlet, aes(fill = `Typologie urbainrural 2012`), lwd = 0.2) + 
-  theme_map() + 
-  coord_sf(datum = NA, expand = F) 
-

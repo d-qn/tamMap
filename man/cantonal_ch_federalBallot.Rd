@@ -34,7 +34,6 @@ Run \code{processFederalBallotByCantons()} to generate a readable csv file for l
 }
 \examples{
 \dontrun{
-
 fBallot <- loadCantonsCHFederalBallot()
 attr(fBallot, "ballotName")
 cidx <- grep("naturalisation", attr(fBallot, "ballotName"), ignore.case = T)
@@ -72,17 +71,17 @@ df <- df \%>\% mutate(
 )
 # plot
 gp <- ggplot(df) +
-  geom_sf(aes(fill = bins), size = 0) +
-  scale_fill_viridis_d() + 
+  geom_sf(aes(fill = bins), lwd = 0) +
   facet_wrap(~ ballot) + 
-  theme_minimal() + 
+  theme_void() + 
   theme(
-   legend.position = "bottom", panel.grid = element_blank(),
+   legend.position = "bottom", 
+   panel.grid = element_blank(),
    axis.ticks = element_blank(), axis.title = element_blank(), 
    axis.text = element_blank()
   ) + facet_wrap(~ ballot) + 
   scale_fill_brewer(palette = "BrBG" , drop = F)
- gp
+ gp + ggtitle('Votes naturalisation') + coord_sf( datum = NA) # hack to remove grid/graticule lines: https://github.com/tidyverse/ggplot2/issues/2071
 }
 \dontrun{
 processPortraitsRegionauxCantons()
