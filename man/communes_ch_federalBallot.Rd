@@ -34,43 +34,52 @@ Run \code{processFederalBallotByCommunes()} to generate a readable csv file for 
 }
 \examples{
 \dontrun{
+require(tidyverse)
 fBallot <- loadCommunesCHFederalBallot()
 attr(fBallot, "ballotName")
 # get only naturalisation facilitée ballots
 cidx <- match(c("3150", "4110", "5100", "5110"), colnames(fBallot))
-attr(fBallot, "ballotName")[cidx]
-fBallot[,cidx]
-# Plot maps
-require(rgdal)
-require(rgeos)
-require(ggplot2)
-require(maptools)
-require(dplyr)
 
-# get canton shapefiles as a data.frame
-path.ch <- getPathShp('CH')
-layers <-  ogrListLayers(path.ch)
-mu <- readOGR(path.ch, layer = 'municipalities')
-mu.df <- formatShp(mu) \%>\% select(long, lat, group, BFS_NUMMER)
-r.idx <- match(mu.df$BFS_NUMMER, rownames(fBallot))
-# duplicate commune data.frame for each ballot
-df <- do.call(rbind, lapply(cidx, function(idx) {
-  value <- fBallot[,idx]
-  res <- mu.df
-  res$value <- value[r.idx]
-  res$ballot <- attr(fBallot, "ballotName")[idx]
-  res$date <- attr(fBallot, "date")[idx]
-  res
-}))
-# plot maps
+ballot_nat <- fBallot[,cidx]
+colnames(ballot_nat) <- attr(fBallot, "ballotName")[cidx]
+ballot_nat <- ballot_nat \%>\% 
+  data.frame() \%>\% 
+  rownames_to_column(var = "GMDNR") \%>\% 
+  mutate(GMDNR = as.integer(GMDNR))
+
+# Plot maps
+require(sf)
+
+# Get municipalities geodata
+shp_ch_paths_2016 <- shp_path(2016, features=c('municipalities'))
+shp_ch_geodata <- shp_ch_paths_2016 \%>\% map(function(x) {
+  layerName <- st_layers(x)
+  st_read(x, layer = layerName[[1]]) \%>\% 
+  select(ends_with("NR"), ends_with("NAME"))
+}) 
+municipalities <- shp_ch_geodata[[1]]
+
+# Bind ballot data and make it long (duplicate)
+municipalities <- left_join(municipalities, ballot_nat) \%>\% 
+  select(-BZNR, -GRNR) \%>\% 
+  gather(ballot, percYes, -GMDNR, -KTNR, -GMDNAME, -geometry)
+  
+# discretize data with breaks
 brks <- seq(from = 0, to = 1, length.out = 11) * 100
-df$bins <- cut(df$value, breaks = brks, right = F)
-df$ballot <- factor(df$ballot, levels = attr(fBallot, "ballotName")[cidx])
-ggplot(df, aes(x = long, y = lat, group = group)) + geom_polygon(size = 0, aes(fill = bins)) +
-theme_minimal() + theme(legend.position = "bottom", panel.grid = element_blank(), 
-axis.ticks = element_blank(), axis.title = element_blank(), axis.text = element_blank()) +
-facet_wrap(~ ballot) + scale_fill_brewer(palette = "BrBG" , drop = F) + 
-coord_quickmap(expand = F)
+municipalities <- municipalities \%>\% 
+  mutate(bins = cut(percYes, breaks = brks, right = F))
+
+ ggplot() +
+   geom_sf(data = municipalities, aes(fill = bins), lwd = 0) +
+   facet_wrap(~ ballot) + 
+   scale_fill_brewer(palette = "BrBG" , drop = F) +
+   coord_sf(datum = NA, expand = F) +
+   theme_minimal() + 
+   theme(
+     legend.position = "bottom", panel.grid = element_blank(), 
+     axis.ticks = element_blank(), axis.title = element_blank(), 
+     axis.text = element_blank()
+   ) 
 }
 \dontrun{
 processFederalBallotByCommunes()

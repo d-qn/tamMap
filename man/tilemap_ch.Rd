@@ -15,7 +15,7 @@ tilemap_ch(fortified = T, withLake = F)
 \item{withLake, }{a logical have Leman and Bodensee lakes?}
 }
 \value{
-a data.frame or a spatial object tilemap
+a data.frame of class simple feature
 }
 \description{
 A data.frame (or spatial object) of Switzerland's tilemap
@@ -24,46 +24,26 @@ A data.frame (or spatial object) of Switzerland's tilemap
 tmap_ch <- tilemap_ch()
 \dontrun{
 require(tidyverse)
-# cantonal label
-tmap.label <- tmap_ch \%>\% 
-  group_by(Name) \%>\% 
-  summarise(
-    long = (nth(long, 1) + nth(long, 2) + nth(long, 3)) / 3, 
-    latmax = max(lat),
-    latmin = min(lat),
-    group = first(group)) \%>\%
-  ungroup() \%>\%
-  mutate(lat = ifelse(Name \%in\% c('BL', 'AI', 'OW'), latmin + 0.1, latmax- 0.1)) \%>\%
-  select(-latmax, -latmin)
-  
-map_theme <- theme(
-  legend.position = "none",
-  panel.grid = element_blank(),
-  axis.ticks = element_blank(),
-  axis.title = element_blank(),
-  axis.text = element_blank()
-)  
+
+# cantonal label, as centroid of the tiles. Needs to be a simple (non-sf) object to be plotted as geom_text
+tmap.label <- data.frame(label = as.character(tmap_ch$Name), tmap_ch \%>\% st_centroid() \%>\% st_coordinates())
+
 # PLOT
-map_CH <- map_data("world") \%>\% 
-  filter(region == "Switzerland") 
-tm_ch <- ggplot(tmap_ch, aes(x = long, y = lat, group = group)) + 
-geom_polygon(data= map_CH, aes(x = long, y = lat, group = group), fill = NA, colour = "lightgrey") +
-geom_polygon(aes(fill = Name), colour = "white") + 
-theme_minimal() + map_theme + coord_quickmap()
+tm_ch <- ggplot() + 
+  geom_sf(data = tmap_ch) + 
+  theme_map()
 
 # add canton 2 letters labels
-tm_ch + geom_text(data = tmap.label, aes(x = long, y = lat, label = Name), hjust = 0.5, vjust = 1)
+tm_ch + geom_text(data = tmap.label, aes(x = X, y = Y, label = label), hjust = 0.5, vjust = 0.5)
 
 ## Plot ballot map, Loi fédérale sur la radio et la télévision 5950
 fballot_canton <- loadCantonsCHFederalBallot() 
 vote <- fballot_canton[,which(colnames(fballot_canton) == "5950")] \%>\% enframe()
 tmap_ch <- left_join(tmap_ch, vote, by = c("Name" = "name"))
-ggplot(tmap_ch, aes(x = long, y = lat, group = group)) + 
-geom_polygon(aes(fill = value), colour = "white") + 
- theme_minimal() +
- # add canton 2 letters labels
- geom_text(data = tmap.label, aes(x = long, y = lat, label = Name), 
- hjust = 0.5, vjust = 0.5, colour = "white", size = 2.5) +
- map_theme + coord_quickmap()
+ggplot() + 
+  geom_sf(data = tmap_ch, aes(fill = value)) +
+  theme_map() +
+  # add canton 2 letters labels
+   geom_text(data = tmap.label, aes(x = X, y = Y, label = label), hjust = 0.5, vjust = 0.5, colour = "white", size = 2.5)
 }
 }
