@@ -4,7 +4,6 @@ remove all references to getPathShp & formatShp
 
 ### Clean up
 * Package inlet functions
-* Remove all dependencies to rgdal & rgeos. And more
 * Remove all topojson
 * Process OFS geo data
 
