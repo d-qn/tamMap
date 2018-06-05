@@ -17,47 +17,40 @@
 ##' attr(fBallot, "date")[cidx]
 ##' # get only naturalisation facilitée ballots
 ##' cidx <- match(c("3150", "4110", "5100", "5110"), colnames(fBallot))
-##' attr(fBallot, "ballotName")[cidx]
-##' glimpse(fBallot[,cidx])
-##' 
+##' ballot_nat <- fBallot[,cidx]
+##' colnames(ballot_nat) <- attr(fBallot, "ballotName")[cidx]
+##' ballot_nat <- ballot_nat %>% 
+##'   data.frame() %>% 
+##'   rownames_to_column(var = "iso2")
+##' # get the cantonal IDs
+##' ballot_nat <- left_join(ballot_nat, canton_CH %>% select(order, iso2)) %>% select(-iso2)
+##¿
 ##' require(sf)
-##' require(dplyr)
-##' require(tamMap)
-##' require(ggplot2)
+##' require(tidyverse)
 ##'
 ##' # get canton shapefiles as a sf data.frame
-##' path.cantons <-  dir(system.file("extdata/shp/CH/2016", package="tamMap"), "cantons.shp", full.names = T)
-##' ca.df <- st_read(path.cantons, layer = "cantons") %>%
-##'   select(KANTONSNUM)
-##' # duplicte data.frame for each ballot
-##' df <- do.call(rbind, lapply(cidx, function(idx) {
-##'   value <- fBallot[,idx]
-##'   names(value) <- canton_CH[match(names(value), canton_CH[,1]), "order"]
-##'   res <- ca.df
-##'   res$value <- value[match(res$KANTONSNUM, names(value))]
-##'   res$ballot <- attr(fBallot, "ballotName")[idx]
-##'   res$date <- attr(fBallot, "date")[idx]
-##'   res
-##' }))
+##' path.cantons <-  shp_path(2018, features = "cantons")
+##' ca <- st_read(path.cantons, layer = "g2k18") %>%
+##'   select(KTNR, KTNAME)
+##'   
+##' # Bind ballot data and make it long (duplicate for each ballot)
+##' ca <- left_join(ca, ballot_nat, by=c("KTNR" = "order")) %>% 
+##'   gather(ballot, percYes, -KTNR, -KTNAME, -geometry)
+##'   
 ##' # Create breaks
 ##' brks <- seq(from = 0, to = 1, length.out = 11) * 100
-##' df <- df %>% mutate(
-##'   bins = cut(value, breaks = brks, right = F),
-##'   ballot = factor(ballot, levels = attr(fBallot, "ballotName")[cidx])
+##' ca <- ca %>% mutate(
+##'   bins = cut(percYes, breaks = brks, right = F)
 ##' )
+##' 
 ##' # plot
-##' gp <- ggplot(df) +
+##' gp <- ggplot(ca) +
 ##'   geom_sf(aes(fill = bins), lwd = 0) +
 ##'   facet_wrap(~ ballot) + 
-##'   theme_void() + 
-##'   theme(
-##'    legend.position = "bottom", 
-##'    panel.grid = element_blank(),
-##'    axis.ticks = element_blank(), axis.title = element_blank(), 
-##'    axis.text = element_blank()
-##'   ) + facet_wrap(~ ballot) + 
+##'   theme_map()+ 
 ##'   scale_fill_brewer(palette = "BrBG" , drop = F)
-##'  gp + ggtitle('Votes naturalisation') + coord_sf( datum = NA) # hack to remove grid/graticule lines: https://github.com/tidyverse/ggplot2/issues/2071
+##'   
+##'  gp + ggtitle('Votes naturalisation')
 ##' }
 loadCantonsCHFederalBallot <- function(file = "federalBallot_cantons.RData") {
   data.path <- dir(system.file("extdata", package="tamMap"), file, full.names = T)

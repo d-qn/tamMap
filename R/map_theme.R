@@ -1,10 +1,11 @@
-##' ggplo2 bare theme for map
+##' ggplot2 bare theme for map
 ##' 
 ##' A basic ggplot2 theme to use for map without graticule/grid lines
 ##' @import ggplot2
 ##' @inheritParams ggplot2::theme_minimal
 ##' @export
 ##' @examples
+##' require(ggplot2)
 ##' ggplot() + 
 ##'   geom_sf(data = tilemap_ch()) + 
 ##'   theme_map()

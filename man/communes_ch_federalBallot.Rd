@@ -74,12 +74,7 @@ municipalities <- municipalities \%>\%
    facet_wrap(~ ballot) + 
    scale_fill_brewer(palette = "BrBG" , drop = F) +
    coord_sf(datum = NA, expand = F) +
-   theme_minimal() + 
-   theme(
-     legend.position = "bottom", panel.grid = element_blank(), 
-     axis.ticks = element_blank(), axis.title = element_blank(), 
-     axis.text = element_blank()
-   ) 
+   theme_map()
 }
 \dontrun{
 processFederalBallotByCommunes()

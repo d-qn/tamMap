@@ -10,9 +10,6 @@
 ##' @examples
 ##' data <- loadCommunesCHgeographicalLevels()
 ##' head(data)
-##' \dontrun{
-##' 
-##' }
 loadCommunesCHgeographicalLevels <- function() {
   data.path <- dir(system.file("extdata", package="tamMap"), "^be-b-00.04-rgs-01\\.xlsx", full.names = T)
   

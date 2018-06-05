@@ -18,9 +18,6 @@ The portrait includes non political OFS ID, i.e. lakes
 \examples{
 data <- loadCommunesCHgeographicalLevels()
 head(data)
-\dontrun{
-
-}
 }
 \seealso{
 Typologie des communes et typologie urbain-rural 2012: \url{https://www.bfs.admin.ch/bfs/fr/home/actualites/quoi-de-neuf.assetdetail.2543324.html}

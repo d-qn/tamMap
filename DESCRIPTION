@@ -10,10 +10,6 @@ Maintainer: Duc-Quang Nguyen <ducquang.nguyen@gmail.com>
 Imports:
     ggplot2 (>= 2.2.1.9000),
     sf,
-    rgdal,
-    rgeos,
-    maptools,
-    mapproj,
     countrycode,
     scales,
     dplyr,

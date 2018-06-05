@@ -2,7 +2,7 @@
 % Please edit documentation in R/map_theme.R
 \name{theme_map}
 \alias{theme_map}
-\title{ggplo2 bare theme for map}
+\title{ggplot2 bare theme for map}
 \usage{
 theme_map(base_size = 10, base_family = "")
 }
@@ -15,6 +15,7 @@ theme_map(base_size = 10, base_family = "")
 A basic ggplot2 theme to use for map without graticule/grid lines
 }
 \examples{
+require(ggplot2)
 ggplot() + 
   geom_sf(data = tilemap_ch()) + 
   theme_map()
