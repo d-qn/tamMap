@@ -9,7 +9,33 @@
 ##' @export
 ##' @examples
 ##' data <- loadCommunesCHgeographicalLevels()
-##' head(data)
+##' glimpse(data)
+##' 
+##' # Plot map of typologie urbainrural 2012 at the municipality level
+##' \dontrun{
+##' data <- data %>% 
+##' select(ofsID, name, Canton, `Typologie urbainrural 2012`)
+##' 
+##' # get the geographical data
+##' require(tidyverse)
+##' require(sf)
+##' # loop and load the geo data in a named list
+##' shp_ch_geodata <- shp_ch_paths_2018 %>% map(function(x) {
+##'   layerName <- st_layers(x)
+##'   st_read(x, layer = layerName$name) %>% 
+##'   select(ends_with("NR"), ends_with("NAME"))
+##' })
+##' 
+##' shp_ch_geodata$municipalities <- left_join(shp_ch_geodata$municipalities, data, by= c('GMDNR' = 'ofsID')) %>% 
+##' mutate(`Typologie urbainrural 2012` = as.factor(`Typologie urbainrural 2012`))
+##' 
+##' ggplot() +
+##'   geom_sf(data = shp_ch_geodata$municipalities, aes(fill = `Typologie urbainrural 2012`), lwd = 0.05, colour = "#0d0d0d") +
+##'   geom_sf(data = shp_ch_geodata$cantons, lwd = 0.15, colour = "#333333", fill = NA) +
+##'   geom_sf(data = shp_ch_geodata$country, lwd = 0.25, colour = "#000d1a", fill = NA) +
+##'   geom_sf(data = shp_ch_geodata$lakes, lwd = 0, fill = "#0066cc") +
+##'   theme_map()
+##' }
 loadCommunesCHgeographicalLevels <- function() {
   data.path <- dir(system.file("extdata", package="tamMap"), "^be-b-00.04-rgs-01\\.xlsx", full.names = T)
   
