@@ -9,10 +9,13 @@
 ##' @export
 ##' @examples
 ##' data <- loadCommunesCHgeographicalLevels()
-##' glimpse(data)
 ##' 
 ##' # Plot map of typologie urbainrural 2012 at the municipality level
 ##' \dontrun{
+##' require(tidyverse)
+##' require(sf)
+##' 
+##' glimpse(data)
 ##' data <- data %>% 
 ##' select(ofsID, name, Canton, `Typologie urbainrural 2012`)
 ##' 
