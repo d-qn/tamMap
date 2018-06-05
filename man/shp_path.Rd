@@ -11,15 +11,22 @@ shp_path(y = 2018, features = c("municipalities", "cantons", "lakes",
 \item{y, }{a numeric of lenghth 1. The year (as of the 1st of Jan) of geo data to get}
 
 \item{features, }{a string vector with the geographical levels' paths to returns, one of municipalities, municipalities_encl, lakes, agglomerations, cantons, largeRegions and country}
+
+\item{dirGeo, }{a string of length 1 the directory in the package inst/extdata/shp/ where to look for geo spatial data}
 }
 \value{
 a named vector with the full path to the shapefiles, name the geographical levels
 }
 \description{
 NOTE: Should be deprecated as soon the same data is available from swisstopo API!!
+}
+\details{
 Manual work, download all the G2 resolutions shp (non-vz) locally. 
-So far 2018 until 2013 downloaded and processed.
-Use that script to rename all the downloaded file in a folder and move them to:
+Rmove Lichenstein data:
+  li_files <- dir("inst/extdata/shp/CH", '.*_li.*', full.names = T) 
+  file.remove(li_files)
+So far 2018 until 2012 downloaded and processed.
+ALl ll the downloaded geodata are in:
 inst/extdata/shp/CH/
 }
 \examples{
@@ -48,9 +55,10 @@ gp <- ggplot() +
   geom_sf(data = shp_ch_geodata$cantons, lwd = 0.15, colour = "#333333", fill = NA) +
   geom_sf(data = shp_ch_geodata$country, lwd = 0.25, colour = "#000d1a", fill = NA) +
   geom_sf(data = shp_ch_geodata$lakes, lwd = 0, fill = "#0066cc")
-  gp + 
-  coord_sf(datum = NA, expand = F) +
-  theme_map
+
+  gp + theme_map +
+    scale_fill_viridis_c() +
+    coord_sf(datum = NA, expand = F)
 }
 }
 \seealso{

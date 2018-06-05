@@ -1,14 +1,19 @@
 ##' Return path to OFS geospatial data
 ##'
 ##' NOTE: Should be deprecated as soon the same data is available from swisstopo API!!
+##'
 ##' Manual work, download all the G2 resolutions shp (non-vz) locally. 
-##' So far 2018 until 2013 downloaded and processed.
-##' Use that script to rename all the downloaded file in a folder and move them to:
+##' Rmove Lichenstein data:
+##'   li_files <- dir("inst/extdata/shp/CH", '.*_li.*', full.names = T) 
+##'   file.remove(li_files)
+##' So far 2018 until 2012 downloaded and processed.
+##' ALl ll the downloaded geodata are in:
 ##' inst/extdata/shp/CH/
 ##' 
 ##' @seealso \url{https://www.bfs.admin.ch/bfs/fr/home/services/geostat/geodonnees-statistique-federale/limites-administratives/limites-communales-generalisees.html}
 ##' @param y, a numeric of lenghth 1. The year (as of the 1st of Jan) of geo data to get
 ##' @param features, a string vector with the geographical levels' paths to returns, one of municipalities, municipalities_encl, lakes, agglomerations, cantons, largeRegions and country
+##' @param dirGeo, a string of length 1 the directory in the package inst/extdata/shp/ where to look for geo spatial data
 ##' @import stringr dplyr tibble
 ##' @return a named vector with the full path to the shapefiles, name the geographical levels
 ##' @export
@@ -38,9 +43,10 @@
 ##'   geom_sf(data = shp_ch_geodata$cantons, lwd = 0.15, colour = "#333333", fill = NA) +
 ##'   geom_sf(data = shp_ch_geodata$country, lwd = 0.25, colour = "#000d1a", fill = NA) +
 ##'   geom_sf(data = shp_ch_geodata$lakes, lwd = 0, fill = "#0066cc")
-##'   gp + 
-##'   coord_sf(datum = NA, expand = F) +
-##'   theme_map
+##'
+##'   gp + theme_map +
+##'     scale_fill_viridis_c() +
+##'     coord_sf(datum = NA, expand = F)
 ##' }
 shp_path <- function(y = 2018, features = c('municipalities', 'cantons', 'lakes', 'country'), dirGeo = 'CH') {
   
@@ -89,6 +95,3 @@ shp_path <- function(y = 2018, features = c('municipalities', 'cantons', 'lakes'
     select(level, ori) %>% 
     deframe()
 }
-## remove Lichenstein data
-# li_files <- dir("inst/extdata/shp/CH", '.*_li.*', full.names = T) 
-# file.remove(li_files)
