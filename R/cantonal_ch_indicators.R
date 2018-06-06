@@ -9,8 +9,31 @@
 ##' @return a data.frame
 ##' @export
 ##' @examples
-##' \dontrun{
 ##' cantonalI <- loadCantonsCHportraits()
+##' \dontrun{
+##' require(geofacet)
+##' ## plot with geofacet the share the highest education reached by canton
+##' 
+##' # wrangle data
+##' edu <- cantonalI %>% 
+##'   select(`Sans formation postobligatoire (dès 25 ans)`, `Degré secondaire II (dès 25 ans)`, `Degré tertiaire (dès 25 ans)`) %>% 
+##'   rownames_to_column()
+##' stopifnot(all(rowSums(edu %>% select(-rowname)) %>% round() == 100))
+##' colnames(edu) <- gsub(" \\(dès 25 ans\\)", "", colnames(edu))
+##' edu <- edu %>% gather(education, pourc, -rowname) %>% 
+##'   rename(code = rowname) %>% 
+##'   mutate(education = fct_inorder(education))
+##'   
+##' # Plot
+##' ggplot(edu) + 
+##' geom_col(aes(x = education, y = pourc, fill = education)) + 
+##' coord_flip() +
+##' facet_geo( ~ code, grid = ch_cantons_grid2, label = "name_fr") +
+##' scale_x_discrete(labels = NULL, name ="") +
+##' scale_y_continuous(name = "") +
+##' theme(legend.position = "top") +
+##' ggtitle("Niveau d'éducation atteint par canton")
+##'     
 ##' }
 loadCantonsCHportraits <- function(file = "cantonal_CH_2016_indicators_je-f-21.03.02.csv") {
   data.path <- dir(system.file("extdata", package="tamMap"), file, full.names = T)

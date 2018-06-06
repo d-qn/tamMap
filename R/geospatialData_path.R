@@ -48,7 +48,7 @@
 ##'   geom_sf(data = shp_ch_geodata$municipalities, aes(fill = GMDNR), lwd = 0.05, colour = "#0d0d0d") +
 ##'   geom_sf(data = shp_ch_geodata$cantons, lwd = 0.15, colour = "#333333", fill = NA) +
 ##'   geom_sf(data = shp_ch_geodata$country, lwd = 0.25, colour = "#000d1a", fill = NA) +
-##'   geom_sf(data = shp_ch_geodata$lakes, lwd = 0, fill = "#0066cc")
+##'   geom_sf(data = shp_ch_geodata$lakes %>% filter(SEENAME != "Lago di Como"), lwd = 0, fill = "#0066cc")
 ##'
 ##' gp + 
 ##'     geom_sf(data = villes, aes(size = pop), fill = NA, shape = 1, colour = "darkred", stroke = 1, alpha = 0.8) +
