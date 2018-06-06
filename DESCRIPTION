@@ -10,14 +10,15 @@ Maintainer: Duc-Quang Nguyen <ducquang.nguyen@gmail.com>
 Imports:
     ggplot2 (>= 2.2.1.9000),
     sf,
-    countrycode,
     scales,
     dplyr,
     tidyr,
     tibble,
+    countrycode,
     readxl,
     pxR,
     stringr,
+    ggmap,
     geofacet
 License: GPL-3
 RoxygenNote: 6.0.1
