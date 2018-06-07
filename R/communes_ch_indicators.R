@@ -31,14 +31,29 @@
 ##' head(communeData[,colIdx])
 ##' 
 ##' zipcode <- loadCHzipcode()
-##' match(zipcode$Gemeindename, attr(communeData, "communeName"))
+##' # get the zipcode of each commune
+##' zp <- zipcode[match( attr(communeData, "communeName"), zipcode$Gemeindename),]
+##' 
 ##' \dontrun{
-##'   colnames(data)
-##'   g1 <- ggplot(data = as.data.frame(data), aes(x = `Etrangers en %`, y = UDC)) + 
-##'   geom_point(aes(size = Habitants), alpha = 0.5, colour = swiTheme::swi_col[1]) 
-##'   g1 + swiTheme::swi_theme()
-##' }
+##' library(tidyverse)
 ##'
+##' ## 1. Show the %foreigners vs % vote UDC
+##'   g1 <- ggplot(data = as.data.frame(communeData), aes(x = `Etrangers en %`, y = UDC)) + 
+##'   geom_point(aes(size = Habitants), alpha = 0.5)
+##'   g1
+##' 
+##' ## 2. Barcode chart: Densité de la population par km²" 
+##' communesList <- communes_list() %>% 
+##'   select(-`Numéro d'historisation`, -`Numéro du district`, -`Date de l'inscription`)
+##' 
+##' dd <- communeData %>% as.data.frame() %>% 
+##'   rownames_to_column(var = "Numéro de la commune") %>% 
+##'   select(`Numéro de la commune`, `Densité de la population par km²`) %>% 
+##'   mutate(`Numéro de la commune` = as.integer(`Numéro de la commune`))
+##' dd <- left_join(dd, communesList)  
+##' 
+##' ggplot(dd) + geom_segment --------------------------------- TO CONTINUE !! -----------------------------------
+##' }
 loadCommunesCHportraits <- function() {
 
   # get the path to communes data txt file 
@@ -134,7 +149,6 @@ processPortraitsRegionauxCommune <- function(
 ##' @seealso \url{http://opendata.admin.ch/de/dataset/ch-swisstopo-vd-ortschaftenverzeichnis_plz/resource/35001b61-e7c1-4124-89fa-17fac7b1139e} from: \url{http://opendata.admin.ch/de/dataset/ch-swisstopo-vd-ortschaftenverzeichnis_plz}
 ##' @export
 loadCHzipcode <- function() {
-  
   # get the path to communes data txt file 
   data.path <- dir(system.file("extdata", package="tamMap"), "PLZO_CSV_LV03.csv", full.names = T)
   return(read.csv2(data.path, header = TRUE, stringsAsFactors = F, check.names = FALSE, encoding = "latin1"))

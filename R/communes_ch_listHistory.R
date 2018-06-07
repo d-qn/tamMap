@@ -1,13 +1,11 @@
-##' Swiss communes history
+##' Swiss communes list & history
 ##'
-##' Helper functions to reconstruct the merging, scission, name changes of Swiss communes
+##' Helper functions to reconstruct the merging, scission, name changes of Swiss communes (a freaking headache) or more simply listing all the communes that ever existed.
 ##' 
-##' @name communes_CH_history
+##' @rdname communes_CH_listHistory
 ##' @param start,end Date objets: the timeframe at which to query the list of communes changes
 ##' @return a data.frame
-##' @details
-##' 
-##' \url{http://www.bfs.admin.ch/bfs/portal/fr/index/news/publikationen.Document.92111.pdf}
+##' @seealso \url{http://www.bfs.admin.ch/bfs/portal/fr/index/news/publikationen.Document.92111.pdf}
 ##' 
 ##' GINIART code:
 ##' 11 Commune politique
@@ -27,8 +25,12 @@
 ##' 30 Annulation de la mutation
 ##' @export
 ##' @examples
+##' ### List of communes
+##' communesCH_list <- communes_list()
+##' 
+##' ### Communes history
 ##' start <- as.Date("2012-01-01")
-##' data <- loadCommunesCHdata()
+##' data <- communes_history()
 ##' ## Get all the communes "Fusion"  [A] + [B] = [C]
 ##' # get the ID of the new communes created 
 ##' ginimut <- data[which(data$GINIART == 21 & data$GINIDAT >= start),'GINIMUT']
@@ -48,7 +50,7 @@
 ##' })
 ##' names(result) <- ginimut
 ##' result
-loadCommunesCHdata <- function(start = "2012-01-01", end = Sys.Date()) {
+communes_history <- function(start = "2012-01-01", end = Sys.Date()) {
   start <- as.Date(start)
   end <- as.Date(end)
   
@@ -65,4 +67,13 @@ loadCommunesCHdata <- function(start = "2012-01-01", end = Sys.Date()) {
   data$GMUTDAT <- as.Date(data$GMUTDAT, format = "%d.%m.%Y")
   
   data[which((data$GFINDAT >= start | data$GINIDAT >= start) & (data$GFINDAT <= end | data$GINIDAT <= end)),]
+}
+##' @rdname communes_CH_listHistory
+##' @param file, a string the path to the xls file containing the full list of Swiss communes. Probably doesn't need to modified
+##' @importFrom readxl read_xls
+##' @return a tibble data.frame of all the communes as of April 2018
+##' @seealso \href{https://www.agvchapp.bfs.admin.ch/fr/home}{État des communes - État au 01.04.2018 (Excel XLS)}
+##' @export
+communes_list <- function(file = dir(system.file("extdata", package="tamMap"), "EtatCommunes.xls", full.names = T)) {
+  readxl::read_xls(file)  
 }

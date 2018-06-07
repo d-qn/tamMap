@@ -41,25 +41,6 @@ The matrix has the commune BFS code as rowname and 3 attributes: \itemize{
 }
 }
 \examples{
-communeData <- loadCommunesCHportraits()
-colnames(communeData)
-head(rownames(communeData))
-attr(communeData, "indicatorYear")
-attr(communeData, "indicatorGroup")
-
-# Select only "surface" indicators
-colIdx <- which(attr(communeData, "indicatorGroup") == "Surface")
-head(communeData[,colIdx])
-
-zipcode <- loadCHzipcode()
-match(zipcode$Gemeindename, attr(communeData, "communeName"))
-\dontrun{
-  colnames(data)
-  g1 <- ggplot(data = as.data.frame(data), aes(x = `Etrangers en \%`, y = UDC)) + 
-  geom_point(aes(size = Habitants), alpha = 0.5, colour = swiTheme::swi_col[1]) 
-  g1 + swiTheme::swi_theme()
-}
-
 \dontrun{
 processPortraitsRegionauxCommune()
 }
