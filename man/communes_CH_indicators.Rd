@@ -9,8 +9,8 @@
 \usage{
 loadCommunesCHportraits()
 
-processPortraitsRegionauxCommune(file = "je-f-21.03.01.xls",
-  output = "communesCH_2016_indicators_je-f-21.03.01.csv")
+processPortraitsRegionauxCommune(file = "je-f-21.03.01.xlsx",
+  output = "communesCH_2018_indicators_je-f-21.03.01.csv")
 
 loadCHzipcode()
 }
@@ -41,6 +41,60 @@ The matrix has the commune BFS code as rowname and 3 attributes: \itemize{
 }
 }
 \examples{
+communeData <- loadCommunesCHportraits()
+colnames(communeData)
+head(rownames(communeData))
+attr(communeData, "indicatorYear")
+attr(communeData, "indicatorGroup")
+
+# Select only "surface" indicators
+colIdx <- which(attr(communeData, "indicatorGroup") == "Surface")
+head(communeData[,colIdx])
+
+zipcode <- loadCHzipcode()
+# get the zipcode of each commune
+zp <- zipcode[match( attr(communeData, "communeName"), zipcode$Gemeindename),]
+
+\dontrun{
+library(tidyverse)
+
+## 1. Show the \%foreigners vs \% vote UDC
+  g1 <- ggplot(data = as.data.frame(communeData), aes(x = `Etrangers en \%`, y = UDC)) + 
+  geom_point(aes(size = Habitants), alpha = 0.5)
+  g1
+
+## 2. Barcode chart: Densité de la population par km²" 
+## ------------- TO DO add some text what is highlighted,  better colour use, ..
+communesList <- communes_list() \%>\% 
+  select(-`Numéro d'historisation`, -`Numéro du district`, -`Date de l'inscription`)
+
+dd <- communeData \%>\% as.data.frame() \%>\% 
+  rownames_to_column(var = "Numéro de la commune") \%>\% 
+  select(`Numéro de la commune`, `Densité de la population par km²`, 
+  `Surface agricole en \%`, `PS`) \%>\% 
+  mutate(`Numéro de la commune` = as.integer(`Numéro de la commune`))
+dd <- left_join(dd, communesList) \%>\% 
+  gather(feature, value, -`Numéro de la commune`, 
+  -Canton, -`Nom du district`, -`Nom de la commune`)
+## colour group
+## 6617 Cologny < GE < remaining
+ddd <- dd \%>\% mutate(
+  cgroup = as.factor(ifelse(`Numéro de la commune` == 6617, 1,
+    ifelse(Canton == "GE", 2, 3))),
+  alpha = case_when(cgroup == 1 ~ 1, cgroup == 2 ~ 0.7, cgroup == 3 ~ 0.1),
+  size  = case_when(cgroup == 1 ~ 0.25, cgroup == 2 ~ 0.1, cgroup == 3 ~ 0.05),
+  )
+
+ggplot(ddd) +
+  geom_segment(aes(x = value, xend = value, colour = cgroup, alpha = alpha, size = size), 
+  y = -0.5, yend = 0.5) +
+  scale_y_continuous(expand = c(0,0)) +
+  theme_minimal() +
+  facet_wrap(~feature, ncol = 1, scales = "free_x") +
+  scale_alpha_identity() +
+  scale_size_identity()
+  
+}
 \dontrun{
 processPortraitsRegionauxCommune()
 }

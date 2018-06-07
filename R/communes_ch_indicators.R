@@ -43,21 +43,41 @@
 ##'   g1
 ##' 
 ##' ## 2. Barcode chart: Densité de la population par km²" 
+##' ## ------------- TO DO add some text what is highlighted,  better colour use, ..
 ##' communesList <- communes_list() %>% 
 ##'   select(-`Numéro d'historisation`, -`Numéro du district`, -`Date de l'inscription`)
 ##' 
 ##' dd <- communeData %>% as.data.frame() %>% 
 ##'   rownames_to_column(var = "Numéro de la commune") %>% 
-##'   select(`Numéro de la commune`, `Densité de la population par km²`) %>% 
+##'   select(`Numéro de la commune`, `Densité de la population par km²`, 
+##'   `Surface agricole en %`, `PS`) %>% 
 ##'   mutate(`Numéro de la commune` = as.integer(`Numéro de la commune`))
-##' dd <- left_join(dd, communesList)  
+##' dd <- left_join(dd, communesList) %>% 
+##'   gather(feature, value, -`Numéro de la commune`, 
+##'   -Canton, -`Nom du district`, -`Nom de la commune`)
+##' ## colour group
+##' ## 6617 Cologny < GE < remaining
+##' ddd <- dd %>% mutate(
+##'   cgroup = as.factor(ifelse(`Numéro de la commune` == 6617, 1,
+##'     ifelse(Canton == "GE", 2, 3))),
+##'   alpha = case_when(cgroup == 1 ~ 1, cgroup == 2 ~ 0.7, cgroup == 3 ~ 0.1),
+##'   size  = case_when(cgroup == 1 ~ 0.25, cgroup == 2 ~ 0.1, cgroup == 3 ~ 0.05),
+##'   )
 ##' 
-##' ggplot(dd) + geom_segment --------------------------------- TO CONTINUE !! -----------------------------------
+##' ggplot(ddd) +
+##'   geom_segment(aes(x = value, xend = value, colour = cgroup, alpha = alpha, size = size), 
+##'   y = -0.5, yend = 0.5) +
+##'   scale_y_continuous(expand = c(0,0)) +
+##'   theme_minimal() +
+##'   facet_wrap(~feature, ncol = 1, scales = "free_x") +
+##'   scale_alpha_identity() +
+##'   scale_size_identity()
+##'   
 ##' }
 loadCommunesCHportraits <- function() {
 
   # get the path to communes data txt file 
-  data.path <- dir(system.file("extdata", package="tamMap"), "communesCH_2016_indicators_je-f-21.03.01.csv", full.names = T)
+  data.path <- dir(system.file("extdata", package="tamMap"), "communesCH_2018_indicators_je-f-21.03.01.csv", full.names = T)
   data.read <- read.csv(data.path, skip = 3, header = TRUE, stringsAsFactors = F, check.names = FALSE)
  
    # save ony the indicator values as a matrix
@@ -80,7 +100,6 @@ loadCommunesCHportraits <- function() {
   )
   data
 }
-
 ##' Process Portraits régionaux de la Suisse commune xls
 ##' 
 ##' Useful to update the source data of commune socio-economic indicators loaded by \code{loadCommunesCHportraits}
@@ -99,8 +118,8 @@ loadCommunesCHportraits <- function() {
 ##' processPortraitsRegionauxCommune()
 ##' }
 processPortraitsRegionauxCommune <- function(
-  file = 'je-f-21.03.01.xls', 
-  output = 'communesCH_2016_indicators_je-f-21.03.01.csv'
+  file = 'je-f-21.03.01.xlsx', 
+  output = 'communesCH_2018_indicators_je-f-21.03.01.csv'
 ) {
   
   out.path <- paste0(getwd(), "/inst/extdata/", output)
