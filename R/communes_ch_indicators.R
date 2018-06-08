@@ -61,18 +61,20 @@
 ##'   cgroup = as.factor(ifelse(`Numéro de la commune` == 6617, 1,
 ##'     ifelse(Canton == "GE", 2, 3))),
 ##'   alpha = case_when(cgroup == 1 ~ 1, cgroup == 2 ~ 0.7, cgroup == 3 ~ 0.1),
-##'   size  = case_when(cgroup == 1 ~ 0.25, cgroup == 2 ~ 0.1, cgroup == 3 ~ 0.05),
+##'   size  = case_when(cgroup == 1 ~ 1, cgroup == 2 ~ 0.5, cgroup == 3 ~ 0.3),
 ##'   )
 ##' 
-##' ggplot(ddd) +
+##' barcode <- ggplot(ddd) +
 ##'   geom_segment(aes(x = value, xend = value, colour = cgroup, alpha = alpha, size = size), 
 ##'   y = -0.5, yend = 0.5) +
-##'   scale_y_continuous(expand = c(0,0)) +
+##'   scale_y_continuous(expand = c(0,0), limits=c(-0.5, 0.5), labels = NULL) +
 ##'   theme_minimal() +
 ##'   facet_wrap(~feature, ncol = 1, scales = "free_x") +
 ##'   scale_alpha_identity() +
-##'   scale_size_identity()
-##'   
+##'   scale_size_identity() +
+##'   scale_colour_manual(values = c('#003333', '#008080', '#00e6e6'))
+##' 
+##' barcode + theme(strip.text = element_text(hjust = 0), panel.grid = element_blank())
 ##' }
 loadCommunesCHportraits <- function() {
 
