@@ -8,11 +8,11 @@ shp_path(y = 2018, features = c("municipalities", "cantons", "lakes",
   "country"), dirGeo = "CH")
 }
 \arguments{
-\item{y, }{a numeric of lenghth 1. The year (as of the 1st of Jan) of geo data to get. It is currently used for dirGeo CH, ignored for the other options}
+\item{y}{a numeric of lenghth 1. The year (as of the 1st of Jan) of geo data to get. It is currently used for dirGeo CH, ignored for the other options}
 
-\item{features, }{a string vector with the geographical levels' paths to returns, one of municipalities, municipalities_encl, lakes, agglomerations, cantons, largeRegions and country}
+\item{features}{a string vector with the geographical levels' paths to returns, one of municipalities, municipalities_encl, lakes, agglomerations, cantons, largeRegions and country}
 
-\item{dirGeo, }{a string of length 1 the directory in the package inst/extdata/shp/ where to look for geo spatial data. Currently: CH, CH/quartiers or World}
+\item{dirGeo}{a string of length 1 the directory in the package inst/extdata/shp/ where to look for geo spatial data. Currently: CH, CH/quartiers or World}
 }
 \value{
 a named vector with the full path to the shapefiles, name the geographical levels

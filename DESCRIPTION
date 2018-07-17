@@ -2,7 +2,7 @@ Package: tamMap
 Type: Package
 Title: Convenience functions for geomapping Swiss data
 Description: Misc functions to process and plot geographic maps, mainly swiss maps (cantonal,
-    districts and communes). It contains also a bunch of socio-economic indicators and ballot data that can be mapped (cantons and communes). 
+    districts and communes). It contains also a bunch of socio-economic indicators and ballot data that can be mapped (cantons and communes).
 Version: 0.7
 Date: 2018-05-30
 Author: Duc-Quang Nguyen
