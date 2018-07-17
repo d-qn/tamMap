@@ -35,8 +35,7 @@ df <- esri2sf(url)
 
 ### A long example to show a map with a zoom inlet map of Geneva
 
-
-
+![](man/figures/README-inletMap-1.png)
 
 ```{r inletMap, echo = FALSE}
 library(tamMap)
@@ -128,6 +127,9 @@ gp <- ggplot() +
   ggiraph( ggobj = gpi, width = 1)
 ```
 ### Geneva map only with water bodies
+
+![](man/figures/README-GenevaMapWater-1.png)
+
 ```{r GenevaMapWater, echo = F}
 shp_ch_paths_2018 <- shp_path(2018)
 
