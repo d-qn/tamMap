@@ -3,10 +3,13 @@
 ##' NOTE: Should be deprecated as soon the same data is available from swisstopo API!!
 ##'
 ##' Manual work, download all the G2 resolutions shp (non-vz, i.e. on the 01.01) locally. 
-##' The MN95 (LV95) was used, not LV03
-##' Rmove Lichenstein data:
+##' The MN95 (LV95) was used, not LV03.
+##' 
+##' To remove Lichenstein data:
+##'   
 ##'   li_files <- dir("inst/extdata/shp/CH", '.*_li.*', full.names = T) 
 ##'   file.remove(li_files)
+##'   
 ##' So far 2018 until 2012 downloaded and processed.
 ##' ALl ll the downloaded geodata are in:
 ##' inst/extdata/shp/CH/
@@ -34,7 +37,8 @@
 ##' # loop and load the Swiss geographical levels data in a named list
 ##' shp_ch_geodata <- shp_ch_paths_2018 %>% map(function(x) {
 ##'   layerName <- st_layers(x)
-##'   st_read(x, layer = layerName$name) %>% 
+##'   st_read(x, layer = layerName$name, 
+##'     options = "ENCODING=latin1") %>% 
 ##'   select(ends_with("NR"), ends_with("NAME"))
 ##' })
 ##' # 5 largest Swiss cites
@@ -64,6 +68,25 @@
 ##' filter(GMDE == 6621) %>% 
 ##' select(NR, NAME, GMDE) 
 ##' plot(geq)
+##' 
+##' ## 2.b plots GVA muni based on whole muni map
+##'  gva <- shp_ch_geodata$municipalities %>% filter(KTNR == 25)
+##'  gva_box <- gva %>% st_bbox() %>% st_as_sfc()
+##'  # crop leman lake
+##'  lagv <- shp_ch_geodata$lakes %>% 
+##'    filter(SEENAME == "Lac Léman") %>% 
+##'    st_intersection(gva_box)
+##'  
+##'  ggplot() + 
+##'   geom_sf(
+##'     data =lagv, lwd = 0, fill = "lightgrey", alpha = 0.5
+##'   ) +
+##'   geom_sf(
+##'     data = gva,
+##'     aes(fill = GMDNR), lwd = 0, colour = "#0d0d0d"
+##'   ) + 
+##'   theme_map() +
+##'   coord_sf(datum = NA, expand = F)
 ##' 
 ##' }
 shp_path <- function(y = 2018, features = c('municipalities', 'cantons', 'lakes', 'country'), dirGeo = 'CH') {
