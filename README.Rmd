@@ -44,9 +44,6 @@ df <- esri2sf(url)
 
 ### A long example to show a map with a zoom inlet map of Geneva
 
-
-
-
 ```{r inletMap, echo = FALSE}
 library(tamMap)
 require(sf)
@@ -137,21 +134,11 @@ gp <- ggplot() +
   ggiraph( ggobj = gpi, width = 1)
 ```
 ### Geneva map only with water bodies
+
 ```{r GenevaMapWater, echo = F}
-shp_ch_paths_2018 <- shp_path(2018)
-
-# loop and load the geo data in a named list
-shp_ch_geodata <- shp_ch_paths_2018[c('municipalities')] %>% 
-  map(function(x) {
-    layerName <- st_layers(x)
-       st_read(x, layer = layerName$name, 
-          options = "ENCODING=latin1", stringsAsFactors = F) %>% 
-  select(ends_with("NR"), ends_with("NAME"))
-})
-
 gva <- shp_ch_geodata$municipalities %>% filter(KTNR == 25)
 
-# get water bodies (river & lake)
+# get water bodies (river & lake) from SITG
 library(esri2sf)
 url <- 'https://ge.ch/sitgags1/rest/services/VECTOR/SITG_OPENDATA_02/MapServer/6186'
 water <- esri2sf(url)
@@ -170,3 +157,45 @@ ggplot() +
 
 ```
 
+```{r GenevaZoomCity}
+# gva <- shp_ch_geodata$municipalities %>% filter(KTNR == 25)
+# get Geneva's city sectors/quartiers
+shp_quartiers <- shp_path(dirGeo = "CH/quartiers")
+geq <- st_read(shp_quartiers, layer = "quart17") %>% 
+  filter(GMDE == 6621) %>% 
+  select(NR, NAME, GMDE) 
+
+inlet_geo <- shiftScale_geo(geo = geq, scaleF = 3, shiftM = c(-11000, 16000))
+# Create circles sf to encompass the inlet map and its original location
+geo_subset_coord <- encircle_coord(geq)
+inlet_coord <- encircle_coord(inlet_geo)
+cone_sfc <- cone_geo(geo_subset_coord, inlet_coord)
+circle_zoom_sfc <- encircle_geo(geo_subset_coord)
+circle_inlet_sfc <- encircle_geo(inlet_coord)
+
+
+# plot
+gp <- ggplot() +
+  geom_sf(data = cone_sfc, fill = "lightgrey", lwd = 0, alpha = 0.2) +  
+  geom_sf(data = circle_inlet_sfc, fill = "lightgrey", lwd = 0, alpha = 0.5) +
+  geom_sf(data = gva, aes(fill = GMDNAME), 
+    lwd = 0.05, colour = "#0d0d0d") +
+  geom_sf(data = gva %>% filter(GMDNR == 6621), 
+          fill = NA, lwd = 0.5, colour = "#0d0d0d") +
+  geom_sf(data = inlet_geo, aes(fill = NAME), lwd = 0.1, colour = "#0d0d0d") +
+   geom_sf(
+   data = water, lwd = 0.65, fill = "lightblue", 
+   alpha = 1, colour = "lightblue"
+ )  +
+    geom_sf(data = circle_zoom_sfc, fill = NA, lwd = 0.3, alpha = 0, colour = "grey")
+
+  gp + 
+    theme_map() +
+    theme(legend.position = "none") +
+    scale_fill_viridis_d()  +
+    coord_sf(datum = NA, expand = F)
+  
+  
+
+
+```

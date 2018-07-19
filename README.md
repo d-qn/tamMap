@@ -14,7 +14,8 @@ devtools::install_github("d-qn/taMap")
 ```
 ## TODO
 
-### Add more G1 geodata (only 2018 gemeinde so far)
+### Add G1 geodata? 
+### Example for GVA in geospatialData_path, add zoom in with quartiers GVA ville
 
 ### Clean up
 * Use swisstopop API to get geospatial data
