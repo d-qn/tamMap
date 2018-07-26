@@ -194,8 +194,4 @@ gp <- ggplot() +
     theme(legend.position = "none") +
     scale_fill_viridis_d()  +
     coord_sf(datum = NA, expand = F)
-  
-  
-
-
 ```
