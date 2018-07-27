@@ -5,7 +5,7 @@
 ##' @rdname communes_CH_listHistory
 ##' @param start,end Date objets: the timeframe at which to query the list of communes changes
 ##' @return a data.frame
-##' @seealso \url{http://www.bfs.admin.ch/bfs/portal/fr/index/news/publikationen.Document.92111.pdf}
+##' @seealso data downloaded from \url{https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/repertoire-officiel-communes-suisse/liste-historisee-communes.html}, explication \url{https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/repertoire-officiel-communes-suisse/liste-historisee-communes.assetdetail.4062823.html}
 ##' 
 ##' GINIART code:
 ##' 11 Commune politique
