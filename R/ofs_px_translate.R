@@ -12,14 +12,14 @@
 ##' @import pxR
 ##' @return a data.frame 
 ##' @export
-##' @examples 
+##' @examples
 ##' \dontrun{
 ##' }
 
 ofsPx_wrangle <- function(px.file, langout = 'fr', attachCode = "") {
   stopifnot(langout %in% c('fr', 'it', 'en'))
   
-  px.read <- read.px(px.file)
+  px.read <- read.px(px.file, na.strings = c('"."', '".."', '"..."', '"...."', '"......"', '":"'))
   languagesAvailable <- str_extract_all(names(px.read), "\\.[:alpha:]{2}\\.$") %>% 
     unlist() %>% unique() %>% 
     str_replace_all("\\.", "")
