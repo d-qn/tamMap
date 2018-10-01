@@ -29,8 +29,6 @@ Load socio-demographic data by the Swiss Statistical Office.
 
 Useful to update the source data of commune socio-economic indicators loaded by \code{loadCommunesCHportraits}
 Warning of possible break if the OFS changes the data structure of the xls file!!
-
-Load the NPA/PLZ/ Zip code for Switzerland
 }
 \details{
 Run \code{processPortraitsRegionauxCommune()} to generate a readable csv file for \code{loadCommunesCHportraits}

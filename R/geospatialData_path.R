@@ -18,7 +18,7 @@
 ##' @seealso \href{https://www.bfs.admin.ch/bfs/fr/home/services/geostat/geodonnees-statistique-federale/limites-administratives/limites-communales-generalisees.html}{OFS Limites communales généralisées} & \href{https://www.bfs.admin.ch/bfs/fr/home/services/geostat/geodonnees-statistique-federale/limites-administratives/limites-quartiers-villes-suisses.assetdetail.4082002.html}{https://www.bfs.admin.ch/bfs/fr/home/services/geostat/geodonnees-statistique-federale/limites-administratives/limites-quartiers-villes-suisses.assetdetail.4082002.html}
 ##' @param y a numeric of lenghth 1. The year (as of the 1st of Jan) of geo data to get. It is currently used for dirGeo CH, ignored for the other options
 ##' @param features a string vector with the geographical levels' paths to returns, one of municipalities, municipalities_encl, lakes, agglomerations, cantons, largeRegions and country
-##' @param dirGeo a string of length 1 the directory in the package inst/extdata/shp/ where to look for geo spatial data. Currently: CH, CH/quartiers or World
+##' @param dirGeo a string of length 1 the directory in the package inst/extdata/shp/ where to look for geo spatial data. Currently: CH, CH/ge (all Geneva's subsectors), CH/quartiers, CH/villes or World
 ##' @import stringr dplyr tibble
 ##' @return a named vector with the full path to the shapefiles, name the geographical levels
 ##' @seealso \code{processSwissCities} to generate the shapefiles for Swiss cities

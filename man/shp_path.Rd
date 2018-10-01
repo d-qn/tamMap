@@ -12,7 +12,7 @@ shp_path(y = 2018, features = c("municipalities", "cantons", "lakes",
 
 \item{features}{a string vector with the geographical levels' paths to returns, one of municipalities, municipalities_encl, lakes, agglomerations, cantons, largeRegions and country}
 
-\item{dirGeo}{a string of length 1 the directory in the package inst/extdata/shp/ where to look for geo spatial data. Currently: CH, CH/quartiers or World}
+\item{dirGeo}{a string of length 1 the directory in the package inst/extdata/shp/ where to look for geo spatial data. Currently: CH, CH/ge (all Geneva's subsectors), CH/quartiers, CH/villes or World}
 }
 \value{
 a named vector with the full path to the shapefiles, name the geographical levels

@@ -19,8 +19,6 @@ canton_namesStrict(query, output = "iso2")
 }
 \description{
 Functions to convert Switzerland's cantons, districts and communes names to their abbreviations and official BFS ID
-
-Convert Swiss canton names to different languages and abbreviations
 }
 \details{
 See \code{canton_CH}

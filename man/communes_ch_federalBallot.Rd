@@ -23,11 +23,6 @@ a matrix, rownames are cantons (2 letters name) and colnames are federal ballot 
 }
 \description{
 Load any federal ballots resuts by communes: https://www.pxweb.bfs.admin.ch/DownloadFile.aspx?file=px-x-1703030000_101
-
-Process Portraits régionaux de la Suisse commune px file
-This will download the px file from \url{https://www.bfs.admin.ch/bfs/en/home/statistics/politics/popular-votes.assetdetail.1363949.html}, process it and save it as a Rdata file
-Useful to update the ballot results loaded by  \code{loadCommunesCHFederalBallot}
-Warning of possible break if the OFS changes the data structure of the px file!!
 }
 \details{
 Run \code{processFederalBallotByCommunes()} to generate a readable csv file for loadCommunesCHFederalBallot
