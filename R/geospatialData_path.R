@@ -143,6 +143,8 @@ shp_path <- function(
     structure(files, names = basename(dirGeo))
   } else if(dirGeo == "CH/villes") {
     structure(files, names = basename(dirGeo))    
+  } else if(dirGeo == "CH/ge") {
+    structure(files, names = basename(dirGeo))    
   } else if(dirGeo == "World") {
     structure(files, names = dirGeo)
   } else {
