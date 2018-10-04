@@ -17,6 +17,7 @@
 ##' @details For the CH/quartiers Les limites de quartiers sont fournies pour les communes suivantes : Winterthour (230), Zurich (261), Berne (351), Bienne (371), Lucerne (1061), Bâle (2701), Saint-Gall (3203), Lugano (5192), Lausanne (5586) et Genève (6621)
 ##' @seealso \href{https://www.bfs.admin.ch/bfs/fr/home/services/geostat/geodonnees-statistique-federale/limites-administratives/limites-communales-generalisees.html}{OFS Limites communales généralisées} & \href{https://www.bfs.admin.ch/bfs/fr/home/services/geostat/geodonnees-statistique-federale/limites-administratives/limites-quartiers-villes-suisses.assetdetail.4082002.html}{https://www.bfs.admin.ch/bfs/fr/home/services/geostat/geodonnees-statistique-federale/limites-administratives/limites-quartiers-villes-suisses.assetdetail.4082002.html}
 ##' @param y a numeric of lenghth 1. The year (as of the 1st of Jan) of geo data to get. It is currently used for dirGeo CH, ignored for the other options
+##' @param generalisationLevel, a numeric of length 1. The "generalisation level" of the geo data 1: detailed, 2:less detailed
 ##' @param features a string vector with the geographical levels' paths to returns, one of municipalities, municipalities_encl, lakes, agglomerations, cantons, largeRegions and country
 ##' @param dirGeo a string of length 1 the directory in the package inst/extdata/shp/ where to look for geo spatial data. Currently: CH, CH/ge (all Geneva's subsectors), CH/quartiers, CH/villes or World
 ##' @import stringr dplyr tibble
@@ -91,8 +92,11 @@
 ##' }
 shp_path <- function(
   y = 2018, 
+  generalisationLevel = 2,
   features = c('municipalities', 'cantons', 'lakes', 'country'), 
   dirGeo = 'CH') {
+  
+  stopifnot(generalisationLevel %in% c(1,2), is.numeric(generalisationLevel))
   
   geo.path <- file.path("extdata/shp", dirGeo)
   files <- dir(system.file(geo.path, package="tamMap"), 
@@ -109,7 +113,13 @@ shp_path <- function(
       stop("\narg features has to be one of: municipalities, municipalities_encl, lakes, agglomerations, cantons, largeRegions and country!\n")
     }
     
-    files_parsed <- str_match_all(basename(files), pattern = "^g2(.)(\\d{2})(.*)\\.shp$")
+    if(generalisationLevel == 1) {
+      files_parsed <- str_match_all(basename(files), pattern = "^g1(.)(\\d{2})(.*)\\.shp$") 
+    } 
+    if(generalisationLevel == 2) {
+      files_parsed <- str_match_all(basename(files), pattern = "^g2(.)(\\d{2})(.*)\\.shp$") 
+    } 
+    
     files_parsed <- do.call(rbind, files_parsed) %>% 
       as_tibble()
     colnames(files_parsed) <- c('ori', 'type', 'year' , 'suffix')
@@ -128,8 +138,9 @@ shp_path <- function(
       ))) %>% 
       mutate(
         year = str_c("20", year) %>% as.numeric()
-      ) %>% 
-      mutate(ori = files) %>% 
+      )
+    files_parsed <- files_parsed %>% 
+      mutate(ori = files[match(files_parsed$ori, basename(files))]) %>% 
       arrange(desc(year))
     
     files_parsed <- files_parsed %>% 

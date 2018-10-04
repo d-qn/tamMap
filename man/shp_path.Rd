@@ -4,11 +4,14 @@
 \alias{shp_path}
 \title{Return path to (mainly OFS) geospatial data}
 \usage{
-shp_path(y = 2018, features = c("municipalities", "cantons", "lakes",
-  "country"), dirGeo = "CH")
+shp_path(y = 2018, generalisationLevel = 2,
+  features = c("municipalities", "cantons", "lakes", "country"),
+  dirGeo = "CH")
 }
 \arguments{
 \item{y}{a numeric of lenghth 1. The year (as of the 1st of Jan) of geo data to get. It is currently used for dirGeo CH, ignored for the other options}
+
+\item{generalisationLevel, }{a numeric of length 1. The "generalisation level" of the geo data 1: detailed, 2:less detailed}
 
 \item{features}{a string vector with the geographical levels' paths to returns, one of municipalities, municipalities_encl, lakes, agglomerations, cantons, largeRegions and country}
 
