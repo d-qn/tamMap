@@ -1,6 +1,7 @@
 ##' Swiss communes geographical data
 ##'
-##' Load the Swiss statistical office communes data from: \url{https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/niveaux-geographiques.html}
+##' Load the Swiss statistical office portraits of communes data from: \url{https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/niveaux-geographiques.html}. 
+##' They have now an interactive app, choose the Excel file \url{https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/niveaux-geographiques.html}
 ##'
 ##' @return a data.frame with tons of geographical features, check the source excel for more details
 ##' @details The portrait includes non political OFS ID, i.e. lakes
