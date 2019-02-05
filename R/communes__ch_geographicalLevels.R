@@ -1,12 +1,12 @@
 ##' Swiss communes geographical data
 ##'
-##' Load the Swiss statistical office portraits of communes data from: \url{https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/niveaux-geographiques.html}. 
+##' Load the Swiss statistical office geographical levels communes data from: \url{https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/niveaux-geographiques.html}. 
 ##' They have now an interactive app, choose the Excel file \url{https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/niveaux-geographiques.html}
 ##'
 ##' @return a data.frame with tons of geographical features, check the source excel for more details
 ##' @details The portrait includes non political OFS ID, i.e. lakes
 ##' @seealso Typologie des communes et typologie urbain-rural 2012: \url{https://www.bfs.admin.ch/bfs/fr/home/actualites/quoi-de-neuf.assetdetail.2543324.html}
-##' @import readxl dplyr
+##' @import readxl dplyr tibble
 ##' @export
 ##' @examples
 ##' data <- loadCommunesCHgeographicalLevels()
@@ -41,10 +41,10 @@
 ##'   theme_map()
 ##' }
 loadCommunesCHgeographicalLevels <- function() {
-  data.path <- dir(system.file("extdata", package="tamMap"), "^be-b-00.04-rgs-01\\.xlsx", full.names = T)
+  data.path <- dir(system.file("extdata", package="tamMap"), "^be-f-00.04-rgs-01\\.xlsx", full.names = T)
   
   # get the data date
-  metadata <- readxl::read_excel(data.path, range = "N1:N1", col_names = F)
+  metadata <- readxl::read_excel(data.path, sheet = "Métadonnées", range = "A10:A10", col_names = F)
   if(length(metadata) == 0) {
     warning(paste0("Metadata of ", data.path, " could not be parsed!\n"))
   } else {
@@ -52,18 +52,21 @@ loadCommunesCHgeographicalLevels <- function() {
     cat("\n\n----------  Load: Niveaux geographiques de la Suisse, au ", 
         date, "  ----------\n\n")
   }
-  data.read <- readxl::read_excel(data.path, skip = 4)
+  data.read <- readxl::read_excel(data.path, skip = 3, col_names = F)
 
-  #discard row without OFS #
-  data.read <- data.read[!is.na(data.read[,1]),]
-
-  #reformat some columns
-  data.read$Canton <- as.numeric(data.read$Canton)
-
+  stopifnot(!any(is.na(data.read[,1])))
+  
+  # colnames are on 2 lines, concatenate
+  coln1 <- readxl::read_excel(data.path, skip = 1, n_max = 1, col_names = F) %>% 
+    unlist(use.names = F) 
+  coln2 <- readxl::read_excel(data.path, skip = 0, n_max = 1, col_names = F) %>% 
+    unlist(use.names = F) 
+  coln2 <- tidyr::fill(enframe(coln2), value) %>% .$value
+  coln2 <- c(rep("", length(coln1) - length(coln2)), coln2)
+  colnames(data.read) <- paste0(coln1, " (", coln2, ")")
+  
   #rename columns
-  data.read <- data.read %>% rename(ofsID = `N° \r\nOFS`, name = `Nom de la commune`)
-  # colnames might have line break and hypen
-  colnames(data.read) <- gsub("(\n|-|\\*$)", "", colnames(data.read))
+  data.read <- data.read %>% rename(ofsID = `Numéro de la commune ()`, name = `Nom de la commune ()`)
 
   data.read
 }
