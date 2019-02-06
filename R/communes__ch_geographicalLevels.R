@@ -18,19 +18,24 @@
 ##' 
 ##' glimpse(data)
 ##' data <- data %>% 
-##' select(ofsID, name, Canton, `Typologie urbainrural 2012`)
+##'   select(ofsID, name, Canton, 
+##'   `Typologie des communes 2012 (9 types) (Typologie des communes 2012 (25, 9 catégories et typologie urbain-rural))`)
 ##' 
 ##' # get the geographical data
 ##' require(tidyverse)
 ##' require(sf)
 ##' # loop and load the geo data in a named list
+##' shp_ch_paths_2018 <- shp_path(2018)
 ##' shp_ch_geodata <- shp_ch_paths_2018 %>% map(function(x) {
 ##'   layerName <- st_layers(x)
 ##'   st_read(x, layer = layerName$name) %>% 
 ##'   select(ends_with("NR"), ends_with("NAME"))
 ##' })
 ##' 
-##' shp_ch_geodata$municipalities <- left_join(shp_ch_geodata$municipalities, data, by= c('GMDNR' = 'ofsID')) %>% 
+##' shp_ch_geodata$municipalities <- left_join(
+##'   shp_ch_geodata$municipalities, data, by= c('GMDNR' = 'ofsID')) %>% 
+##' rename(`Typologie urbainrural 2012` = 
+##' `Typologie des communes 2012 (9 types) (Typologie des communes 2012 (25, 9 catégories et typologie urbain-rural))`) %>% 
 ##' mutate(`Typologie urbainrural 2012` = as.factor(`Typologie urbainrural 2012`))
 ##' 
 ##' ggplot() +
@@ -64,9 +69,9 @@ loadCommunesCHgeographicalLevels <- function() {
   coln2 <- tidyr::fill(enframe(coln2), value) %>% .$value
   coln2 <- c(rep("", length(coln1) - length(coln2)), coln2)
   colnames(data.read) <- paste0(coln1, " (", coln2, ")")
-  
+  colnames(data.read) <- gsub("\ \\(\\)", "", colnames(data.read))
   #rename columns
-  data.read <- data.read %>% rename(ofsID = `Numéro de la commune ()`, name = `Nom de la commune ()`)
+  data.read <- data.read %>% rename(ofsID = `Numéro de la commune`, name = `Nom de la commune`)
 
   data.read
 }

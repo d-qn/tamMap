@@ -6,7 +6,7 @@
 ##'
 ##' @rdname communes_ch_federalBallot
 ##' @param file the name of the csv file processed by processFederalBallotByCommunes to load
-##' @return a matrix, rownames are cantons (2 letters name) and colnames are federal ballot IDs. Check the attributes ballotName and date (same length as ncol) and communeName (same lenghth as nrow)
+##' @return a matrix, rownames are communes and colnames are federal ballot IDs. Check the attributes ballotName and date (same length as ncol) and communeName (same lenghth as nrow)
 ##' @export
 ##' @examples
 ##' \dontrun{
@@ -122,8 +122,13 @@ processFederalBallotByCommunes <- function(
   )
   
   ## subset to take only %oui and municipality results
-  dd <- data %>% filter(Résultats == 'Oui en %', grepl("...... ", `Canton.......District........Commune.........`, fixed = T)) %>%
-    select(-Résultats) %>% rename(commune = `Canton.......District........Commune.........`)
+  dd <- data %>% 
+    dplyr::filter(Résultat == 'Oui en %', 
+                  grepl("......", `Canton.......District........Commune.........`, fixed = T)
+    )
+  dd <- dd %>%
+    dplyr::select(-Résultat) %>% 
+    dplyr::rename(commune = `Canton.......District........Commune.........`)
  
    # get commune 2 letters code
   dd$communeID <- cantons[match(dd$commune, names(cantons))]
@@ -131,17 +136,17 @@ processFederalBallotByCommunes <- function(
   dd$ballot <- as.numeric(ballot[match(dd$`Date.et.objet`, names(ballot))])
   # split date and ballot name
   xx <- as.character(dd$`Date.et.objet`)
-  dd$date <- as.Date(gsub("(\\d{2}\\.\\d{2}\\.\\d{4}) .*", "\\1", xx, perl = T), format = "%d.%m.%Y")
-  dd$ballotName <- gsub("(\\d{2}\\.\\d{2}\\.\\d{4}) (.*$)", "\\2", xx, perl = T)
+  dd$date <- as.Date(gsub("(\\d{4}\\-\\d{2}\\-\\d{2}) .*", "\\1", xx, perl = T), format = "%Y-%m-%d")
+  dd$ballotName <- gsub("(\\d{4}\\-\\d{2}\\-\\d{2}) (.*$)", "\\2", xx, perl = T)
   
-  ddd <- dd %>% select(communeID, ballot, value) %>% 
+  ddd <- dd %>% dplyr::select(communeID, ballot, value) %>% 
     tidyr::spread(key = ballot, value = value)
   rownames(ddd) <- ddd$communeID
-  ddd <- data.matrix( ddd %>% select(-communeID))
+  ddd <- data.matrix( ddd %>% dplyr::select(-communeID))
   
   attr(ddd, "ballotName") <- dd[match(colnames(ddd), dd$ballot), 'ballotName']
   attr(ddd, "date") <- dd[match(colnames(ddd), dd$ballot), 'date']
-  attr(ddd, "communeName") <- gsub("...... ", "", names(cantons)[match(rownames(ddd), cantons)], fixed = T)
+  attr(ddd, "communeName") <- gsub("......", "", names(cantons)[match(rownames(ddd), cantons)], fixed = T)
   rownames(ddd) <- as.numeric(rownames(ddd))
 
   stopifnot(
