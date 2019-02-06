@@ -19,7 +19,7 @@ loadCommunesCHFederalBallot(file = "federalBallot_communes.RData")
 \item{output}{the output file name to be saved in the package inst/extdata}
 }
 \value{
-a matrix, rownames are cantons (2 letters name) and colnames are federal ballot IDs. Check the attributes ballotName and date (same length as ncol) and communeName (same lenghth as nrow)
+a matrix, rownames are communes and colnames are federal ballot IDs. Check the attributes ballotName and date (same length as ncol) and communeName (same lenghth as nrow)
 }
 \description{
 Load any federal ballots resuts by communes: https://www.pxweb.bfs.admin.ch/DownloadFile.aspx?file=px-x-1703030000_101

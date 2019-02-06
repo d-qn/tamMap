@@ -10,7 +10,8 @@ loadCommunesCHgeographicalLevels()
 a data.frame with tons of geographical features, check the source excel for more details
 }
 \description{
-Load the Swiss statistical office communes data from: \url{https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/niveaux-geographiques.html}
+Load the Swiss statistical office geographical levels communes data from: \url{https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/niveaux-geographiques.html}. 
+They have now an interactive app, choose the Excel file \url{https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/niveaux-geographiques.html}
 }
 \details{
 The portrait includes non political OFS ID, i.e. lakes
@@ -25,19 +26,24 @@ require(sf)
 
 glimpse(data)
 data <- data \%>\% 
-select(ofsID, name, Canton, `Typologie urbainrural 2012`)
+  select(ofsID, name, Canton, 
+  `Typologie des communes 2012 (9 types) (Typologie des communes 2012 (25, 9 catégories et typologie urbain-rural))`)
 
 # get the geographical data
 require(tidyverse)
 require(sf)
 # loop and load the geo data in a named list
+shp_ch_paths_2018 <- shp_path(2018)
 shp_ch_geodata <- shp_ch_paths_2018 \%>\% map(function(x) {
   layerName <- st_layers(x)
   st_read(x, layer = layerName$name) \%>\% 
   select(ends_with("NR"), ends_with("NAME"))
 })
 
-shp_ch_geodata$municipalities <- left_join(shp_ch_geodata$municipalities, data, by= c('GMDNR' = 'ofsID')) \%>\% 
+shp_ch_geodata$municipalities <- left_join(
+  shp_ch_geodata$municipalities, data, by= c('GMDNR' = 'ofsID')) \%>\% 
+rename(`Typologie urbainrural 2012` = 
+`Typologie des communes 2012 (9 types) (Typologie des communes 2012 (25, 9 catégories et typologie urbain-rural))`) \%>\% 
 mutate(`Typologie urbainrural 2012` = as.factor(`Typologie urbainrural 2012`))
 
 ggplot() +

@@ -123,8 +123,8 @@ processFederalBallotByCantons <- function(
   )
 
   ## subset to take only %oui and not results over the whole Switzerland
-  dd <- data %>% filter(Résultats == 'Oui en %', Canton != "Suisse") %>%
-    select(-Résultats)
+  dd <- data %>% filter(Résultat == 'Oui en %', Canton != "Suisse") %>%
+    select(-Résultat)
 
    # get canton 2 letters code
   dd$Canton <- cantons[match(dd$Canton, names(cantons))]
@@ -132,8 +132,8 @@ processFederalBallotByCantons <- function(
   dd$ballot <- as.numeric(ballot[match(dd$`Date.et.objet`, names(ballot))])
   # split date and ballot name
   xx <- as.character(dd$`Date.et.objet`)
-  dd$date <- as.Date(gsub("(\\d{2}\\.\\d{2}\\.\\d{4}) .*", "\\1", xx, perl = T), format = "%d.%m.%Y")
-  dd$ballotName <- gsub("(\\d{2}\\.\\d{2}\\.\\d{4}) (.*$)", "\\2", xx, perl = T)
+  dd$date <- as.Date(gsub("(\\d{4}\\-\\d{2}\\-\\d{2}) .*", "\\1", xx, perl = T), format = "%Y-%m-%d")
+  dd$ballotName <- gsub("(\\d{4}\\-\\d{2}\\-\\d{2}) (.*$)", "\\2", xx, perl = T)
 
   ddd <- dd %>% select(Canton, ballot, value) %>%
     tidyr::spread(key = ballot, value = value)
