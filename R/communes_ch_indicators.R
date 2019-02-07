@@ -161,7 +161,6 @@ processPortraitsRegionauxCommune <- function(
   cat("\n\n ------ \n Saved in:" , out.path)
 }
 
-
 ##' Load the NPA/PLZ/ Zip code for Switzerland  
 ##' 
 ##' @rdname communes_CH_indicators

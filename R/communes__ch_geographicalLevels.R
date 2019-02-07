@@ -66,12 +66,33 @@ loadCommunesCHgeographicalLevels <- function() {
     unlist(use.names = F) 
   coln2 <- readxl::read_excel(data.path, skip = 0, n_max = 1, col_names = F) %>% 
     unlist(use.names = F) 
+  coln3 <- readxl::read_excel(data.path, skip = 2, n_max = 1, col_names = F) %>% 
+    unlist(use.names = F) 
   coln2 <- tidyr::fill(enframe(coln2), value) %>% .$value
   coln2 <- c(rep("", length(coln1) - length(coln2)), coln2)
   colnames(data.read) <- paste0(coln1, " (", coln2, ")")
   colnames(data.read) <- gsub("\ \\(\\)", "", colnames(data.read))
-  #rename columns
-  data.read <- data.read %>% rename(ofsID = `Numéro de la commune`, name = `Nom de la commune`)
 
+  #rename columns
+  data.read <- data.read %>% 
+    rename(ofsID = `Numéro de la commune`, name = `Nom de la commune`) %>% 
+    select(-Canton, -`Numéro du district`, -`Nom du district`)
+
+  #Assign factors instead of numeric to the factors
+  colnames2sheet <- colnames(data.read)[-c(1,2)]
+  names(colnames2sheet) <- coln3
+  
+  for(i in 1:length(colnames2sheet)) {
+    st <- colnames2sheet[i]
+    stopifnot(st %in% colnames(data.read))
+    
+    fname <- readxl::read_excel(data.path, sheet = names(st), skip = 1, col_names = T)
+    
+    idx <- match(unlist(data.read[,st], use.names = F), fname$Code)
+    stopifnot(!any(is.na(idx)))
+    # overwrite with factor
+    data.read[,st] <- factor(fname$Label[idx])
+  }
+  
   data.read
 }
