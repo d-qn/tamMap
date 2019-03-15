@@ -14,8 +14,10 @@ devtools::install_github("d-qn/taMap")
 ```
 ## TODO
 
-### Add G1 geodata? 
-### Example for GVA in geospatialData_path, add zoom in with quartiers GVA ville
+## TODO
+* Add 2019 geo levels data
+* Use swisstopop API to get geospatial data
+* Add more G1 resolution geodata (only 2018 gemeinde so far)
 
 ### Clean up
 * Use swisstopop API to get geospatial data
@@ -33,6 +35,27 @@ df <- esri2sf(url)
 * inlet_helpers: use [gglocator](https://stackoverflow.com/questions/9450873/locator-equivalent-in-ggplot2-for-maps?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa) to find the shift. Seems broken though
 
 ## Examples
+
+### Show the %foreigners vs % vote UDC by municipalities
+
+![](man/figures/README-municipalitiyIndicators_scatter.png)
+
+```{r municipalities features}
+require(tidyverse)
+library(tamMap)
+communeData <- loadCommunesCHportraits()
+colnames(communeData)
+
+# Select only "surface" indicators
+colIdx <- which(attr(communeData, "indicatorGroup") == "Surface")
+head(communeData[,colIdx])
+
+## Show the %foreigners vs % vote UDC
+g1 <- ggplot(data = as.data.frame(communeData), aes(x = `Etrangers en %`, y = UDC)) + 
+  geom_point(aes(size = Habitants), alpha = 0.5)
+g1
+```
+
 
 ### A long example to show a map with a zoom inlet map of Geneva
 
