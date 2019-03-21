@@ -10,7 +10,7 @@
 ##'   li_files <- dir("inst/extdata/shp/CH", '.*_li.*', full.names = T) 
 ##'   file.remove(li_files)
 ##'   
-##' So far 2018 until 2012 downloaded and processed.
+##' So far 2019 until 2012 downloaded and processed.
 ##' ALl ll the downloaded geodata are in:
 ##' inst/extdata/shp/CH/
 ##' 
@@ -26,6 +26,7 @@
 ##' @export
 ##' @examples
 ##' shp_ch_paths_2018 <- shp_path(2018)
+##' shp_ch_paths_2019 <- shp_path(2019)
 ##' shp_world <- shp_path(2018, dirGeo = "World")
 ##' shp_quartiers <- shp_path(dirGeo = "CH/quartiers")
 ##' shp_villes <- shp_path(dirGeo = "CH/villes")
