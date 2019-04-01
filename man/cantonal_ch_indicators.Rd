@@ -6,10 +6,10 @@
 \title{Swiss cantonal indicators}
 \usage{
 
-  loadCantonsCHportraits(file = "cantonal_CH_2016_indicators_je-f-21.03.02.csv")
+  loadCantonsCHportraits(file = "cantonal_CH_2018_indicators_je-f-21.03.02.csv")
 
-processPortraitsRegionauxCantons(file = "je-f-21.03.02.xls",
-  output = "cantonal_CH_2016_indicators_je-f-21.03.02.csv")
+processPortraitsRegionauxCantons(file = "je-f-21.03.02.xlsx",
+  output = "cantonal_CH_2018_indicators_je-f-21.03.02.csv")
 }
 \arguments{
 \item{file}{the name of the csv file to load (output by \code{processPortraitsRegionauxCantons}) or the raw excel file name from the Swiss Statistical office with indicators by canton to be processed by the aforementionned function}

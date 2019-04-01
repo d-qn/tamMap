@@ -35,7 +35,7 @@
 ##' ggtitle("Niveau d'éducation atteint par canton")
 ##'     
 ##' }
-loadCantonsCHportraits <- function(file = "cantonal_CH_2016_indicators_je-f-21.03.02.csv") {
+loadCantonsCHportraits <- function(file = "cantonal_CH_2018_indicators_je-f-21.03.02.csv") {
   data.path <- dir(system.file("extdata", package="tamMap"), file, full.names = T)
   data.read <- read.csv(data.path, stringsAsFactors = F, check.names = FALSE, header = T, row.names = 1)
   data.read
@@ -57,14 +57,14 @@ loadCantonsCHportraits <- function(file = "cantonal_CH_2016_indicators_je-f-21.0
 ##' tamMap:::processPortraitsRegionauxCantons()
 ##' }
 processPortraitsRegionauxCantons <- function(
-  file = 'je-f-21.03.02.xls', 
-  output = 'cantonal_CH_2016_indicators_je-f-21.03.02.csv'  
+  file = 'je-f-21.03.02.xlsx', 
+  output = 'cantonal_CH_2018_indicators_je-f-21.03.02.csv'  
 ) {
   
   out.path <- paste0(getwd(), "/inst/extdata/", output)
   data.path <- dir(system.file("extdata", package="tamMap"), file, full.names = T)
   
-  xls.read <- read_excel(data.path, skip = 1)
+  xls.read <- read_excel(data.path, skip = 3)
   # discard NA rows
   na.row <- apply(xls.read, 1, function(l) all(is.na(l)))
   xls.read <- xls.read[!na.row,]
@@ -78,9 +78,9 @@ processPortraitsRegionauxCantons <- function(
   xls.read <- xls.read[!na.row,]
   
   # relabel columsn and drop Suisse and year of data
-  colnames(xls.read) <- xls.read[1,]
+  #colnames(xls.read) <- xls.read[1,]
   colnames(xls.read)[1] <- 'indicator'
-  xls.read <- xls.read[-1,]
+ # xls.read <- xls.read[-1,]
   xls.read <- xls.read %>% select(-`Années`, -Suisse)
   
   # Find the rows that are titles for subsequent rows (i.e. NA rows except first column)
