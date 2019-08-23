@@ -4,7 +4,7 @@
 ##' 
 ##' Run \code{processPortraitsRegionauxCommune()} to generate a readable csv file for \code{loadCommunesCHportraits}
 ##' 
-##' @name communes_CH_indicators
+##' @name loadCommunesCHportraits
 ##' @return a matrix
 ##' @seealso Office fédéral de la statistique > Les Régions > Communes > Données et explications (portraits): \url{https://www.bfs.admin.ch/bfs/fr/home/statistiques/statistique-regions/portraits-regionaux-chiffres-cles/communes.assetdetail.328133.html} \cr
 ##' The cleaning up of raw xls file: \itemize{
@@ -102,6 +102,7 @@ loadCommunesCHportraits <- function() {
   )
   data
 }
+
 ##' Process Portraits régionaux de la Suisse commune xls
 ##' 
 ##' Useful to update the source data of commune socio-economic indicators loaded by \code{loadCommunesCHportraits}
@@ -163,7 +164,7 @@ processPortraitsRegionauxCommune <- function(
 
 ##' Load the NPA/PLZ/ Zip code for Switzerland  
 ##' 
-##' @rdname communes_CH_indicators
+##' @name loadCHzipcode
 ##' @return a data.frame
 ##' @importFrom utils read.csv2
 ##' @seealso \url{http://opendata.admin.ch/de/dataset/ch-swisstopo-vd-ortschaftenverzeichnis_plz/resource/35001b61-e7c1-4124-89fa-17fac7b1139e} from: \url{http://opendata.admin.ch/de/dataset/ch-swisstopo-vd-ortschaftenverzeichnis_plz}

@@ -3,6 +3,7 @@
 ##' Load the Swiss statistical office geographical levels communes data from: \url{https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/niveaux-geographiques.html}. 
 ##' They have now an interactive app, choose the Excel file \url{https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/niveaux-geographiques.html}
 ##'
+##' @name loadCommunesCHgeographicalLevels
 ##' @return a data.frame with tons of geographical features, check the source excel for more details
 ##' @details The portrait includes non political OFS ID, i.e. lakes
 ##' @seealso Typologie des communes et typologie urbain-rural 2012: \url{https://www.bfs.admin.ch/bfs/fr/home/actualites/quoi-de-neuf.assetdetail.2543324.html}

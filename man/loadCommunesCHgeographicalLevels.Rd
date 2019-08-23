@@ -3,9 +3,6 @@
 \name{loadCommunesCHgeographicalLevels}
 \alias{loadCommunesCHgeographicalLevels}
 \title{Swiss communes geographical data}
-\usage{
-loadCommunesCHgeographicalLevels()
-}
 \value{
 a data.frame with tons of geographical features, check the source excel for more details
 }

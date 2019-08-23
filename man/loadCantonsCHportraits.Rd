@@ -2,28 +2,15 @@
 % Please edit documentation in R/cantonal_ch_indicators.R
 \name{loadCantonsCHportraits}
 \alias{loadCantonsCHportraits}
-\alias{processPortraitsRegionauxCantons}
 \title{Swiss cantonal indicators}
-\usage{
-
-  loadCantonsCHportraits(file = "cantonal_CH_2018_indicators_je-f-21.03.02.csv")
-
-processPortraitsRegionauxCantons(file = "je-f-21.03.02.xlsx",
-  output = "cantonal_CH_2018_indicators_je-f-21.03.02.csv")
-}
 \arguments{
 \item{file}{the name of the csv file to load (output by \code{processPortraitsRegionauxCantons}) or the raw excel file name from the Swiss Statistical office with indicators by canton to be processed by the aforementionned function}
-
-\item{output}{the output file name to be saved in the package inst/extdata}
 }
 \value{
 a data.frame
 }
 \description{
 Load socio-demographic data by the Swiss Statistical Office.
-
-Run it when new data are available: \url{https://www.bfs.admin.ch/bfs/en/home/statistics/catalogues-databases.assetdetail.je-f-21.03.02.html}
-Warning of possible break if the OFS changes the data structure of the xls file!!
 }
 \details{
 Run processPortraitsRegionauxCantons() to generate a readable csv file for loadCantonsCHportraits
@@ -55,10 +42,4 @@ theme(legend.position = "top") +
 ggtitle("Niveau d'éducation atteint par canton")
     
 }
-\dontrun{
-tamMap:::processPortraitsRegionauxCantons()
-}
-}
-\seealso{
-\url{https://www.bfs.admin.ch/bfs/en/home/statistics/catalogues-databases.assetdetail.je-f-21.03.02.html}
 }

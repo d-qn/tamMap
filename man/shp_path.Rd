@@ -3,11 +3,6 @@
 \name{shp_path}
 \alias{shp_path}
 \title{Return path to (mainly OFS) geospatial data}
-\usage{
-shp_path(y = 2018, generalisationLevel = 2,
-  features = c("municipalities", "cantons", "lakes", "country"),
-  dirGeo = "CH")
-}
 \arguments{
 \item{y}{a numeric of lenghth 1. The year (as of the 1st of Jan) of geo data to get. It is currently used for dirGeo CH, ignored for the other options}
 
@@ -15,7 +10,7 @@ shp_path(y = 2018, generalisationLevel = 2,
 
 \item{features}{a string vector with the geographical levels' paths to returns, one of municipalities, municipalities_encl, lakes, agglomerations, cantons, largeRegions and country}
 
-\item{dirGeo}{a string of length 1 the directory in the package inst/extdata/shp/ where to look for geo spatial data. Currently: CH, CH/ge (all Geneva's subsectors), CH/quartiers, CH/villes or World}
+\item{dirGeo}{a string of length 1 the directory in the package inst/extdata/shp/ where to look for geo spatial data. Currently: CH, CH/productive (limits of communes without the improductive areas, y 2018 or 2019), CH/ge (all Geneva's subsectors), CH/quartiers, CH/villes or World}
 }
 \value{
 a named vector with the full path to the shapefiles, name the geographical levels

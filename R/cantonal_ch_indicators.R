@@ -4,7 +4,7 @@
 ##'
 ##' Run processPortraitsRegionauxCantons() to generate a readable csv file for loadCantonsCHportraits
 ##'
-##' @rdname cantonal_ch_indicators
+##' @name loadCantonsCHportraits
 ##' @param file the name of the csv file to load (output by \code{processPortraitsRegionauxCantons}) or the raw excel file name from the Swiss Statistical office with indicators by canton to be processed by the aforementionned function
 ##' @return a data.frame
 ##' @export
@@ -46,7 +46,7 @@ loadCantonsCHportraits <- function(file = "cantonal_CH_2018_indicators_je-f-21.0
 ##' Run it when new data are available: \url{https://www.bfs.admin.ch/bfs/en/home/statistics/catalogues-databases.assetdetail.je-f-21.03.02.html}
 ##' Warning of possible break if the OFS changes the data structure of the xls file!!
 ##'
-##' @rdname cantonal_ch_indicators
+##' @name processPortraitsRegionauxCantons
 ##' @param output the output file name to be saved in the package inst/extdata
 ##' @return NULL
 ##' @import tidyr dplyr readxl

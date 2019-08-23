@@ -14,12 +14,13 @@
 ##' ALl ll the downloaded geodata are in:
 ##' inst/extdata/shp/CH/
 ##' 
+##' @name shp_path
 ##' @details For the CH/quartiers Les limites de quartiers sont fournies pour les communes suivantes : Winterthour (230), Zurich (261), Berne (351), Bienne (371), Lucerne (1061), Bâle (2701), Saint-Gall (3203), Lugano (5192), Lausanne (5586) et Genève (6621)
 ##' @seealso \href{https://www.bfs.admin.ch/bfs/fr/home/services/geostat/geodonnees-statistique-federale/limites-administratives/limites-communales-generalisees.html}{OFS Limites communales généralisées} & \href{https://www.bfs.admin.ch/bfs/fr/home/services/geostat/geodonnees-statistique-federale/limites-administratives/limites-quartiers-villes-suisses.assetdetail.4082002.html}{https://www.bfs.admin.ch/bfs/fr/home/services/geostat/geodonnees-statistique-federale/limites-administratives/limites-quartiers-villes-suisses.assetdetail.4082002.html}
 ##' @param y a numeric of lenghth 1. The year (as of the 1st of Jan) of geo data to get. It is currently used for dirGeo CH, ignored for the other options
 ##' @param generalisationLevel, a numeric of length 1. The "generalisation level" of the geo data 1: detailed, 2:less detailed
 ##' @param features a string vector with the geographical levels' paths to returns, one of municipalities, municipalities_encl, lakes, agglomerations, cantons, largeRegions and country
-##' @param dirGeo a string of length 1 the directory in the package inst/extdata/shp/ where to look for geo spatial data. Currently: CH, CH/productive (limits of communes without the improductive areas), CH/ge (all Geneva's subsectors), CH/quartiers, CH/villes or World
+##' @param dirGeo a string of length 1 the directory in the package inst/extdata/shp/ where to look for geo spatial data. Currently: CH, CH/productive (limits of communes without the improductive areas, y 2018 or 2019), CH/ge (all Geneva's subsectors), CH/quartiers, CH/villes or World
 ##' @import stringr dplyr tibble
 ##' @return a named vector with the full path to the shapefiles, name the geographical levels
 ##' @seealso \code{processSwissCities} to generate the shapefiles for Swiss cities
@@ -157,6 +158,8 @@ shp_path <- function(
     structure(files, names = basename(dirGeo))    
   } else if(dirGeo == "CH/ge") {
     structure(files, names = basename(dirGeo))    
+  } else if(dirGeo == "CH/productive") {
+    structure(files, names = basename(dirGeo)) 
   } else if(dirGeo == "World") {
     structure(files, names = dirGeo)
   } else {

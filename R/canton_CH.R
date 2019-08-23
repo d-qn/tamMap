@@ -2,7 +2,7 @@
 ##'
 ##' Functions to convert Switzerland's cantons, districts and communes names to their abbreviations and official BFS ID
 ##' 
-##' @name tam_CHnames
+##' @name canton_CH
 ##' @examples
 ##' \dontrun{
 ##' print(canton_CH)
@@ -12,7 +12,7 @@ canton_CH  <- read.csv(system.file("extdata", "CantonCH_iso.csv", package="tamMa
 
 ##' Convert Swiss canton names to different languages and abbreviations
 ##' 
-##' @rdname tam_CHnames
+##' @name canton_namesStrict
 ##' @param query a character vector of Swiss canton names in any language
 ##' @param output a character string, the ouput format 
 ##' @details See \code{canton_CH}
