@@ -91,6 +91,17 @@
 ##'   theme_map() +
 ##'   coord_sf(datum = NA, expand = F)
 ##' 
+##' ## 3. Plot productive municipalites limits for 2017
+##' # Because the productive municipality limits do not exists for 2017, load
+##' # the 2017 limits and remove exclude the area not present in the joined productive 2017 limits
+##' shp_ch_paths_2017 <- shp_path(2017, features = c("municipalities"))
+##' shp_path_productive <- shp_path(2019, dirGeo = "CH/productive")
+##' muni_2017 <- st_read(shp_ch_paths_2017, options = "ENCODING=latin1") %>% 
+##'   select(ends_with("NR"), ends_with("NAME"))
+##' muni_prod <- st_read(shp_path_productive) %>% 
+##'   st_union()
+##' muni_2017_prod <- st_intersection(muni_2017, muni_prod) 
+##' muni_2017_prod %>% select() %>% plot()
 ##' }
 shp_path <- function(
   y = 2018, 
@@ -159,7 +170,14 @@ shp_path <- function(
   } else if(dirGeo == "CH/ge") {
     structure(files, names = basename(dirGeo))    
   } else if(dirGeo == "CH/productive") {
-    structure(files, names = basename(dirGeo)) 
+    idx <- grepl(y, files)
+    if(any(idx)) {
+      structure(files[idx], names = basename(dirGeo))
+    } else {
+      warning("For productive limits only 2018 and 2019 available")
+      NULL
+    }
+
   } else if(dirGeo == "World") {
     structure(files, names = dirGeo)
   } else {
