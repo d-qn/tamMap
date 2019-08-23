@@ -19,7 +19,7 @@
 ##' @param y a numeric of lenghth 1. The year (as of the 1st of Jan) of geo data to get. It is currently used for dirGeo CH, ignored for the other options
 ##' @param generalisationLevel, a numeric of length 1. The "generalisation level" of the geo data 1: detailed, 2:less detailed
 ##' @param features a string vector with the geographical levels' paths to returns, one of municipalities, municipalities_encl, lakes, agglomerations, cantons, largeRegions and country
-##' @param dirGeo a string of length 1 the directory in the package inst/extdata/shp/ where to look for geo spatial data. Currently: CH, CH/ge (all Geneva's subsectors), CH/quartiers, CH/villes or World
+##' @param dirGeo a string of length 1 the directory in the package inst/extdata/shp/ where to look for geo spatial data. Currently: CH, CH/productive (limits of communes without the improductive areas), CH/ge (all Geneva's subsectors), CH/quartiers, CH/villes or World
 ##' @import stringr dplyr tibble
 ##' @return a named vector with the full path to the shapefiles, name the geographical levels
 ##' @seealso \code{processSwissCities} to generate the shapefiles for Swiss cities
