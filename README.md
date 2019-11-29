@@ -12,12 +12,10 @@ It will probably never be on CRAN. To be installed from github:
 # install.packages("devtools")
 devtools::install_github("d-qn/taMap")
 ```
-## TODO
 
 ## TODO
-* Add 2019 geo levels data
 * Use swisstopop API to get geospatial data
-* Add more G1 resolution geodata (only 2018 gemeinde so far)
+* Add more G1 resolution geodata (only 2018 Gemeinde so far)
 
 ### Clean up
 * Use swisstopop API to get geospatial data

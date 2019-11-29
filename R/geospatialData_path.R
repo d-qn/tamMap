@@ -174,7 +174,7 @@ shp_path <- function(
     if(any(idx)) {
       structure(files[idx], names = basename(dirGeo))
     } else {
-      warning("For productive limits only 2018 and 2019 available")
+      warning("For productive limits, only 2018 and 2019 available")
       NULL
     }
 
