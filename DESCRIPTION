@@ -19,7 +19,10 @@ Imports:
     pxR,
     stringr,
     ggmap,
-    geofacet
+    geofacet,
+    RecordLinkage,
+    rvest,
+    xml2
 Suggests:
     esri2sf,
     rmapshaper,
