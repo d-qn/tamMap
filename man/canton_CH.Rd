@@ -4,7 +4,9 @@
 \name{canton_CH}
 \alias{canton_CH}
 \title{Swiss canton names}
-\format{An object of class \code{data.frame} with 26 rows and 23 columns.}
+\format{
+An object of class \code{data.frame} with 26 rows and 23 columns.
+}
 \usage{
 canton_CH
 }

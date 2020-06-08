@@ -4,8 +4,12 @@
 \alias{commune_suisse_api}
 \title{Helper function to query OFS commune application}
 \usage{
-commune_suisse_api(name = "", start_time = "01.01.2019",
-  end_time = "01.01.2019", minDist = 0.95)
+commune_suisse_api(
+  name = "",
+  start_time = "01.01.2019",
+  end_time = "01.01.2019",
+  minDist = 0.95
+)
 }
 \arguments{
 \item{name, }{a character string the name of the muncipality to query}

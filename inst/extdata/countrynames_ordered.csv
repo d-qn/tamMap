@@ -37,7 +37,7 @@ CL,CHL,152,Chile,Chile,Chili,Cile,Chile,Chile,Чили,智利,チリ,تشيلي
 CN,CHN,156,China,China,Chine,Cina,China,China,Китай,中国,中国,الصين
 CO,COL,170,Colombia,Kolumbien,Colombie,Colombia,Colombia,Colômbia,Колумбия,哥伦比亚,コロンビア,كولومبيا
 CG,COG,178,Congo,Kongo,Congo,Congo,Congo,Congo,Конго,刚果,コンゴ（旧ザイール）,الكونغو
-CD,COD,180,Democratic Republic of the Congo,Demokratische Republik Kongo,La République démocratique du Congo,Repubblica democratica del Congo,República Democrática del Congo,República Democrática do Congo,Демократическая Республика Конго,刚果民主共和国,コンゴ共和国,جمهورية الكونغو الديمقراطية
+CD,COD,180,Democratic Republic of the Congo,Demokratische Republik Kongo,Congo,Repubblica democratica del Congo,República Democrática del Congo,República Democrática do Congo,Демократическая Республика Конго,刚果民主共和国,コンゴ共和国,جمهورية الكونغو الديمقراطية
 CR,CRI,188,Costa Rica,Costa Rica,Costa Rica,Costa Rica,Costa Rica,Costa Rica,Коста-Рика,哥斯达黎加,コスタリカ,كوستا ريكا
 CI,CIV,384,Cote d'Ivoire,Côte d'Ivoire,Côte d'ivoire,Costa d'Avorio,Costa de Marfil,Costa Do Marfim,Кот-д'Ивуар,科特迪瓦,コー​​トジボワール,كوت ديفوار
 HR,HRV,191,Croatia,Kroatien,Croatie,Croazia,Croacia,Croácia,Хорватия,克罗地亚,クロアチア,كرواتيا
@@ -47,7 +47,7 @@ CY,CYP,196,Cyprus,Zypern,Chypre,Cipro,Chipre,Chipre,Кипр,塞浦路斯,キプ
 CZ,CZE,203,Czech Republic,Tschechische Republik,République tchèque,Repubblica Ceca,República Checa,República Tcheca,Чешская Республика,捷克共和国,チェコ,تشيكيا
 DK,DNK,208,Denmark,Dänemark,Danemark,Danimarca,Dinamarca,Dinamarca,Дания,丹麦,デンマーク,الدنمارك
 DJ,DJI,262,Djibouti,Djibouti,Djibouti,Gibuti,Yibuti,Djibouti,Джибути,吉布提,ジブチ,جيبوتي
-DO,DOM,214,Dominican Republic,Dominikanische Republik,Dominicaine république,Repubblica dominicana,República Dominicana,República Dominicana,Доминиканская Республика,多明尼加,ドミニカ共和国,جمهورية الدومينيكان
+DO,DOM,214,Dominican Republic,Dominikanische Republik,République dominicaine,Repubblica dominicana,República Dominicana,República Dominicana,Доминиканская Республика,多明尼加,ドミニカ共和国,جمهورية الدومينيكان
 EC,ECU,218,Ecuador,Ecuador,Équateur,Ecuador,Ecuador,Equador,Эквадор,厄瓜多尔,エクアドル,الاكوادور
 EG,EGY,818,Egypt,Ägypten,Égypte,Egitto,Egipto,Egito,Египет,埃及,エジプト,مصر
 SV,SLV,222,El Salvador,El Salvador,El Salvador,El Salvador,El Salvador,El Salvador,Сальвадор,萨尔瓦多,エルサルバドル,السلفادور
@@ -73,7 +73,7 @@ HU,HUN,348,Hungary,Ungarn,Hongrie,Ungheria,Hungría,Hungria,Венгрия,匈�
 IS,ISL,352,Iceland,Island,Islande,Islanda,Islandia,Islândia,Исландия,冰岛,アイスランド,أيسلندا
 IN,IND,356,India,Indien,Inde,India,India,Índia,Индия,印度,インド,الهند
 ID,IDN,360,Indonesia,Indonesien,Indonésie,Indonesia,Indonesia,Indonésia,Индонезия,印度尼西亚,インドネシア,أندونيسيا
-IR,IRN,364,Islamic Republic of Iran,Islamischen Republik Iran,République Islamique d'Iran,Iran,Irán,Irã,"Иран, Исламская Республика",伊朗,イラン,إيران
+IR,IRN,364,Islamic Republic of Iran,Islamischen Republik Iran,Iran,Iran,Irán,Irã,"Иран, Исламская Республика",伊朗,イラン,إيران
 IQ,IRQ,368,Iraq,Irak,Iraq,Iraq,Irak,Iraque,Ирак,伊拉克,イラク,العراق
 IE,IRL,372,Ireland,Irland,Irlande,Irlanda,Irlanda,Irlanda,Ирландия,爱尔兰,アイルランド,أيرلندا
 IL,ISR,376,Israel,Israel,Israël,Israele,Israel,Israel,Израиль,以色列,イスラエル,إسرائيل
@@ -83,7 +83,7 @@ JP,JPN,392,Japan,Japan,Japon,Giappone,Japón,Japão,Япония,日本,日本,�
 JO,JOR,400,Jordan,Jordanien,Jordanie,Giordania,Jordania,Jordânia,Иордания,约旦,ヨルダン,الأردن
 KZ,KAZ,398,Kazakhstan,Kasachstan,Kazakhstan,Kazakistan,Kazajistán,Cazaquistão,Казахстан,哈萨克斯坦,カザフスタン,كازاخستان
 KE,KEN,404,Kenya,Kenia,Kenya,Kenya,Kenia,Quênia,Кения,肯尼亚,ケニア,كينيا
-KR,KOR,410,Republic of Korea,Republik Korea,République de Corée,Corea del Sud,República de Corea,República da Coreia,Республика Корея,韩国,大韓民国,كوريا
+KR,KOR,410,Republic of Korea,Republik Korea,Corée du Sud,Corea del Sud,República de Corea,República da Coreia,Республика Корея,韩国,大韓民国,كوريا
 XK,UNK,3166,Kosovo,Kosovo,Kosovo,Kosovo,Kosovo,Kosovo,Косово,科索沃,コソボ,كوسوفو
 KW,KWT,414,Kuwait,Kuwait,Koweït,Kuwait,Kuwait,Kuweit,Кувейт,科威特,クウェート,الكويت
 KG,KGZ,417,Kyrgyzstan,Kirgisistan,Kirghizistan,Kirghizistan,Kirguistán,Quirguistão,Кыргызстан,吉尔吉斯斯坦,キルギスタン,قيرغيزستان
@@ -130,7 +130,7 @@ PL,POL,616,Poland,Polen,Pologne,Polonia,Polonia,Polônia,Польша,波兰,ポ
 PT,PRT,620,Portugal,Portugal,Portugal,Portogallo,Portugal,Portugal,Португалия,葡萄牙,ポルトガル,البرتغال
 QA,QAT,634,Qatar,Katar,Qatar,Qatar,Catar,Catar,Катар,卡塔尔,カタール,قطر
 RO,ROU,642,Romania,Rumänien,Roumanie,Romania,Rumania,Romênia,Румыния,罗马尼亚,ルーマニア,رومانيا
-RU,RUS,643,Russian Federation,Russische Föderation,Fédération de Russie,Russia,Rusia,Federação Russa,Российская Федерация,俄罗斯,ロシア,روسيا
+RU,RUS,643,Russian Federation,Russische Föderation,Russie,Russia,Rusia,Federação Russa,Российская Федерация,俄罗斯,ロシア,روسيا
 RW,RWA,646,Rwanda,Ruanda,Rwanda,Ruanda,Ruanda,Ruanda,Руанда,卢旺达,ルワンダ,رواندا
 KN,KNA,659,Saint Kitts and Nevis,St. Kitts und Nevis,Saint-Kitts-et-Nevis,Saint Kitts e Nevis,San Cristóbal y Nieves,São Cristóvão e Nevis,Сент-Китс и Невис,圣基茨和尼维斯,セントクリストファー·ネーヴィス,سانت كيتس ونيفيس
 LC,LCA,662,Saint Lucia,St. Lucia,Sainte-Lucie,Santa Lucia,Santa Lucía,St. Lucia,Сент-Люси́я,圣卢西亚,セントルシア,سانت لوسيا
@@ -225,7 +225,7 @@ NC,NCL,540,New Caledonia,Neu-Kaledonien,Nouvelle-Calédonie,Nuova Caledonia,Nuev
 NU,NIU,570,Niue,Niue,Niué,Niue,Niue,Niue,Ниу́э,纽埃,ニウエ,نيوي
 NF,NFK,574,Norfolk Island,Norfolkinsel,Île Norfolk,Norfolk Island,Islas Norfolk,Ilha Norfolk,Остров Норфолк,诺福克岛,ノーフォーク島,جزيرة نورفولك
 MP,MNP,580,Northern Mariana Islands,Northern Mariana Islands,Îles Mariannes du Nord,Isole Marianne settentrionali,Islas Marianas Septentrionales,Ilhas Marianas do Norte,Северные Марианские острова,北马里亚纳群岛,北マリアナ諸島,جزر ماريانا الشمالية
-PS,PSE,275,Occupied Palestinian Territory,Besetzte palästinensische Gebiete,Palestinien Occupé,Territori Palestinesi Occupati,Territorio Palestino Ocupado,Palestinos Ocupados,Оккупированная палестинская территория,巴勒斯坦被占领土,パレスチナ自治区,الأراضي الفلسطينية المحتلة
+PS,PSE,275,Occupied Palestinian Territory,Besetzte palästinensische Gebiete,Palestine,Territori Palestinesi Occupati,Territorio Palestino Ocupado,Palestinos Ocupados,Оккупированная палестинская территория,巴勒斯坦被占领土,パレスチナ自治区,الأراضي الفلسطينية المحتلة
 PN,PCN,612,Pitcairn,Pitcairn,Pitcairn,Pitcairn,Islas Pitcairn,Pitcairn,Острова́ Пи́ткэрн,皮特凯恩,ピトケアン,بيتكيرن
 PR,PRI,630,Puerto Rico,Puerto Rico,Porto Rico,Portorico,Puerto Rico,Porto Rico,Пуэрто-Рико,波多黎各,プエルトリコ,بويرتو ريكو
 RE,REU,638,Reunion,Wiedervereinigung,Réunion,Isola della Réunion,Reunión,Reunião,Реюньон,重新统一,レユニオン,جمع شمل
@@ -240,7 +240,7 @@ ST,STP,678,Sao Tome and Principe,Sao Tome und Principe,Sao Tomé-et-Principe,Sã
 SC,SYC,690,Seychelles,Seychellen,Seychelles,Seychelles,Seychelles,Seychelles,Сейшельские Острова,塞舌尔,セイシェル,سيشيل
 GS,SGS,239,South Georgia and the South Sandwich Islands,Südgeorgien und die Südlichen Sandwichinseln,Géorgie Du Sud et Les Îles Sandwich du Sud,Georgia del Sud e Isole Sandwich Meridionali,Georgia del Sur e Islas Sandwich del Sur,Geórgia do Sul e Sandwich do Sul,Южная Георгия и Южные Сандвичевы острова,南乔治亚岛和南桑威奇群岛,サウスジョージア·サウスサンドウィッチ諸島,جورجيا الجنوبية وجزر ساندويتش الجنوبية
 SJ,534,703,Svalbard and Jan Mayen,Svalbard und Jan Mayen,Svalbard et Île Jan Mayen,Svalbard e Jan Mayen,Islas Svalbard y Jan Mayen,Svalbard e Jan Mayen,Шпицберген и Ян-Майен,斯瓦尔巴群岛和扬马延,スバールバル諸島ヤンマイエン島,سفالبارد وجان مايان
-TW,TWN,158,"Taiwan, Province of China","Taiwan, Province of China","Taïwan, Province de Chine",Taiwan,Provincia china de Taiwán,"Taiwan, Província da China",Тайвань (провинция Китайской Народной Республики),中国台湾省,台湾、中国の省,مقاطعة تايوان الصينية
+TW,TWN,158,"Taiwan, Province of China","Taiwan, Province of China","Taïwan",Taiwan,Provincia china de Taiwán,"Taiwan, Província da China",Тайвань (провинция Китайской Народной Республики),中国台湾省,台湾、中国の省,مقاطعة تايوان الصينية
 TK,TKL,772,Tokelau,Tokelau,Tokelau,Tokelau,Tokelau,Tokelau,Токела́у,托克劳,トケラウ諸島,توكيلاو
 TO,TON,776,Tonga,Tonga,Tonga,Tonga,Tonga,Tonga,Тонга,汤加,トンガ,تونغا
 TV,TUV,798,Tuvalu,Tuvalu,Tuvalu,Tuvalu,Tuvalu,Tuvalu,Тувалу,图瓦卢,ツバル,توفالو

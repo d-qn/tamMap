@@ -4,8 +4,10 @@
 \alias{processSwissCities}
 \title{Main Swiss cities as simple feature object}
 \usage{
-processSwissCities(input = "T_STST_2018_01_1.xlsx",
-  output = "swiss_cities.shp")
+processSwissCities(
+  input = "T_STST_2018_01_1.xlsx",
+  output = "swiss_cities.shp"
+)
 }
 \arguments{
 \item{input}{the xslx file name Population from the Swiss cities Union in inst/extdata}
