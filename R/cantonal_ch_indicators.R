@@ -1,64 +1,64 @@
-##' Swiss cantonal indicators
-##'
-##' Load socio-demographic data by the Swiss Statistical Office.   
-##'
-##' Run processPortraitsRegionauxCantons() to generate a readable csv file for loadCantonsCHportraits
-##'
-##' @name loadCantonsCHportraits
-##' @param file the name of the csv file to load (output by \code{processPortraitsRegionauxCantons}) or the raw excel file name from the Swiss Statistical office with indicators by canton to be processed by the aforementionned function
-##' @return a data.frame
-##' @export
-##' @examples
-##' cantonalI <- loadCantonsCHportraits()
-##' \dontrun{
-##' require(geofacet)
-##' ## plot with geofacet the share the highest education reached by canton
-##' 
-##' # wrangle data
-##' edu <- cantonalI %>% 
-##'   select(`Sans formation postobligatoire (dès 25 ans)`, `Degré secondaire II (dès 25 ans)`, `Degré tertiaire (dès 25 ans)`) %>% 
-##'   rownames_to_column()
-##' stopifnot(all(rowSums(edu %>% select(-rowname)) %>% round() == 100))
-##' colnames(edu) <- gsub(" \\(dès 25 ans\\)", "", colnames(edu))
-##' edu <- edu %>% gather(education, pourc, -rowname) %>% 
-##'   rename(code = rowname) %>% 
-##'   mutate(education = fct_inorder(education))
-##'   
-##' # Plot
-##' ggplot(edu) + 
-##' geom_col(aes(x = education, y = pourc, fill = education)) + 
-##' coord_flip() +
-##' facet_geo( ~ code, grid = ch_cantons_grid2, label = "name_fr") +
-##' scale_x_discrete(labels = NULL, name ="") +
-##' scale_y_continuous(name = "") +
-##' theme(legend.position = "top") +
-##' ggtitle("Niveau d'éducation atteint par canton")
-##'     
-##' }
-loadCantonsCHportraits <- function(file = "cantonal_CH_2018_indicators_je-f-21.03.02.csv") {
+#' Swiss cantonal indicators
+#'
+#' Load socio-demographic data by the Swiss Statistical Office.   
+#'
+#' Run processPortraitsRegionauxCantons() to generate a readable csv file for loadCantonsCHportraits
+#'
+#' @name loadCantonsCHportraits
+#' @param file the name of the csv file to load (output by \code{processPortraitsRegionauxCantons}) or the raw excel file name from the Swiss Statistical office with indicators by canton to be processed by the aforementionned function
+#' @return a data.frame
+#' @export
+#' @examples
+#' cantonalI <- loadCantonsCHportraits()
+#' \dontrun{
+#' require(geofacet)
+#' ## plot with geofacet the share the highest education reached by canton
+#' 
+#' # wrangle data
+#' edu <- cantonalI %>% 
+#'   select(`Sans formation postobligatoire (dès 25 ans)`, `Degré secondaire II (dès 25 ans)`, `Degré tertiaire (dès 25 ans)`) %>% 
+#'   rownames_to_column()
+#' stopifnot(all(rowSums(edu %>% select(-rowname)) %>% round() == 100))
+#' colnames(edu) <- gsub(" \\(dès 25 ans\\)", "", colnames(edu))
+#' edu <- edu %>% gather(education, pourc, -rowname) %>% 
+#'   rename(code = rowname) %>% 
+#'   mutate(education = fct_inorder(education))
+#'   
+#' # Plot
+#' ggplot(edu) + 
+#' geom_col(aes(x = education, y = pourc, fill = education)) + 
+#' coord_flip() +
+#' facet_geo( ~ code, grid = ch_cantons_grid2, label = "name_fr") +
+#' scale_x_discrete(labels = NULL, name ="") +
+#' scale_y_continuous(name = "") +
+#' theme(legend.position = "top") +
+#' ggtitle("Niveau d'éducation atteint par canton")
+#'     
+#' }
+loadCantonsCHportraits <- function(file = "cantonal_CH_2020_indicators_je-f-21.03.02.csv") {
   data.path <- dir(system.file("extdata", package="tamMap"), file, full.names = T)
   data.read <- read.csv(data.path, stringsAsFactors = F, check.names = FALSE, header = T, row.names = 1)
   data.read
 }
 
-##' Process Portraits regionaux de la Suisse canton xls
-##' 
-##' Run it when new data are available: \url{https://www.bfs.admin.ch/bfs/en/home/statistics/catalogues-databases.assetdetail.je-f-21.03.02.html}
-##' Warning of possible break if the OFS changes the data structure of the xls file!!
-##'
-##' @name processPortraitsRegionauxCantons
-##' @param output the output file name to be saved in the package inst/extdata
-##' @return NULL
-##' @import tidyr dplyr readxl
-##' @seealso \url{https://www.bfs.admin.ch/bfs/en/home/statistics/catalogues-databases.assetdetail.je-f-21.03.02.html}
-##' @export
-##' @examples
-##' \dontrun{
-##' tamMap:::processPortraitsRegionauxCantons()
-##' }
+#' Process Portraits regionaux de la Suisse canton xls
+#' 
+#' Run it when new data are available: \url{https://www.bfs.admin.ch/bfs/en/home/statistics/catalogues-databases.assetdetail.je-f-21.03.02.html}
+#' Warning of possible break if the OFS changes the data structure of the xls file!!
+#'
+#' @name processPortraitsRegionauxCantons
+#' @param output the output file name to be saved in the package inst/extdata
+#' @return NULL
+#' @import tidyr dplyr readxl
+#' @seealso \url{https://www.bfs.admin.ch/bfs/en/home/statistics/catalogues-databases.assetdetail.je-f-21.03.02.html}
+#' @export
+#' @examples
+#' \dontrun{
+#' tamMap:::processPortraitsRegionauxCantons()
+#' }
 processPortraitsRegionauxCantons <- function(
   file = 'je-f-21.03.02.xlsx', 
-  output = 'cantonal_CH_2018_indicators_je-f-21.03.02.csv'  
+  output = 'cantonal_CH_2020_indicators_je-f-21.03.02.csv'  
 ) {
   
   out.path <- paste0(getwd(), "/inst/extdata/", output)
@@ -81,7 +81,7 @@ processPortraitsRegionauxCantons <- function(
   #colnames(xls.read) <- xls.read[1,]
   colnames(xls.read)[1] <- 'indicator'
  # xls.read <- xls.read[-1,]
-  xls.read <- xls.read %>% select(-`Années`, -Suisse)
+  xls.read <- xls.read %>% select(-`Année`, -Suisse)
   
   # Find the rows that are titles for subsequent rows (i.e. NA rows except first column)
   na.row <- apply(xls.read, 1, function(l) all(is.na(l[-1])))
@@ -90,8 +90,8 @@ processPortraitsRegionauxCantons <- function(
   xls.read <- xls.read %>% filter(!grepl('Variation en %', indicator))
   
   # drop some absolute indicators
-  xls.read <- xls.read %>% filter(!grepl('(Part des surfaces bio dans la surface agricole utile totale en %|Etablissements, total|Taux de logements occupés par leur propriétaire 2)|Arrivées dans les hôtels et établissements de cure en milliers|Nuitées dans les hôtels et établissements de cure en milliers|Secteur primaire|Secteur secondaire|Secteur tertiaire|Emplois, total en milliers|Etablissements, total)', indicator, fixed = T))
-  xls.read <- xls.read %>% filter(!grepl('(Emplois, total en milliers|Secteur primaire|Secteur secondaire|Secteur tertiaire|Part des surfaces bio dans la surface agricole utile totale en %|Etablissements, total|Taux de logements occupés par leur propriétaire 2)|Arrivées dans les hôtels et établissements de cure en milliers|Nuitées dans les hôtels et établissements de cure en milliers|Etablissements, total)', indicator))
+  xls.read <- xls.read %>% filter(!grepl('(Secteur primaire|Secteur secondaire|Secteur tertiaire)', indicator, fixed = T))
+  xls.read <- xls.read %>% filter(!grepl('(Emplois, total en milliers|Etablissements, total|Arrivées dans les hôtels et établissements de cure en milliers|Nuitées dans les hôtels et établissements de cure en milliers)', indicator))
   
   # rename some columns
   xls.read$indicator[grep("par km²", xls.read$indicator)] <- 'Population par km2'
@@ -100,7 +100,9 @@ processPortraitsRegionauxCantons <- function(
   xls.read$indicator[grep("\\d\\)", xls.read$indicator, perl = T)] <- gsub(" \\d\\)", "", xls.read$indicator[grep("\\d\\)", xls.read$indicator, perl = T)])
   
   # make the data long
-  df <- apply(t(xls.read[,-1]), 2, function(cl)  as.numeric(gsub("\\((.*)\\)", "\\1", cl)))
+  df <- apply(t(xls.read[,-1]), 2, function(cl) {
+    suppressWarnings(as.numeric(gsub("\\((.*)\\)", "\\1", cl)))
+  })
   colnames(df) <- unlist(xls.read[,1], use.names = F)
   rownames(df) <- colnames(xls.read[,-1])
   
