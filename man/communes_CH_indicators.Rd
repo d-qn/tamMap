@@ -2,12 +2,21 @@
 % Please edit documentation in R/communes_ch_indicators.R
 \name{loadCommunesCHportraits}
 \alias{loadCommunesCHportraits}
+\alias{processPortraitsRegionauxCommune}
 \title{Swiss communes socio-demographic indicators}
+\arguments{
+\item{file}{the raw excel file name from the Swiss Statistical office with indicators by commune}
+
+\item{output}{the output file name to be saved in the package inst/extdata}
+}
 \value{
 a matrix
 }
 \description{
 Load socio-demographic data by the Swiss Statistical Office.
+
+Useful to update the source data of commune socio-economic indicators loaded by \code{loadCommunesCHportraits}
+Warning of possible break if the OFS changes the data structure of the xls file!!
 }
 \details{
 Run \code{processPortraitsRegionauxCommune()} to generate a readable csv file for \code{loadCommunesCHportraits}
@@ -74,6 +83,9 @@ barcode <- ggplot(ddd) +
 
 barcode + theme(strip.text = element_text(hjust = 0), panel.grid = element_blank())
 }
+\dontrun{
+processPortraitsRegionauxCommune()
+}
 }
 \seealso{
 Office fédéral de la statistique > Les Régions > Communes > Données et explications (portraits): \url{https://www.bfs.admin.ch/bfs/fr/home/statistiques/statistique-regions/portraits-regionaux-chiffres-cles/communes.assetdetail.328133.html} \cr
@@ -84,4 +96,6 @@ The cleaning up of raw xls file: \itemize{
   \item Remove the text at the bottom
   \item Save as csv
 }
+
+\url{http://opendata.admin.ch/de/dataset/ch-swisstopo-vd-ortschaftenverzeichnis_plz/resource/35001b61-e7c1-4124-89fa-17fac7b1139e} from: \url{http://opendata.admin.ch/de/dataset/ch-swisstopo-vd-ortschaftenverzeichnis_plz}
 }
