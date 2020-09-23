@@ -6,7 +6,7 @@
 \arguments{
 \item{y}{a numeric of lenghth 1. The year (as of the 1st of Jan) of geo data to get. It is currently used for dirGeo CH, ignored for the other options}
 
-\item{generalisationLevel, }{a numeric of length 1. The "generalisation level" of the geo data 1: detailed, 2:less detailed}
+\item{generalisationLevel}{a numeric of length 1. The "generalisation level" of the geo data 1: detailed, 2:less detailed}
 
 \item{features}{a string vector with the geographical levels' paths to returns, one of municipalities, municipalities_encl, lakes, agglomerations, cantons, largeRegions and country}
 
@@ -27,9 +27,11 @@ To remove Lichenstein data:
   li_files <- dir("inst/extdata/shp/CH", '.*_li.*', full.names = T) 
   file.remove(li_files)
   
-So far 2019 until 2012 downloaded and processed.
+So far 2020 until 2012 downloaded and processed.
 ALl ll the downloaded geodata are in:
 inst/extdata/shp/CH/
+
+Improductive surface downloaded from: https://www.bfs.admin.ch/bfs/fr/home/statistiques/statistique-regions/fonds-cartes/geometries-base.html
 
 For the CH/quartiers Les limites de quartiers sont fournies pour les communes suivantes : Winterthour (230), Zurich (261), Berne (351), Bienne (371), Lucerne (1061), Bâle (2701), Saint-Gall (3203), Lugano (5192), Lausanne (5586) et Genève (6621)
 }
