@@ -4,7 +4,7 @@
 ##' \url{https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/niveaux-geographiques.html}. 
 ##' They have now an interactive app, export the Excel file from 
 ##' \url{https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/niveaux-geographiques.html}
-##' (check everything)
+##' (check everything) and rename it as: niveaux_geographiques_communes.xlsx
 ##'
 ##' @name loadCommunesCHgeographicalLevels
 ##' @return a data.frame with tons of geographical features, check the source excel for more details
@@ -43,14 +43,15 @@
 ##' mutate(`Typologie urbainrural 2012` = as.factor(`Typologie urbainrural 2012`))
 ##' 
 ##' ggplot() +
-##'   geom_sf(data = shp_ch_geodata$municipalities, aes(fill = `Typologie urbainrural 2012`), lwd = 0.05, colour = "#0d0d0d") +
+##'   geom_sf(data = shp_ch_geodata$municipalities, 
+##'   aes(fill = `Typologie urbainrural 2012`), lwd = 0.05, colour = "#0d0d0d") +
 ##'   geom_sf(data = shp_ch_geodata$cantons, lwd = 0.15, colour = "#333333", fill = NA) +
 ##'   geom_sf(data = shp_ch_geodata$country, lwd = 0.25, colour = "#000d1a", fill = NA) +
 ##'   geom_sf(data = shp_ch_geodata$lakes, lwd = 0, fill = "#0066cc") +
 ##'   theme_map()
 ##' }
 loadCommunesCHgeographicalLevels <- function() {
-  data.path <- dir(system.file("extdata", package="tamMap"), "Niveaux_géographiques\\.xlsx", full.names = T)
+  data.path <- dir(system.file("extdata", package="tamMap"), "niveaux_geographiques_communes.xlsx", full.names = T)
   
   # get the data date
   metadata <- readxl::read_excel(data.path, sheet = "Métadonnées", range = "A10:A10", col_names = F)

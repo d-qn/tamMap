@@ -11,7 +11,7 @@ Load the Swiss statistical office geographical levels communes data from:
 \url{https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/niveaux-geographiques.html}. 
 They have now an interactive app, export the Excel file from 
 \url{https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/niveaux-geographiques.html}
-(check everything)
+(check everything) and rename it as: niveaux_geographiques_communes.xlsx
 }
 \details{
 The portrait includes non political OFS ID, i.e. lakes
@@ -47,7 +47,8 @@ rename(`Typologie urbainrural 2012` =
 mutate(`Typologie urbainrural 2012` = as.factor(`Typologie urbainrural 2012`))
 
 ggplot() +
-  geom_sf(data = shp_ch_geodata$municipalities, aes(fill = `Typologie urbainrural 2012`), lwd = 0.05, colour = "#0d0d0d") +
+  geom_sf(data = shp_ch_geodata$municipalities, 
+  aes(fill = `Typologie urbainrural 2012`), lwd = 0.05, colour = "#0d0d0d") +
   geom_sf(data = shp_ch_geodata$cantons, lwd = 0.15, colour = "#333333", fill = NA) +
   geom_sf(data = shp_ch_geodata$country, lwd = 0.25, colour = "#000d1a", fill = NA) +
   geom_sf(data = shp_ch_geodata$lakes, lwd = 0, fill = "#0066cc") +

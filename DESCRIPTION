@@ -3,7 +3,7 @@ Type: Package
 Title: Convenience functions for geomapping Swiss data
 Description: Misc functions to process and plot geographic maps, mainly swiss maps (cantonal,
     districts and communes). It contains also a bunch of socio-economic indicators and ballot data that can be mapped (cantons and communes).
-Version: 0.7
+Version: 0.71
 Date: 2018-05-30
 Author: Duc-Quang Nguyen
 Maintainer: Duc-Quang Nguyen <ducquang.nguyen@gmail.com>
@@ -28,4 +28,5 @@ Suggests:
     rmapshaper,
     ggiraph (>= 0.4.4.001)
 License: GPL-3
+Depends: R (>= 3.5.0)
 RoxygenNote: 7.1.1

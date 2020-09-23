@@ -3,19 +3,31 @@
 \docType{data}
 \name{canton_CH}
 \alias{canton_CH}
-\title{Swiss canton names}
+\alias{canton_namesStrict}
+\title{Swiss canton names - convert them to different languages and abbreviations}
 \format{
 An object of class \code{data.frame} with 26 rows and 23 columns.
 }
 \usage{
 canton_CH
 }
+\arguments{
+\item{query}{a character vector of Swiss canton names in any language}
+
+\item{output}{a character string, the ouput format}
+}
 \description{
 Functions to convert Switzerland's cantons, districts and communes names to their abbreviations and official BFS ID
+}
+\details{
+See \code{canton_CH}
 }
 \examples{
 \dontrun{
 print(canton_CH)
 }
+canton_query <- c('Argovie', 'Appenzell Rh.-I.', 'St. Gallen', 'Zürich', 'Vaud')
+canton_namesStrict(canton_query)
+canton_namesStrict(canton_query, output = "eng")
 }
 \keyword{datasets}

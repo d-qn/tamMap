@@ -23,7 +23,9 @@ require(geofacet)
 
 # wrangle data
 edu <- cantonalI \%>\% 
-  select(`Sans formation postobligatoire (dès 25 ans)`, `Degré secondaire II (dès 25 ans)`, `Degré tertiaire (dès 25 ans)`) \%>\% 
+  select(`Sans formation postobligatoire (dès 25 ans)`, 
+  `Degré secondaire II (dès 25 ans)`, 
+  `Degré tertiaire (dès 25 ans)`) \%>\% 
   rownames_to_column()
 stopifnot(all(rowSums(edu \%>\% select(-rowname)) \%>\% round() == 100))
 colnames(edu) <- gsub(" \\\\(dès 25 ans\\\\)", "", colnames(edu))

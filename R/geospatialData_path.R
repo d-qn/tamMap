@@ -47,19 +47,26 @@
 ##' # 5 largest Swiss cites
 ##' villes <- st_read(shp_villes, layer = "swiss_cities") %>% 
 ##' slice(1:5)
-##' # cities' label, as centroid of the tiles. Needs to be a simple (non-sf) object to be plotted as geom_text
-##' villes_labels <- data.frame(label = as.character(villes$name), villes %>% st_centroid() %>% st_coordinates())
+##' # cities' label, as centroid of the tiles. 
+##' #Needs to be a simple (non-sf) object to be plotted as geom_text
+##' villes_labels <- data.frame(label = as.character(villes$name), 
+##'   villes %>% st_centroid() %>% st_coordinates())
 ##' 
 ##' # plot
 ##' gp <- ggplot() +
 ##'   geom_sf(data = shp_ch_geodata$municipalities, aes(fill = GMDNR), lwd = 0.05, colour = "#0d0d0d") +
 ##'   geom_sf(data = shp_ch_geodata$cantons, lwd = 0.15, colour = "#333333", fill = NA) +
 ##'   geom_sf(data = shp_ch_geodata$country, lwd = 0.25, colour = "#000d1a", fill = NA) +
-##'   geom_sf(data = shp_ch_geodata$lakes %>% filter(SEENAME != "Lago di Como"), lwd = 0, fill = "#0066cc")
+##'   geom_sf(data = shp_ch_geodata$lakes %>% filter(SEENAME != "Lago di Como"), 
+##'     lwd = 0, fill = "#0066cc")
 ##'
 ##' gp + 
-##'     geom_sf(data = villes, aes(size = pop), fill = NA, shape = 1, colour = "darkred", stroke = 1, alpha = 0.8) +
-##'     geom_text(data = villes_labels, aes(x = X, y = Y, label = label), hjust = 0.5, vjust = -1, colour = "darkred", size = 4, alpha = 0.8) +
+##'     geom_sf(data = villes, aes(size = pop), 
+##'       fill = NA, shape = 1, colour = "darkred", 
+##'       stroke = 1, alpha = 0.8) +
+##'     geom_text(data = villes_labels, aes(x = X, y = Y, label = label), 
+##'       hjust = 0.5, vjust = -1, colour = "darkred", 
+##'       size = 4, alpha = 0.8) +
 ##'     theme_map() +
 ##'     scale_fill_viridis_c() +
 ##'     scale_size_continuous(range = c(4, 9), guide = "none") +
