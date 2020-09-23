@@ -29,7 +29,7 @@
 #' @export
 #' @examples
 #' shp_ch_paths_2018 <- shp_path(2018)
-#' shp_ch_paths_2019 <- shp_path(2019)
+#' shp_ch_paths_2020 <- shp_path(2020)
 #' shp_world <- shp_path(2018, dirGeo = "World")
 #' shp_quartiers <- shp_path(dirGeo = "CH/quartiers")
 #' shp_villes <- shp_path(dirGeo = "CH/villes")
@@ -40,7 +40,7 @@
 #' ## 1. Plot municipalities, cantons, lakes and national border with the main cities
 #' 
 #' # loop and load the Swiss geographical levels data in a named list
-#' shp_ch_geodata <- shp_ch_paths_2018 %>% map(function(x) {
+#' shp_ch_geodata <- shp_ch_paths_2020 %>% map(function(x) {
 #'   layerName <- st_layers(x)
 #'   st_read(x, layer = layerName$name, 
 #'     options = "ENCODING=latin1") %>% 
@@ -56,10 +56,13 @@
 #' 
 #' # plot
 #' gp <- ggplot() +
-#'   geom_sf(data = shp_ch_geodata$municipalities, aes(fill = GMDNR), lwd = 0.05, colour = "#0d0d0d") +
-#'   geom_sf(data = shp_ch_geodata$cantons, lwd = 0.15, colour = "#333333", fill = NA) +
-#'   geom_sf(data = shp_ch_geodata$country, lwd = 0.25, colour = "#000d1a", fill = NA) +
-#'   geom_sf(data = shp_ch_geodata$lakes %>% filter(SEENAME != "Lago di Como"), 
+#'   geom_sf(data = shp_ch_geodata$municipalities, 
+#'     aes(fill = GMDNR), lwd = 0.05, colour = "#0d0d0d") +
+#'   geom_sf(data = shp_ch_geodata$cantons, 
+#'     lwd = 0.15, colour = "#333333", fill = NA) +
+#'   geom_sf(data = shp_ch_geodata$country, lwd = 0.25, 
+#'     colour = "#000d1a", fill = NA) +
+#'   geom_sf(data = shp_ch_geodata$lakes %>% filter(GMDNAME != "Lago di Como"), 
 #'     lwd = 0, fill = "#0066cc")
 #'
 #' gp + 
