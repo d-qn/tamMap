@@ -7,8 +7,11 @@
 a data.frame with tons of geographical features, check the source excel for more details
 }
 \description{
-Load the Swiss statistical office geographical levels communes data from: \url{https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/niveaux-geographiques.html}. 
-They have now an interactive app, choose the Excel file \url{https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/niveaux-geographiques.html}
+Load the Swiss statistical office geographical levels communes data from: 
+\url{https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/niveaux-geographiques.html}. 
+They have now an interactive app, export the Excel file from 
+\url{https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/niveaux-geographiques.html}
+(check everything)
 }
 \details{
 The portrait includes non political OFS ID, i.e. lakes

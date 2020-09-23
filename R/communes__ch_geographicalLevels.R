@@ -1,7 +1,10 @@
 ##' Swiss communes geographical data
 ##'
-##' Load the Swiss statistical office geographical levels communes data from: \url{https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/niveaux-geographiques.html}. 
-##' They have now an interactive app, choose the Excel file \url{https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/niveaux-geographiques.html}
+##' Load the Swiss statistical office geographical levels communes data from: 
+##' \url{https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/niveaux-geographiques.html}. 
+##' They have now an interactive app, export the Excel file from 
+##' \url{https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/niveaux-geographiques.html}
+##' (check everything)
 ##'
 ##' @name loadCommunesCHgeographicalLevels
 ##' @return a data.frame with tons of geographical features, check the source excel for more details
@@ -47,7 +50,7 @@
 ##'   theme_map()
 ##' }
 loadCommunesCHgeographicalLevels <- function() {
-  data.path <- dir(system.file("extdata", package="tamMap"), "^be-f-00.04-rgs-01\\.xlsx", full.names = T)
+  data.path <- dir(system.file("extdata", package="tamMap"), "Niveaux_géographiques\\.xlsx", full.names = T)
   
   # get the data date
   metadata <- readxl::read_excel(data.path, sheet = "Métadonnées", range = "A10:A10", col_names = F)
@@ -76,11 +79,14 @@ loadCommunesCHgeographicalLevels <- function() {
 
   #rename columns
   data.read <- data.read %>% 
-    rename(ofsID = `Numéro de la commune`, name = `Nom de la commune`) %>% 
-    select(-Canton, -`Numéro du district`, -`Nom du district`)
+    rename(ofsID = `Numéro de la commune`, 
+           name = `Nom de la commune`) %>% 
+    select(-Canton, -`N° du canton`,
+           -`Numéro du district`, -`Nom du district`)
 
-  #Assign factors instead of numeric to the factors
+  #Assign character factors instead of numeric to the factors
   colnames2sheet <- colnames(data.read)[-c(1,2)]
+  stopifnot(length(colnames2sheet) == length(coln3))
   names(colnames2sheet) <- coln3
   
   for(i in 1:length(colnames2sheet)) {

@@ -55,7 +55,9 @@
 #'    coord_sf(datum = NA, expand = F) +
 #'    theme_map()
 #' }
-loadCommunesCHFederalBallot <- function(file = "federalBallot_communes.RData") {
+loadCommunesCHFederalBallot <- function(
+  file = "federalBallot_communes.RData") 
+{
   data.path <- dir(system.file("extdata", package="tamMap"), file, full.names = T)
   load(data.path)
   ddd

@@ -1,26 +1,26 @@
-##' Swiss canton names
-##'
-##' Functions to convert Switzerland's cantons, districts and communes names to their abbreviations and official BFS ID
-##' 
-##' @name canton_CH
-##' @examples
-##' \dontrun{
-##' print(canton_CH)
-##' }
-##' @export
+#' Swiss canton names
+#'
+#' Functions to convert Switzerland's cantons, districts and communes names to their abbreviations and official BFS ID
+#' 
+#' @name canton_CH
+#' @examples
+#' \dontrun{
+#' print(canton_CH)
+#' }
+#' @export
 canton_CH  <- read.csv(system.file("extdata", "CantonCH_iso.csv", package="tamMap"))
 
-##' Convert Swiss canton names to different languages and abbreviations
-##' 
-##' @name canton_namesStrict
-##' @param query a character vector of Swiss canton names in any language
-##' @param output a character string, the ouput format 
-##' @details See \code{canton_CH}
-##' @export
-##' @examples
-##' canton_query <- c('Argovie', 'Appenzell Rh.-I.', 'St. Gallen', 'Zürich', 'Vaud')
-##' canton_namesStrict(canton_query)
-##' canton_namesStrict(canton_query, output = "eng")
+#' Convert Swiss canton names to different languages and abbreviations
+#' 
+#' @name canton_namesStrict
+#' @param query a character vector of Swiss canton names in any language
+#' @param output a character string, the ouput format 
+#' @details See \code{canton_CH}
+#' @export
+#' @examples
+#' canton_query <- c('Argovie', 'Appenzell Rh.-I.', 'St. Gallen', 'Zürich', 'Vaud')
+#' canton_namesStrict(canton_query)
+#' canton_namesStrict(canton_query, output = "eng")
 canton_namesStrict <- function(query, output = 'iso2') {
   stopifnot(exists("canton_CH"))
   if (!output %in% colnames(canton_CH) || length(output) != 1) {
