@@ -28,4 +28,4 @@ Suggests:
     rmapshaper,
     ggiraph (>= 0.4.4.001)
 License: GPL-3
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
