@@ -24,15 +24,15 @@ canton_CH  <- function() {
 #' canton_namesStrict(canton_query)
 #' canton_namesStrict(canton_query, output = "eng")
 canton_namesStrict <- function(query, output = 'iso2') {
-  stopifnot(exists("canton_CH"))
-  if (!output %in% colnames(canton_CH) || length(output) != 1) {
-    stop ("output needs to be one of:", paste(colnames(canton_CH), collapse =" "))
+  canton_ch_df <- canton_CH()
+  if (!output %in% colnames(canton_ch_df) || length(output) != 1) {
+    stop ("output needs to be one of:", paste(colnames(canton_ch_df), collapse =" "))
   }
   
   result <- query
   for(i in 1:length(query)) {
     q <- query[i]
-    nrow <- which(q == canton_CH, T)
+    nrow <- which(q == canton_ch_df, T)
     
     if(length(nrow) == 0) {
       warning("\n", q, " could not be matched!\t", "NA returned instead!")
@@ -41,7 +41,7 @@ canton_namesStrict <- function(query, output = 'iso2') {
       warning("\n", q, " matched multiple cantons!\t", "NA returned instead!")
     }
     if(length(unique(nrow[,1])) == 1) {
-      q <- as.character(canton_CH[unique(nrow[,1]),output])
+      q <- as.character(canton_ch_df[unique(nrow[,1]),output])
     } else {
       q <- NA
     }

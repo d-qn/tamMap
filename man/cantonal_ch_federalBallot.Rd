@@ -35,7 +35,7 @@ ballot_nat <- ballot_nat \%>\%
   data.frame() \%>\% 
   rownames_to_column(var = "iso2")
 # get the cantonal IDs
-ballot_nat <- left_join(ballot_nat, canton_CH \%>\% select(order, iso2)) \%>\% select(-iso2)
+ballot_nat <- left_join(ballot_nat, canton_CH() \%>\% select(order, iso2)) \%>\% select(-iso2)
 require(sf)
 require(tidyverse)
 
