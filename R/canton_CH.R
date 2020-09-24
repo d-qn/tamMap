@@ -3,12 +3,15 @@
 #' Functions to convert Switzerland's cantons, districts and communes names to their abbreviations and official BFS ID
 #' @rdname canton_CH
 #' @name canton_CH
+#' @details a data.frame used by \code{canton_namesStrict}
 #' @examples
 #' \dontrun{
-#' print(canton_CH)
+#'   canton_CH()
 #' }
 #' @export
-canton_CH  <- read.csv(system.file("extdata", "CantonCH_iso.csv", package="tamMap"))
+canton_CH  <- function() {
+  read.csv(system.file("extdata", "CantonCH_iso.csv", package="tamMap"))
+}
 
 #' @name canton_namesStrict
 #' @rdname canton_CH

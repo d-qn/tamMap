@@ -194,6 +194,6 @@ shp_path <- function(
     structure(files, names = dirGeo)
   } else {
     stop("\n The dirGeo provided ", dirGeo, 
-         " unknown! It must be one of: CH, CH/quartiers, CH/villes, World\n")
+         " unknown! It must be one of: CH, CH/productive, CH/quartiers, CH/villes, World\n")
   }
 }
