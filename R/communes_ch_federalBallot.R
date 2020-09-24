@@ -83,80 +83,69 @@ processFederalBallotByCommunes <- function(
   
   tmpdir <- tempdir()
   px.file <- download.file(url, paste0(tmpdir, "/", "federalBallot.px"))
-  px.read <- read.px(filename = paste0(tmpdir, "/", "federalBallot.px"))
+  # px.read <- read.px(filename = paste0(tmpdir, "/", "federalBallot.px"))
+  # 
+  # data <- px.read$DATA[[1]]
+  # data_old <- data
   
-  data <- px.read$DATA[[1]]
-  
-  # get the French terms
-  fr <- px.read$VALUES.fr.
-  de <- px.read$VALUES
-
-  # get French colnames 
-  colnames(data)[-ncol(data)] <- rev(names(fr))
-  
-  ## helper to translate PX file
-  translate <- function(colname = 'Result.variable', data, fr, de) {
-    # find which colname idx
-    i <- which(names(fr) == colname)
-    # split single string to a string vector
-    translations <- unlist(strsplit(fr[[i]], '", ?"'))
-    stopifnot(length(translations) == length(de[[i]]))
-    
-    # match each term of the data to the levels
-    idx <- match(data[[colname]], de[[i]])
-    stopifnot(all(!is.na(idx)))
-    
-    factor(translations[idx])
-  }
-  # apply translation
-  for(coln in colnames(data)[-ncol(data)]) {
-    data[,coln]<- translate(coln, data, fr, de)
-  }
-  # get the canton and ballot ID
-  code <- px.read$CODES.fr.
-  cantons <- structure(
-    unlist(strsplit(code[['Canton.......District........Commune.........']], '", ?"')), 
-    names = unlist(strsplit(fr[['Canton.......District........Commune.........']], '", ?"'))
-  )
-  ballot <- structure(
-    unlist(strsplit(code[['Date.et.objet']], '", ?"')), 
-    names = unlist(strsplit(fr[['Date.et.objet']], '", ?"'))   
-  )
+  data <- ofsPx_wrangle(
+    px.file = paste0(tmpdir, "/", "federalBallot.px"),
+    langout = 'fr', 
+    attachCode = c(
+      "Canton.......District........Commune.........",
+      "Date.et.objet"))
   
   ## subset to take only %oui and municipality results
   dd <- data %>% 
     dplyr::filter(Résultat == 'Oui en %', 
                   grepl("......", `Canton.......District........Commune.........`, fixed = T)
-    )
-  dd <- dd %>%
+    ) %>% 
     dplyr::select(-Résultat) %>% 
-    dplyr::rename(commune = `Canton.......District........Commune.........`)
- 
-   # get commune 2 letters code
-  dd$communeID <- cantons[match(dd$commune, names(cantons))]
-  # get ballot id
-  dd$ballot <- as.numeric(ballot[match(dd$`Date.et.objet`, names(ballot))])
+    dplyr::rename(commune = `Canton.......District........Commune.........`) %>% 
+    dplyr::rename(communeID = `Canton.......District........Commune........._code`) %>% 
+    dplyr::rename(ballot = `Date.et.objet_code`) %>% 
+    dplyr::mutate(ballot = as.numeric(ballot))
+
   # split date and ballot name
   xx <- as.character(dd$`Date.et.objet`)
-  dd$date <- as.Date(gsub("(\\d{4}\\-\\d{2}\\-\\d{2}) .*", "\\1", xx, perl = T), format = "%Y-%m-%d")
+  dd$date <- as.Date(gsub("(\\d{4}\\-\\d{2}\\-\\d{2}) ", "\\1", xx, perl = T), format = "%Y-%m-%d")
   dd$ballotName <- gsub("(\\d{4}\\-\\d{2}\\-\\d{2}) (.*$)", "\\2", xx, perl = T)
+  rm(xx)
   
-  ddd <- dd %>% dplyr::select(communeID, ballot, value) %>% 
+  # make it wide as a matrix
+  # row as muni, col as ballot
+  ddd <- dd %>% 
+    dplyr::select(communeID, ballot, value) %>% 
     tidyr::spread(key = ballot, value = value)
   rownames(ddd) <- ddd$communeID
   ddd <- data.matrix( ddd %>% dplyr::select(-communeID))
   
-  attr(ddd, "ballotName") <- dd[match(colnames(ddd), dd$ballot), 'ballotName']
-  attr(ddd, "date") <- dd[match(colnames(ddd), dd$ballot), 'date']
-  attr(ddd, "communeName") <- gsub("......", "", names(cantons)[match(rownames(ddd), cantons)], fixed = T)
-  rownames(ddd) <- as.numeric(rownames(ddd))
+  # for attributes 
+  ballot2ballotName <-dd %>% 
+    dplyr::select(ballot, ballotName) %>% 
+    distinct() %>% deframe()
+  
+  ballot2date <- dd %>% 
+    dplyr::select(ballot, date) %>% 
+    distinct() %>% deframe()
+  
+  code2communeName <- dd %>% 
+    dplyr::select(communeID, commune) %>% 
+    mutate(commune = gsub("......", "", commune, fixed = T)) %>% 
+    distinct() %>% deframe()    
+  
+  attr(ddd, "ballotName") <- ballot2ballotName[match(colnames(ddd), names(ballot2ballotName))] %>% unname()
+  attr(ddd, "date") <- ballot2date[match(colnames(ddd), names(ballot2date))] %>% unname()
 
+  attr(ddd, "communeName") <- code2communeName[match(rownames(ddd), code2communeName)]
+  rownames(ddd) <- as.numeric(rownames(ddd))
+  
   stopifnot(
     ncol(ddd) == length(attr(ddd, "ballotName")), 
     length(attr(ddd, "ballotName")) == length(attr(ddd, "date")),
     nrow(ddd) == length(attr(ddd, "communeName"))
   )
-  
+
   save(ddd, file = out.path)
   cat("\n\n ------ \n Saved in:" , out.path, "\n\n")
 }
