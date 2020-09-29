@@ -123,10 +123,12 @@ processFederalBallotByCantons <- function(
     unlist(strsplit(code[['Date.et.objet']], '", ?"')),
     names = unlist(strsplit(fr[['Date.et.objet']], '", ?"'))
   )
-
+  colnames(data)[1] <- "Resultat"
+  
   ## subset to take only %oui and not results over the whole Switzerland
-  dd <- data %>% filter(Résultat == 'Oui en %', Canton != "Suisse") %>%
-    select(-Résultat)
+  dd <- data %>% 
+    filter(Resultat == 'Oui en %', Canton != "Suisse") %>%
+    select(-Resultat)
 
    # get canton 2 letters code
   dd$Canton <- cantons[match(dd$Canton, names(cantons))]
