@@ -10,6 +10,9 @@
 #'   li_files <- dir("inst/extdata/shp/CH", '.*_li.*', full.names = T) 
 #'   file.remove(li_files)
 #'   
+#' Get all the g2 files
+#'   gfiles <- dir(".", '^g2.*', full.names = T) 
+#' 
 #' So far 2020 until 2012 downloaded and processed.
 #' ALl ll the downloaded geodata are in:
 #' inst/extdata/shp/CH/
@@ -116,7 +119,7 @@
 #' muni_2017_prod %>% select() %>% plot()
 #' }
 shp_path <- function(
-  y = 2020, 
+  y = 2021, 
   generalisationLevel = 2,
   features = c('municipalities', 'cantons', 'lakes', 'country'), 
   dirGeo = 'CH') {
