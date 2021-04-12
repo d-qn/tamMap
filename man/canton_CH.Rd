@@ -6,6 +6,8 @@
 \title{Swiss canton names - convert them to different languages and abbreviations}
 \usage{
 canton_CH()
+
+canton_namesStrict(query, output = "iso2")
 }
 \arguments{
 \item{query}{a character vector of Swiss canton names in any language}

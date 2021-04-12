@@ -6,6 +6,9 @@
 \source{
 \url{https://github.com/ernstbaslerpartner/Switzerland_Tilemap}
 }
+\usage{
+tilemap_ch(fortified = T, withLake = F)
+}
 \arguments{
 \item{fortified, }{a logical a data.frame instead of spatial object to be returned}
 

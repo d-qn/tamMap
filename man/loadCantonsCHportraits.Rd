@@ -3,6 +3,9 @@
 \name{loadCantonsCHportraits}
 \alias{loadCantonsCHportraits}
 \title{Swiss cantonal indicators}
+\usage{
+loadCantonsCHportraits(file = "cantonal_CH_2020_indicators_je-f-21.03.02.csv")
+}
 \arguments{
 \item{file}{the name of the csv file to load (output by \code{processPortraitsRegionauxCantons}) or the raw excel file name from the Swiss Statistical office with indicators by canton to be processed by the aforementionned function}
 }

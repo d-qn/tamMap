@@ -4,6 +4,14 @@
 \alias{loadCommunesCHportraits}
 \alias{processPortraitsRegionauxCommune}
 \title{Swiss communes socio-demographic indicators}
+\usage{
+loadCommunesCHportraits()
+
+processPortraitsRegionauxCommune(
+  file = "je-f-21.03.01.xlsx",
+  output = "communesCH_2020_indicators_je-f-21.03.01.csv"
+)
+}
 \arguments{
 \item{file}{the raw excel file name from the Swiss Statistical office with indicators by commune}
 

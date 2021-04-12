@@ -3,6 +3,12 @@
 \name{processPortraitsRegionauxCantons}
 \alias{processPortraitsRegionauxCantons}
 \title{Process Portraits regionaux de la Suisse canton xls}
+\usage{
+processPortraitsRegionauxCantons(
+  file = "je-f-21.03.02.xlsx",
+  output = "cantonal_CH_2020_indicators_je-f-21.03.02.csv"
+)
+}
 \arguments{
 \item{output}{the output file name to be saved in the package inst/extdata}
 }

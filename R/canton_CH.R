@@ -4,6 +4,7 @@
 #' @rdname canton_CH
 #' @name canton_CH
 #' @details a data.frame used by \code{canton_namesStrict}
+#' @importFrom utils read.csv
 #' @examples
 #' \dontrun{
 #'   canton_CH()

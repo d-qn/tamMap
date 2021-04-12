@@ -4,6 +4,14 @@
 \alias{loadCommunesCHFederalBallot}
 \alias{processFederalBallotByCommunes}
 \title{Federal ballot results by communes}
+\usage{
+loadCommunesCHFederalBallot(file = "federalBallot_communes.RData")
+
+processFederalBallotByCommunes(
+  url = "https://www.pxweb.bfs.admin.ch/DownloadFile.aspx?file=px-x-1703030000_101",
+  output = "federalBallot_communes.RData"
+)
+}
 \arguments{
 \item{file}{the name of the csv file processed by processFederalBallotByCommunes to load}
 

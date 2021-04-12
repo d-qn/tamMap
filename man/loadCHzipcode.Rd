@@ -3,6 +3,9 @@
 \name{loadCHzipcode}
 \alias{loadCHzipcode}
 \title{Load the NPA/PLZ/ Zip code for Switzerland}
+\usage{
+loadCHzipcode()
+}
 \value{
 a data.frame
 }

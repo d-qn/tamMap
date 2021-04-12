@@ -4,6 +4,14 @@
 \alias{communes_history}
 \alias{communes_list}
 \title{Swiss communes list & history}
+\usage{
+communes_history(start = "2012-01-01", end = Sys.Date())
+
+communes_list(
+  file = dir(system.file("extdata", package = "tamMap"), "EtatCommunes.xls", full.names
+    = T)
+)
+}
 \arguments{
 \item{start, end}{Date objets: the timeframe at which to query the list of communes changes}
 

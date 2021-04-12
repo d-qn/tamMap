@@ -3,6 +3,14 @@
 \name{shp_path}
 \alias{shp_path}
 \title{Return path to (mainly OFS) geospatial data}
+\usage{
+shp_path(
+  y = 2020,
+  generalisationLevel = 2,
+  features = c("municipalities", "cantons", "lakes", "country"),
+  dirGeo = "CH"
+)
+}
 \arguments{
 \item{y}{a numeric of lenghth 1. The year (as of the 1st of Jan) of geo data to get. It is currently used for dirGeo CH, ignored for the other options}
 
