@@ -9,7 +9,7 @@ loadCommunesCHportraits()
 
 processPortraitsRegionauxCommune(
   file = "je-f-21.03.01.xlsx",
-  output = "communesCH_2020_indicators_je-f-21.03.01.csv"
+  output = "communesCH_2021_indicators_je-f-21.03.01.csv"
 )
 }
 \arguments{
