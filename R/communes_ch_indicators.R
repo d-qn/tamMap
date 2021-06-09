@@ -80,7 +80,7 @@
 loadCommunesCHportraits <- function() {
 
   # get the path to communes data txt file 
-  data.path <- dir(system.file("extdata", package="tamMap"), "communesCH_2020_indicators_je-f-21.03.01.csv", full.names = T)
+  data.path <- dir(system.file("extdata", package="tamMap"), "communesCH_2021_indicators_je-f-21.03.01.csv", full.names = T)
   data.read <- read.csv(data.path, skip = 3, header = TRUE, stringsAsFactors = F, check.names = FALSE)
  
    # save ony the indicator values as a matrix
