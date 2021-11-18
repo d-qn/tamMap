@@ -23,6 +23,7 @@ A data.frame (or spatial object) of Switzerland's tilemap
 \examples{
 tmap_ch <- tilemap_ch()
 \dontrun{
+require(sf)
 require(tidyverse)
 
 # cantonal label, as centroid of the tiles. Needs to be a simple (non-sf) object to be plotted as geom_text

@@ -12,6 +12,7 @@
 #' @examples
 #' tmap_ch <- tilemap_ch()
 #' \dontrun{
+#' require(sf)
 #' require(tidyverse)
 #' 
 #' # cantonal label, as centroid of the tiles. Needs to be a simple (non-sf) object to be plotted as geom_text
@@ -36,10 +37,10 @@
 #'    geom_text(data = tmap.label, aes(x = X, y = Y, label = label), hjust = 0.5, vjust = 0.5, colour = "white", size = 2.5)
 #' }
 tilemap_ch <- function(fortified = T, withLake = F) {
-  geojson.file <- list.files(system.file("extdata/geojson", package="tamMap"), 
-                             'Switzerland_Tiles_EPSG4326_WGS1984.geojson', full.names = T)
+  shp.file <- list.files(system.file("extdata/tilemapch", package="tamMap"), 
+                             'Switzerland_Tiles_CH1903LV95.shp$', full.names = T)
  
-  result <- st_read(geojson.file)
+  result <- st_read(shp.file)
 
   if(!withLake) {
     result <- result %>% filter(!Name %in% c('Lac Léman', 'Bodensee'))
