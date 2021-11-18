@@ -9,3 +9,4 @@ inst/extdata/.~lock.countrynames_ordered.csv#
 *.history
 inst/doc
 README.html
+R/communes_ch_federalBallot.R

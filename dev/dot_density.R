@@ -76,13 +76,13 @@ ddm <- ggplot() +
   #scale_color_brewer(type = "div", palette = "PiYG") +
   scale_colour_manual(name = "Vote", values = c(tamTheme::tam_dpal[13], 
                       tamTheme::tam_pal[8]))  +
-  theme_lt(grid = F, axis = F, ticks = F, plot_title_size = 26)  +
+  theme_lt(grid = F, axis = F, ticks = F, base_size = 20, plot_title_size = 28, subtitle_size = 21)  +
   labs(title = "Votation sur la loi CO2 - le fossé villes-campagnes",
        subtitle = str_c("<b>1 point = ", people_per_dots, " votes</b> pour le ",
                         '<b style="color:#5ca0f7;">OUI</b> ou ' , 
                         'le <b style="color:#d43d51;">NON</b><br>' , 
                         "<i>La loi sur le CO2 a été rejetée le 13 juin 2021 par  51,6% des votants</i>", collapse = ""),
-       caption = "Données: OFS, Swisstopo | @duc_qn") +
+       caption = "Données: OFS, Swisstopo | @duc_qn | code: ggplot2 & sf") +
   theme(plot.background = element_rect(fill = "black", color = NA),
         panel.grid.major = element_blank(), 
         axis.text.x  = element_blank(),

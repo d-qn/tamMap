@@ -29,7 +29,7 @@ require(sf)
 
 glimpse(data)
 data <- data \%>\% 
-  select(ofsID, name, Canton, 
+  select(ofsID, name, 
   `Typologie des communes 2012 (9 types) (Typologie des communes 2012 (25, 9 catégories et typologie urbain-rural))`)
 
 # get the geographical data

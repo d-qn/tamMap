@@ -83,11 +83,7 @@ processFederalBallotByCommunes <- function(
   
   tmpdir <- tempdir()
   px.file <- download.file(url, paste0(tmpdir, "/", "federalBallot.px"))
-  # px.read <- read.px(filename = paste0(tmpdir, "/", "federalBallot.px"))
-  # 
-  # data <- px.read$DATA[[1]]
-  # data_old <- data
-  
+
   data <- ofsPx_wrangle(
     px.file = paste0(tmpdir, "/", "federalBallot.px"),
     langout = 'fr', 
