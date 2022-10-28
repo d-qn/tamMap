@@ -93,10 +93,10 @@ processFederalBallotByCommunes <- function(
   
   ## subset to take only %oui and municipality results
   dd <- data %>% 
-    dplyr::filter(Résultat == 'Oui en %', 
+    dplyr::filter(`Résultat` == 'Oui en %', 
                   grepl("......", `Canton.......District........Commune.........`, fixed = T)
     ) %>% 
-    dplyr::select(-Résultat) %>% 
+    dplyr::select(-`Résultat`) %>% 
     dplyr::rename(commune = `Canton.......District........Commune.........`) %>% 
     dplyr::rename(communeID = `Canton.......District........Commune........._code`) %>% 
     dplyr::rename(ballot = `Date.et.objet_code`) %>% 
