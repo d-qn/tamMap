@@ -4,7 +4,7 @@
 \alias{ofsPx_wrangle}
 \title{Get the French translation from an OFS typical px data file}
 \usage{
-ofsPx_wrangle(px.file, langout = "fr", attachCode = "")
+ofsPx_wrangle(px.file, langout = "fr", attachCode = "", ...)
 }
 \arguments{
 \item{px.file}{a string, the path to an OFS px file}
@@ -12,6 +12,8 @@ ofsPx_wrangle(px.file, langout = "fr", attachCode = "")
 \item{langout}{a string, the output language. Has to be one of fr, it, en}
 
 \item{attachCode}{a vector of strings, the column names (in the output language) for which to add the code identifiers}
+
+\item{\dots}{Additional arguments passed to pxR::read.px(). encoding is especially useful}
 }
 \value{
 a data.frame

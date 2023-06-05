@@ -9,6 +9,7 @@
 ##' @param px.file a string, the path to an OFS px file
 ##' @param langout a string, the output language. Has to be one of fr, it, en
 ##' @param attachCode a vector of strings, the column names (in the output language) for which to add the code identifiers 
+##' @param \dots Additional arguments passed to pxR::read.px(). encoding is especially useful
 ##' @import pxR
 ##' @return a data.frame 
 ##' @export
@@ -16,10 +17,12 @@
 ##' \dontrun{
 ##' }
 
-ofsPx_wrangle <- function(px.file, langout = 'fr', attachCode = "") {
+ofsPx_wrangle <- function(px.file, langout = 'fr', attachCode = "", ...) {
   stopifnot(langout %in% c('fr', 'it', 'en'))
   
-  px.read <- read.px(px.file, na.strings = c('"."', '".."', '"..."', '"...."', '"......"', '":"'))
+  px.read <- read.px(px.file, 
+                     na.strings = c('"."', '".."', '"..."', '"...."', '"......"', '":"'),
+                     ...)
   languagesAvailable <- str_extract_all(names(px.read), "\\.[:alpha:]{2}\\.$") %>% 
     unlist() %>% unique() %>% 
     str_replace_all("\\.", "")

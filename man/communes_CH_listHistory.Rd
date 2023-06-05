@@ -8,8 +8,8 @@
 communes_history(start = "2012-01-01", end = Sys.Date())
 
 communes_list(
-  file = dir(system.file("extdata", package = "tamMap"), "EtatCommunes.xls", full.names
-    = T)
+  file = dir(system.file("extdata", package = "tamMap"), "EtatCommunes.xls", full.names =
+    T)
 )
 }
 \arguments{
