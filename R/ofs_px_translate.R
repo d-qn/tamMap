@@ -21,7 +21,7 @@ ofsPx_wrangle <- function(px.file, langout = 'fr', attachCode = "", ...) {
   stopifnot(langout %in% c('fr', 'it', 'en'))
   
   px.read <- read.px(px.file, 
-                     na.strings = c('"."', '".."', '"..."', '"...."', '"......"', '":"'),
+                     na.strings = c('"."', '".."', '"..."', '"...."', '"....."', '"......"', '":"'),
                      ...)
   languagesAvailable <- str_extract_all(names(px.read), "\\.[:alpha:]{2}\\.$") %>% 
     unlist() %>% unique() %>% 
