@@ -48,7 +48,7 @@ For the CH/quartiers Les limites de quartiers sont fournies pour les communes su
 }
 \examples{
 shp_ch_paths_2018 <- shp_path(2018)
-shp_ch_paths_2020 <- shp_path(2020)
+shp_ch_paths_2023 <- shp_path(2023)
 shp_world <- shp_path(2018, dirGeo = "World")
 shp_quartiers <- shp_path(dirGeo = "CH/quartiers")
 shp_villes <- shp_path(dirGeo = "CH/villes")
@@ -59,7 +59,7 @@ require(sf)
 ## 1. Plot municipalities, cantons, lakes and national border with the main cities
 
 # loop and load the Swiss geographical levels data in a named list
-shp_ch_geodata <- shp_ch_paths_2020 \%>\% map(function(x) {
+shp_ch_geodata <- shp_ch_paths_2023 \%>\% map(function(x) {
   layerName <- st_layers(x)
   st_read(x, layer = layerName$name, 
     options = "ENCODING=latin1") \%>\% 
@@ -124,15 +124,15 @@ plot(geq)
 
 ## 3. Plot productive municipalites limits for 2017
 # Because the productive municipality limits do not exists for 2017, load
-# the 2017 limits and remove exclude the area not present in the joined productive 2017 limits
-shp_ch_paths_2017 <- shp_path(2017, features = c("municipalities"))
-shp_path_productive <- shp_path(2019, dirGeo = "CH/productive")
-muni_2017 <- st_read(shp_ch_paths_2017, options = "ENCODING=latin1") \%>\% 
+# the 2023 limits and remove exclude the area not present in the joined productive 2017 limits
+shp_ch_paths_2023 <- shp_path(2023, features = c("municipalities"))
+shp_path_productive <- shp_path(2023, dirGeo = "CH/productive")
+muni_2023 <- st_read(shp_ch_paths_2023, options = "ENCODING=latin1") \%>\% 
   select(ends_with("NR"), ends_with("NAME"))
 muni_prod <- st_read(shp_path_productive) \%>\% 
   st_union()
-muni_2017_prod <- st_intersection(muni_2017, muni_prod) 
-muni_2017_prod \%>\% select() \%>\% plot()
+muni_2023_prod <- st_intersection(muni_2023, muni_prod) 
+muni_2023_prod \%>\% select() \%>\% plot()
 }
 }
 \seealso{

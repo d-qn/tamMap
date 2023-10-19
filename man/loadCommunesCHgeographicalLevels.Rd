@@ -36,8 +36,8 @@ data <- data \%>\%
 require(tidyverse)
 require(sf)
 # loop and load the geo data in a named list
-shp_ch_paths_2018 <- shp_path(2018)
-shp_ch_geodata <- shp_ch_paths_2018 \%>\% map(function(x) {
+shp_ch_paths_2023 <- shp_path(2023)
+shp_ch_geodata <- shp_ch_paths_2023 \%>\% map(function(x) {
   layerName <- st_layers(x)
   st_read(x, layer = layerName$name) \%>\% 
   select(ends_with("NR"), ends_with("NAME"))
