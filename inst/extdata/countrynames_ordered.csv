@@ -9,12 +9,12 @@ AM,ARM,51,Armenia,Armenien,Arménie,Armenia,Armenia,Armênia,Армения,亚�
 AW,ABW,533,Aruba,Aruba,Aruba,Aruba,Aruba,Aruba,Аруба,阿鲁巴,アルバ,أروبا
 AU,AUS,36,Australia,Australien,Australie,Australia,Australia,Austrália,Австралия,澳大利亚,オーストラリア,أستراليا
 AT,AUT,40,Austria,Österreich,Autriche,Austria,Austria,Áustria,Австрия,奥地利,オーストリア,النمسا
-AZ,AZE,31,Azerbaijan,Aserbaidschan,Azerbaédjan,Azerbaigian,Azerbaiyán,Azerbaijão,Азербайджан,阿塞拜疆,アゼルバイジャン,آذربيجان
+AZ,AZE,31,Azerbaijan,Aserbaidschan,Azerbaïdjan,Azerbaigian,Azerbaiyán,Azerbaijão,Азербайджан,阿塞拜疆,アゼルバイジャン,آذربيجان
 BS,BHS,44,Bahamas,Bahamas,Bahamas,Bahamas,Bahamas,Bahamas,Багамские Острова,巴哈马,バハマ,جزر البهاما
 BH,BHR,48,Bahrain,Bahrein,Bahreïn,Bahrein,Baréin,Bahrain,Бахрейн,巴林,バーレーン,البحرين
 BD,BGD,50,Bangladesh,Bangladesch,Bangladesh,Bangladesh,Bangladés,Bangladesh,Бангладеш,孟加拉,バングラデシュ,بنغلاديش
 BB,BRB,52,Barbados,Barbados,Barbade,Barbados,Barbados,Barbados,Барбадос,巴巴多斯,バルバドス,بربادوس
-BY,BLR,112,Belarus,Weissrussland,Bélarus,Bielorussia,Belarús,Bielorrússia,Беларусь,白俄罗斯,ベラルーシ,روسيا البيضاء
+BY,BLR,112,Belarus,Weissrussland,Biélorussie,Bielorussia,Belarús,Bielorrússia,Беларусь,白俄罗斯,ベラルーシ,روسيا البيضاء
 BE,BEL,56,Belgium,Belgien,Belgique,Belgio,Bélgica,Bélgica,Бельгия,比利时,ベルギー,بلجيكا
 BZ,BLZ,84,Belize,Belize,Belize,Belize,Belice,Belize,Белиз,伯利兹,ベリーズ,بليز
 BJ,BEN,204,Benin,Benin,Bénin,Benin,Benín,Benin,Бенин,贝宁,ベニン,بنين
@@ -30,7 +30,7 @@ KH,KHM,116,Cambodia,Kambodscha,Cambodge,Cambogia,Camboya,Camboja,Камбодж�
 CM,CMR,120,Cameroon,Kamerun,Cameroun,Camerun,Camerún,Camarões,Камерун,喀麦隆,カメルーン,الكاميرون
 CA,CAN,124,Canada,Kanada,Canada,Canada,Canadá,Canadá,Канада,加拿大,カナダ,كندا
 CV,CPV,132,Cape Verde,Kap Verde,Cap-Vert,Capo Verde,Cabo Verde,Cabo Verde,Кабо-Верде,佛得角,カボベルデ,الرأس الأخضر
-KY,CYM,136,Cayman Islands,Cayman Inseln,Îles Caïmanes,Isole Cayman,Islas Caimán,Ilhas Cayman,Каймановы острова,开曼群岛,ケイマン諸島,جزر كايمان
+KY,CYM,136,Cayman Islands,Cayman Inseln,Iles Caïmanes,Isole Cayman,Islas Caimán,Ilhas Cayman,Каймановы острова,开曼群岛,ケイマン諸島,جزر كايمان
 CF,CAF,140,Central African Republic,Zentralafrikanische Republik,République centrafricaine,Repubblica centrafricana,República Centroafricana,República Centroafricana,Центральноафриканская Республика,中非共和国,中央アフリカ,جمهورية افريقيا الوسطى
 TD,TCD,148,Chad,Tschad,Tchad,Ciad,Chad,Chade,Чад,乍得,チャド,تشاد
 CL,CHL,152,Chile,Chile,Chili,Cile,Chile,Chile,Чили,智利,チリ,تشيلي
@@ -39,7 +39,7 @@ CO,COL,170,Colombia,Kolumbien,Colombie,Colombia,Colombia,Colômbia,Колумб�
 CG,COG,178,Congo,Kongo,Congo,Congo,Congo,Congo,Конго,刚果,コンゴ（旧ザイール）,الكونغو
 CD,COD,180,Democratic Republic of the Congo,Demokratische Republik Kongo,Congo,Repubblica democratica del Congo,República Democrática del Congo,República Democrática do Congo,Демократическая Республика Конго,刚果民主共和国,コンゴ共和国,جمهورية الكونغو الديمقراطية
 CR,CRI,188,Costa Rica,Costa Rica,Costa Rica,Costa Rica,Costa Rica,Costa Rica,Коста-Рика,哥斯达黎加,コスタリカ,كوستا ريكا
-CI,CIV,384,Cote d'Ivoire,Côte d'Ivoire,Côte d'ivoire,Costa d'Avorio,Costa de Marfil,Costa Do Marfim,Кот-д'Ивуар,科特迪瓦,コー​​トジボワール,كوت ديفوار
+CI,CIV,384,Cote d'Ivoire,Côte d'Ivoire,Côte d'Ivoire,Costa d'Avorio,Costa de Marfil,Costa Do Marfim,Кот-д'Ивуар,科特迪瓦,コー​​トジボワール,كوت ديفوار
 HR,HRV,191,Croatia,Kroatien,Croatie,Croazia,Croacia,Croácia,Хорватия,克罗地亚,クロアチア,كرواتيا
 CU,CUB,192,Cuba,Kuba,Cuba,Cuba,Cuba,Cuba,Куба,古巴,キューバ,كوبا
 CW,CUW,531,Curacao,Curacao,Curaçao,Curaçao,Curaçao,Curaçao,Кюрасао,库拉索,キュラソー島,كوراكاو
@@ -48,12 +48,12 @@ CZ,CZE,203,Czech Republic,Tschechische Republik,République tchèque,Repubblica 
 DK,DNK,208,Denmark,Dänemark,Danemark,Danimarca,Dinamarca,Dinamarca,Дания,丹麦,デンマーク,الدنمارك
 DJ,DJI,262,Djibouti,Djibouti,Djibouti,Gibuti,Yibuti,Djibouti,Джибути,吉布提,ジブチ,جيبوتي
 DO,DOM,214,Dominican Republic,Dominikanische Republik,République dominicaine,Repubblica dominicana,República Dominicana,República Dominicana,Доминиканская Республика,多明尼加,ドミニカ共和国,جمهورية الدومينيكان
-EC,ECU,218,Ecuador,Ecuador,Équateur,Ecuador,Ecuador,Equador,Эквадор,厄瓜多尔,エクアドル,الاكوادور
-EG,EGY,818,Egypt,Ägypten,Égypte,Egitto,Egipto,Egito,Египет,埃及,エジプト,مصر
+EC,ECU,218,Ecuador,Ecuador,Equateur,Ecuador,Ecuador,Equador,Эквадор,厄瓜多尔,エクアドル,الاكوادور
+EG,EGY,818,Egypt,Ägypten,Egypte,Egitto,Egipto,Egito,Египет,埃及,エジプト,مصر
 SV,SLV,222,El Salvador,El Salvador,El Salvador,El Salvador,El Salvador,El Salvador,Сальвадор,萨尔瓦多,エルサルバドル,السلفادور
-ER,ERI,232,Eritrea,Eritrea,Érythrée,Eritrea,Eritrea,Eritreia,Эритрея,厄立特里亚,エリトリア,إريتريا
+ER,ERI,232,Eritrea,Eritrea,Erythrée,Eritrea,Eritrea,Eritreia,Эритрея,厄立特里亚,エリトリア,إريتريا
 EE,EST,233,Estonia,Estland,Estonie,Estonia,Estonia,Estônia,Эстония,爱沙尼亚,エストニア,استونيا
-ET,ETH,231,Ethiopia,Äthiopien,Éthiopie,Etiopia,Etiopía,Etiópia,Эфиопия,埃塞俄比亚,エチオピア,أثيوبيا
+ET,ETH,231,Ethiopia,Äthiopien,Ethiopie,Etiopia,Etiopía,Etiópia,Эфиопия,埃塞俄比亚,エチオピア,أثيوبيا
 FJ,FJI,242,Fiji,Fidschi,Fidji,Isole Figi,Fiyi,Fiji,Фиджи,斐济,フィジー,فيجي
 FI,FIN,246,Finland,Finnland,Finlande,Finlandia,Finlandia,Finlândia,Финляндия,芬兰,フィンランド,فنلندا
 FR,FRA,250,France,Frankreich,France,Francia,Francia,França,Франция,法国,フランス,فرنسا
@@ -74,7 +74,7 @@ IS,ISL,352,Iceland,Island,Islande,Islanda,Islandia,Islândia,Исландия,�
 IN,IND,356,India,Indien,Inde,India,India,Índia,Индия,印度,インド,الهند
 ID,IDN,360,Indonesia,Indonesien,Indonésie,Indonesia,Indonesia,Indonésia,Индонезия,印度尼西亚,インドネシア,أندونيسيا
 IR,IRN,364,Islamic Republic of Iran,Islamischen Republik Iran,Iran,Iran,Irán,Irã,"Иран, Исламская Республика",伊朗,イラン,إيران
-IQ,IRQ,368,Iraq,Irak,Iraq,Iraq,Irak,Iraque,Ирак,伊拉克,イラク,العراق
+IQ,IRQ,368,Iraq,Irak,Irak,Iraq,Irak,Iraque,Ирак,伊拉克,イラク,العراق
 IE,IRL,372,Ireland,Irland,Irlande,Irlanda,Irlanda,Irlanda,Ирландия,爱尔兰,アイルランド,أيرلندا
 IL,ISR,376,Israel,Israel,Israël,Israele,Israel,Israel,Израиль,以色列,イスラエル,إسرائيل
 IT,ITA,380,Italy,Italien,Italie,Italia,Italia,Itália,Италия,意大利,イタリア,إيطاليا
@@ -96,7 +96,7 @@ LI,LIE,438,Liechtenstein,Liechtenstein,Liechtenstein,Liechtenstein,Liechtenstein
 LT,LTU,440,Lithuania,Litauen,Lituanie,Lituania,Lituania,Lituânia,Литва,立陶宛,リトアニア,ليتوانيا
 LU,LUX,442,Luxembourg,Luxemburg,Luxembourg,Lussemburgo,Luxemburgo,Luxemburgo,Люксембург,卢森堡,ルクセンブルク,لوكسمبورغ
 MO,MAC,446,Macao,Macao,Macao,Macao,Macao,Macau,Макао,澳门,マカオ,ماكاو
-MK,MKD,807,Former Yugoslav Republic of Macedonia,Ehemalige jugoslawische Republik Mazedonien,L'Ex-République yougoslave de Macédoine,Ex Repubblica jugoslava di Macedonia,Antigua república yugoslava de Macedonia,Antiga República Jugoslava da Macedónia,Бывшая югославская Республика Македония,马其顿,マケドニア·旧ユーゴスラビア共和国,مقدونيا
+MK,MKD,807,Former Yugoslav Republic of Macedonia,Ehemalige jugoslawische Republik Mazedonien,Macédoine du Nord,Ex Repubblica jugoslava di Macedonia,Antigua república yugoslava de Macedonia,Antiga República Jugoslava da Macedónia,Бывшая югославская Республика Македония,马其顿,マケドニア·旧ユーゴスラビア共和国,مقدونيا
 MG,MDG,450,Madagascar,Madagaskar,Madagascar,Madagascar,Madagascar,Madagascar,Мадагаскар,马达加斯加,マダガスカル,مدغشقر
 MW,MWI,454,Malawi,Malawi,Malawi,Malawi,Malaui,Malavi,Малави,马拉维,マラウィ,ملاوي
 MY,MYS,458,Malaysia,Malaysia,Malaisie,Malesia,Malasia,Malásia,Малайзия,马来西亚,マレーシア,ماليزيا
@@ -142,7 +142,7 @@ SG,SGP,702,Singapore,Singapur,Singapour,Singapore,Singapur,Cingapura,Синга�
 SX,SXM,534,Sint Maarten (Dutch part),Sint Maarten (niederländischen Teil),Saint-Martin (partie Néerlandaise),Sint Maarten (Parte olandese),San Martín (parte holandesa),St. Martin (parte holandesa),Синт-Ма́ртен (Нидерланды),荷属圣马丁,シントマールテン島,سانت مارتن (الجزء الهولندي)
 SK,SVK,703,Slovakia,Slowakei,Slovaquie,Slovacchia,República Eslovaca,Eslováquia,Словакия,斯洛伐克,スロバキア,سلوفاكيا
 SI,SVN,705,Slovenia,Slowenien,Slovénie,Slovenia,Eslovenia,Eslovênia,Словения,斯洛文尼亚,スロベニア,سلوفينيا
-SB,SLB,90,Solomon Islands,Salomon-Inseln,Îles Salomon,Isole Salomone,Islas Salomón,Ilhas Salomão,Соломоновы Острова,所罗门群岛,ソロモン諸島,جزر سليمان
+SB,SLB,90,Solomon Islands,Salomon-Inseln,Iles Salomon,Isole Salomone,Islas Salomón,Ilhas Salomão,Соломоновы Острова,所罗门群岛,ソロモン諸島,جزر سليمان
 SO,SOM,706,Somalia,Somalia,Somalie,Somalia,Somalia,Somália,Сомали,索马里,ソマリア,الصومال
 ZA,ZAF,710,South Africa,Südafrika,Afrique du Sud,Sudafrica,Sudáfrica,África do Sul,Южная Африка,南非,南アフリカ,جنوب أفريقيا
 SS,SSD,728,South Sudan,Süd-Sudan,Soudan du Sud,Sud Sudan,Sudán del Sur,Sudão do Sul,Южный Судан,南苏丹,南スーダン,جنوب السودان
@@ -163,21 +163,21 @@ TT,TTO,780,Trinidad and Tobago,Trinidad und Tobago,Trinité-et-Tobago,Trinidad e
 TN,TUN,788,Tunisia,Tunesien,Tunisie,Tunisia,Túnez,Tunísia,Тунис,突尼斯,チュニジア,تونس
 TR,TUR,792,Turkey,Türkei,Turquie,Turchia,Turquía,Turquia,Турция,土耳其,トルコ,البيرو
 TM,TKM,795,Turkmenistan,Turkmenistan,Turkménistan,Turkmenistan,Turkmenistán,Turquemenistão,Туркменистан,土库曼斯坦,トルクメニスタン,تركمانستان
-TC,TCA,796,Turks and Caicos Islands,Turks und Caicos Inseln,Îles Turks et Caïques,Turks e Caicos,Islas Turcas y Caicos,Ilhas Turcas e Caicos,Теркс и Ка́йкос,特克斯和凯科斯群岛,タークス·カイコス諸島,جزر تركس وكايكوس
+TC,TCA,796,Turks and Caicos Islands,Turks und Caicos Inseln,Iles Turques-et-Caïques,Turks e Caicos,Islas Turcas y Caicos,Ilhas Turcas e Caicos,Теркс и Ка́йкос,特克斯和凯科斯群岛,タークス·カイコス諸島,جزر تركس وكايكوس
 UG,UGA,800,Uganda,Uganda,Ouganda,Uganda,Uganda,Uganda,Уганда,乌干达,ウガンダ,أوغندا
 UA,UKR,804,Ukraine,Ukraine,Ukraine,Ucraina,Ucrania,Ucrânia,Украина,乌克兰,ウクライナ,أوكرانيا
-AE,ARE,784,United Arab Emirates,Vereinigte Arabische Emirate,Émirats arabes unis,Emirati Arabi Uniti,Emiratos Árabes Unidos,Emirados Árabes Unidos,Объединенные Арабские Эмираты,阿拉伯联合酋长国,アラブ首長国連邦,الإمارات العربية المتحدة
+AE,ARE,784,United Arab Emirates,Vereinigte Arabische Emirate,Emirats arabes unis,Emirati Arabi Uniti,Emiratos Árabes Unidos,Emirados Árabes Unidos,Объединенные Арабские Эмираты,阿拉伯联合酋长国,アラブ首長国連邦,الإمارات العربية المتحدة
 GB,GBR,826,United Kingdom,Vereinigtes Königreich,Royaume-Uni,Regno Unito,Reino Unido,Reino Unido,Британия,英国,英国,المملكة المتحدة
-US,USA,840,United States,Vereinigte Staaten,États-Unis,Stati Uniti d'America,Estados Unidos,Estados Unidos,Соединенные Штаты Америки,美国,米国,الولايات المتحدة
+US,USA,840,United States,Vereinigte Staaten,Etats-Unis,Stati Uniti d'America,Estados Unidos,Estados Unidos,Соединенные Штаты Америки,美国,米国,الولايات المتحدة
 UY,URY,858,Uruguay,Uruguay,Uruguay,Uruguay,Uruguay,Uruguai,Уругвай,乌拉圭,ウルグアイ,أوروغواي
 UZ,UZB,860,Uzbekistan,Usbekistan,Ouzbékistan,Uzbekistan,Uzbekistán,Uzbequistão,Узбекистан,乌兹别克斯坦,ウズベキスタン,أوزبكستان
 VU,VUT,548,Vanuatu,Vanuatu,Vanuatu,Vanuatu,Vanuatu,Vanuatu,Вануату,瓦努阿图,バヌアツ,فانواتو
 VE,VEN,862,Bolivarian Republic of Venezuela,Venezuela,Venezuela,Venezuela,Venezuela,Venezuela,"Венесуэла, Боливарианская Республика",委内瑞拉,ベネズエラ,فنزويلا
-VN,VNM,704,Vietnam,Vietnam,Viet Nam,Vietnam,Vietnam,Vietnã,Вьетнам,越南,ベトナム,فيتنام
+VN,VNM,704,Vietnam,Vietnam,Vietnam,Vietnam,Vietnam,Vietnã,Вьетнам,越南,ベトナム,فيتنام
 YE,YEM,887,Yemen,Jemen,Yémen,Yemen,Yemen,Iêmen,Йемен,也门,イエメン,اليمن
 ZM,ZMB,894,Zambia,Sambia,Zambie,Zambia,Zambia,Zâmbia,Замбия,赞比亚,ザンビア,زامبيا
 ZW,ZWE,716,Zimbabwe,Zimbabwe,Zimbabwe,Zimbabwe,Zimbabue,Zimbábue,Зимбабве,津巴布韦,ジンバブエ,زيمبابوي
-AX,ALA,248,Aland Islands,Aland Islands,Îles Åland,Isole Aland,Islas Aland,Ilhas Åland,Аландские Острова,奥兰群岛,オーランド諸島,جزر آلاند
+AX,ALA,248,Aland Islands,Aland Islands,Iles Åland,Isole Aland,Islas Aland,Ilhas Åland,Аландские Острова,奥兰群岛,オーランド諸島,جزر آلاند
 AS,ASM,16,American Samoa,Amerikanischen Samoa-Inseln,Samoa Américaines,Samoa americane,Samoa Americana,Samoa Americana,Самоа США,美属萨摩亚,アメリカ領サモア,ساموا الأمريكية
 AD,AND,20,Andorra,Andorra,Andorre,Andorra,Andorra,Andorra,Андорра,安道​​尔,アンドラ公国,أندورا
 AI,AIA,660,Anguilla,Anguilla,Anguilla,Anguilla,Anguilla,Anguilla,Анги́лья,安圭拉,アンギラ島,أنغيلا
@@ -185,16 +185,16 @@ AQ,ATA,10,Antarctica,Antarktika,Antarctique,Antartide,Antártida,Antártica,Ан
 BM,BMU,60,Bermuda,Bermuda,Bermudes,Bermuda,Bermuda,Bermudas,Бермуды,百慕大,バミューダ諸島,برمودا
 BT,BTN,64,Bhutan,Bhutan,Bhoutan,Bhutan,Bután,Butão,Бутан,不丹,ブータン,بوتان
 BQ,BES,535,"Bonaire, Sint Eustatius and Saba","Bonaire, Sint Eustatius und Saba","Bonaire, Saint-Eustache et Saba","Bonaire, Sint Eustatius e Saba","Bonaire, San Estaquio y Saba","Bonaire, Santo Eustáquio e Saba","Бонэйр, Синт-Эстатиус и Саба",博内尔岛，圣尤斯特歇斯和萨巴,ボネール島、セントユースタティウスとサバ,بونير، سينت أوستاتيوس وسابا
-BV,BVT,74,Bouvet Island,Bouvet-Insel,Île Bouvet,Isola Bouvet,Isla Bouvet,Ilha Bouvet,Остров Буве́,布维岛,ブーヴェ島,جزيرة بوفيت
+BV,BVT,74,Bouvet Island,Bouvet-Insel,Ile Bouvet,Isola Bouvet,Isla Bouvet,Ilha Bouvet,Остров Буве́,布维岛,ブーヴェ島,جزيرة بوفيت
 IO,IOT,86,British Indian Ocean Territory,Britisch-Indischer Ozean,Territoire Britannique de L'Océan Indien,Territorio britannico dell'Oceano Indiano,Territorio Británico del Océano Indico,Território Britânico do Oceano Índico,Брита́нская террито́рия в Инди́йском океа́не,英属印度洋领地,イギリス領インド洋地域,إقليم المحيط الهندي البريطاني
-CX,CXR,162,Christmas Island,Weihnachtsinsel,Île Christmas,Isola di Natale,Isla de Navidad,Ilha do Natal,О́стров Рождества́,圣诞岛,クリスマス島,جزيرة الكريسماس
-CC,CCK,166,Cocos (Keeling) Islands,Cocos (Keeling) Islands,Îles Cocos (Keeling),Isole Cocos (Keeling),Islas Cocos (Keeling),Cocos (Keeling),Кокосовые острова или Килинг,科科斯群岛,ココス諸島,جزر كوكوس(كيلينغ)
+CX,CXR,162,Christmas Island,Weihnachtsinsel,Ile Christmas,Isola di Natale,Isla de Navidad,Ilha do Natal,О́стров Рождества́,圣诞岛,クリスマス島,جزيرة الكريسماس
+CC,CCK,166,Cocos (Keeling) Islands,Cocos (Keeling) Islands,Iles Cocos (Keeling),Isole Cocos (Keeling),Islas Cocos (Keeling),Cocos (Keeling),Кокосовые острова или Килинг,科科斯群岛,ココス諸島,جزر كوكوس(كيلينغ)
 KM,COM,174,Comoros,Komoren,Comores,Isole Comore,Comoras,Comores,Коморские острова,科摩罗,コモロ,جزر القمر
-CK,COK,184,Cook Islands,Cookinseln,Îles Cook,Isole Cook,Islas Cook,Ilhas Cook,Острова Кука,库克群岛,クック諸島,جزر كوك
+CK,COK,184,Cook Islands,Cookinseln,Iles Cook,Isole Cook,Islas Cook,Ilhas Cook,Острова Кука,库克群岛,クック諸島,جزر كوك
 DM,DMA,212,Dominica,Dominica,Dominique,Dominica,Dominica,Dominica,Содру́жество Домини́ки,多米尼加,ドミニカ,دومينيكا
 GQ,GNQ,226,Equatorial Guinea,Äquatorialguinea,Guinée équatoriale,Guinea equatoriale,Guinea Ecuatorial,Guiné Equatorial,Экваториальная Гвинея,赤道几内亚,赤道ギニア,غينيا الاستوائية
-FK,FLK,238,Falkland Islands (Malvinas),Falklandinseln (Malvinas),Îles Falkland (Malvinas),Isole Falkland,Islas Malvinas,Ilhas Falkland (Malvinas),Фолклендские острова,福克兰群岛,フォークランド諸島（マルビナス諸島）,جزر فوكلاند(مالفيناس)
-FO,534,703,Faroe Islands,Färöer Inseln,Îles Féroé,Faerøerne,Islas Feroe,Ilhas Faroe,Фарерские острова,法罗群岛,フェロー諸島,جزر فارو
+FK,FLK,238,Falkland Islands (Malvinas),Falklandinseln (Malvinas),Iles Falkland (Malvinas),Isole Falkland,Islas Malvinas,Ilhas Falkland (Malvinas),Фолклендские острова,福克兰群岛,フォークランド諸島（マルビナス諸島）,جزر فوكلاند(مالفيناس)
+FO,534,703,Faroe Islands,Färöer Inseln,Iles Féroé,Faerøerne,Islas Feroe,Ilhas Faroe,Фарерские острова,法罗群岛,フェロー諸島,جزر فارو
 GF,GUF,254,French Guiana,Französisch-Guayana,Guyane française,Guiana francese,Guayana Francesa,Guiana Francesa,Французская Гвиана,法属圭亚那,仏領ギアナ,جيانا الفرنسية
 PF,PYF,258,French Polynesia,Französisch Polynesien,Polynésie française,Polinesia francese,Polinesia Francesa,Polinésia Francesa,Французская Полинезия,法属波利尼西亚,仏領ポリネシア,بولينيزيا الفرنسية
 TF,ATF,260,French Southern Territories,Französisch Südliche Territorien,Terres Australes françaises,Terre australi e antartiche francesi,Territorios Australes Franceses,Territórios Franceses do Sul,Южные французские территории,法属南部领土,仏領南方・南極地域,الاقاليم الجنوبية الفرنسية
@@ -204,27 +204,27 @@ GD,GRD,308,Grenada,Grenada,Grenade,Grenada,Granada,Granada,Гренада,格林
 GP,GLP,312,Guadeloupe,Guadeloupe,Guadeloupe,Guadalupa,Guadalupe,Guadalupe,Гваделупа,瓜德罗普岛,グアドループ島,غوادلوب
 GU,GUM,316,Guam,Guam,Guam,Guam,Guam,Guam,Гуам,关岛,グアム,غوام
 GG,GGY,831,Guernsey,Guernsey,Guernesey,Guernsey,Guernsey,Guernsey,Ге́рнси,根西岛,ガーンジー島,غيرنسي
-HM,HMD,334,Heard Island and McDonald Islands,Heard und McDonald-Inseln,"Îles Heard, Île et McDonald",Isole Heard e McDonald,Islas Heard y McDonald,"Ilhas Heard e Ilhas McDonald,",Остров Херд и острова Макдональд,赫德岛和麦当劳群岛,ハード島とマクドナルド諸島,جزيرة هيرد وجزر ماكدونالد
+HM,HMD,334,Heard Island and McDonald Islands,Heard und McDonald-Inseln,"Iles Heard, Ile et McDonald",Isole Heard e McDonald,Islas Heard y McDonald,"Ilhas Heard e Ilhas McDonald,",Остров Херд и острова Макдональд,赫德岛和麦当劳群岛,ハード島とマクドナルド諸島,جزيرة هيرد وجزر ماكدونالد
 VA,VAT,336,Holy See (Vatican City State),Heiliger Stuhl (Vatikanstadt),Saint-Siège (État de La Cité du Vatican),Città del Vaticano,Vaticano,Santa Sé (Cidade do Vaticano),Ватикан,梵蒂冈,ローマ法王庁（バチカン市国）,الكرسي الرسولي(دولة الفاتيكان)
-HK,HKG,344,Hong Kong,Hong Kong,Hong-Kong,Hong Kong,Hong Kong,Hong Kong,Гонконг,香港,香港,هونغ كونغ
-IM,IMN,833,Isle of Man,Isle of Man,Île de Man,Isola di Man,Isla de Man,Ilha de Man,Остров Мэн,马恩岛,マン島,جزيرة مان
+HK,HKG,344,Hong Kong,Hong Kong,Hongkong,Hong Kong,Hong Kong,Hong Kong,Гонконг,香港,香港,هونغ كونغ
+IM,IMN,833,Isle of Man,Isle of Man,Ile de Man,Isola di Man,Isla de Man,Ilha de Man,Остров Мэн,马恩岛,マン島,جزيرة مان
 JE,JEY,832,Jersey,Jersey,Jersey,Isola di Jersey,Jersey,Jersey,Остров Джерси,泽西岛,ジャージー,جيرسي
 KI,KIR,296,Kiribati,Kiribati,Kiribati,Kiribati,Kiribati,Kiribati,Кирибати,基里巴斯,キリバス,كيريباس
-KP,PRK,408,Democratic People's Republic of Korea,Demokratische Volksrepublik Korea,La République populaire démocratique de Corée,Corea del Nord,República Popular Democrática de Corea,República Popular Democrática da Coreia,Корейская Народно-Демократическая Республика,朝鲜,朝鮮民主主義人民共和国,جمهورية كوريا الشعبية الديمقراطية وجمهورية كوريا
+KP,PRK,408,Democratic People's Republic of Korea,Demokratische Volksrepublik Korea,Corée du Nord,Corea del Nord,República Popular Democrática de Corea,República Popular Democrática da Coreia,Корейская Народно-Демократическая Республика,朝鲜,朝鮮民主主義人民共和国,جمهورية كوريا الشعبية الديمقراطية وجمهورية كوريا
 LA,LAO,418,Lao People's Democratic Republic,Demokratische Volksrepublik,République démocratique populaire lao,Laos,República Democrática Popular Laos,Laos,Лаосская Народно-Демократическая Республика,老挝,ラオス人民民主共和国,جمهورية لاو الديمقراطية الشعبية
 MV,MDV,462,Maldives,Malediven,Maldives,Maldive,Maldivas,Maldivas,Мальдивские Острова,马尔代夫,モルディブ,جزر المالديف
-MH,MHL,584,Marshall Islands,Marshall Islands,Îles Marshall,Isole Marshall,Islas Marshall,Ilhas Marshall,Маршалловы Острова,马绍尔群岛,マーシャル諸島,جزر مارشال
+MH,MHL,584,Marshall Islands,Marshall Islands,Iles Marshall,Isole Marshall,Islas Marshall,Ilhas Marshall,Маршалловы Острова,马绍尔群岛,マーシャル諸島,جزر مارشال
 MQ,MTQ,474,Martinique,Martinique,Martinique,Martinica,Martinica,Martinica,Мартиник,马提尼克,マルティニーク島,مارتينيك
 MU,MUS,480,Mauritius,Mauritius,Maurice,Mauritius,Mauricio,Maurice,Маврикий,毛里求斯,モーリシャス,موريشيوس
 YT,MYT,175,Mayotte,Mayotte,Mayotte,Mayotte,Mayotte,Mayotte,Майотт,马约特,マヨット島,مايوت
-FM,FSM,583,Federated States of Micronesia,Föderierten Staaten von Mikronesien,États fédérés de Micronésie,Micronesia,"Micronesia, Estados Federados de",Estados Federados da Micronésia,"Микронезия, Федеративные Штаты",密克罗尼西亚,ミクロネシア連邦,ولايات ميكرونيزيا الموحدة
+FM,FSM,583,Federated States of Micronesia,Föderierten Staaten von Mikronesien,Etats fédérés de Micronésie,Micronesia,"Micronesia, Estados Federados de",Estados Federados da Micronésia,"Микронезия, Федеративные Штаты",密克罗尼西亚,ミクロネシア連邦,ولايات ميكرونيزيا الموحدة
 MS,MSR,500,Montserrat,Montserrat,Montserrat,Montserrat,Montserrat,Montserrat,Монтсеррат,蒙特塞拉特,モントセラト,مونتسيرات
 NA,NAM,516,Namibia,Namibia,Namibie,Namibia,Namibia,Namíbia,Намибия,纳米比亚,ナミビア,ناميبيا
 NR,NRU,520,Nauru,Nauru,Nauru,Nauru,Naurú,Nauru,Науру,瑙鲁,ナウル,ناورو
 NC,NCL,540,New Caledonia,Neu-Kaledonien,Nouvelle-Calédonie,Nuova Caledonia,Nueva Caledonia,Nova Caledônia,Новая Каледония,新喀里多尼亚,ニューカレドニア,كاليدونيا الجديدة
 NU,NIU,570,Niue,Niue,Niué,Niue,Niue,Niue,Ниу́э,纽埃,ニウエ,نيوي
-NF,NFK,574,Norfolk Island,Norfolkinsel,Île Norfolk,Norfolk Island,Islas Norfolk,Ilha Norfolk,Остров Норфолк,诺福克岛,ノーフォーク島,جزيرة نورفولك
-MP,MNP,580,Northern Mariana Islands,Northern Mariana Islands,Îles Mariannes du Nord,Isole Marianne settentrionali,Islas Marianas Septentrionales,Ilhas Marianas do Norte,Северные Марианские острова,北马里亚纳群岛,北マリアナ諸島,جزر ماريانا الشمالية
+NF,NFK,574,Norfolk Island,Norfolkinsel,Ile Norfolk,Norfolk Island,Islas Norfolk,Ilha Norfolk,Остров Норфолк,诺福克岛,ノーフォーク島,جزيرة نورفولك
+MP,MNP,580,Northern Mariana Islands,Northern Mariana Islands,Iles Mariannes du Nord,Isole Marianne settentrionali,Islas Marianas Septentrionales,Ilhas Marianas do Norte,Северные Марианские острова,北马里亚纳群岛,北マリアナ諸島,جزر ماريانا الشمالية
 PS,PSE,275,Occupied Palestinian Territory,Besetzte palästinensische Gebiete,Palestine,Territori Palestinesi Occupati,Territorio Palestino Ocupado,Palestinos Ocupados,Оккупированная палестинская территория,巴勒斯坦被占领土,パレスチナ自治区,الأراضي الفلسطينية المحتلة
 PN,PCN,612,Pitcairn,Pitcairn,Pitcairn,Pitcairn,Islas Pitcairn,Pitcairn,Острова́ Пи́ткэрн,皮特凯恩,ピトケアン,بيتكيرن
 PR,PRI,630,Puerto Rico,Puerto Rico,Porto Rico,Portorico,Puerto Rico,Porto Rico,Пуэрто-Рико,波多黎各,プエルトリコ,بويرتو ريكو
@@ -240,13 +240,13 @@ ST,STP,678,Sao Tome and Principe,Sao Tome und Principe,Sao Tomé-et-Principe,Sã
 SC,SYC,690,Seychelles,Seychellen,Seychelles,Seychelles,Seychelles,Seychelles,Сейшельские Острова,塞舌尔,セイシェル,سيشيل
 GS,SGS,239,South Georgia and the South Sandwich Islands,Südgeorgien und die Südlichen Sandwichinseln,Géorgie Du Sud et Les Îles Sandwich du Sud,Georgia del Sud e Isole Sandwich Meridionali,Georgia del Sur e Islas Sandwich del Sur,Geórgia do Sul e Sandwich do Sul,Южная Георгия и Южные Сандвичевы острова,南乔治亚岛和南桑威奇群岛,サウスジョージア·サウスサンドウィッチ諸島,جورجيا الجنوبية وجزر ساندويتش الجنوبية
 SJ,534,703,Svalbard and Jan Mayen,Svalbard und Jan Mayen,Svalbard et Île Jan Mayen,Svalbard e Jan Mayen,Islas Svalbard y Jan Mayen,Svalbard e Jan Mayen,Шпицберген и Ян-Майен,斯瓦尔巴群岛和扬马延,スバールバル諸島ヤンマイエン島,سفالبارد وجان مايان
-TW,TWN,158,"Taiwan, Province of China","Taiwan, Province of China","Taïwan",Taiwan,Provincia china de Taiwán,"Taiwan, Província da China",Тайвань (провинция Китайской Народной Республики),中国台湾省,台湾、中国の省,مقاطعة تايوان الصينية
+TW,TWN,158,"Taiwan, Province of China","Taiwan, Province of China",Taïwan,Taiwan,Provincia china de Taiwán,"Taiwan, Província da China",Тайвань (провинция Китайской Народной Республики),中国台湾省,台湾、中国の省,مقاطعة تايوان الصينية
 TK,TKL,772,Tokelau,Tokelau,Tokelau,Tokelau,Tokelau,Tokelau,Токела́у,托克劳,トケラウ諸島,توكيلاو
 TO,TON,776,Tonga,Tonga,Tonga,Tonga,Tonga,Tonga,Тонга,汤加,トンガ,تونغا
 TV,TUV,798,Tuvalu,Tuvalu,Tuvalu,Tuvalu,Tuvalu,Tuvalu,Тувалу,图瓦卢,ツバル,توفالو
-UM,UMI,581,United States Minor Outlying Islands,United States Minor Outlying Islands,Îles Mineures Éloignées des États-Unis,Isole minori esterne degli Stati Uniti d'America,Estados Unidos Islas Menores,Ilhas Menores Distantes dos Estados Unidos,Внешние малые острова США,美国本土外小岛屿,アメリカ合衆国外諸島,جزر الولايات المتحدة البعيدة الصغيرة
-VG,VGB,92,British Virgin Islands,Britische Jungferninseln,Îles Vierges britanniques,Isole Vergini britanniche,Islas Vírgenes Británicas,Ilhas Virgens Britânicas,Британские Виргинские острова,英属维尔京群岛,英領ヴァージン諸島,جزر فيرجن البريطانية
-VI,VIR,850,U.S. Virgin Islands,US-Jungferninseln,Îles Vierges des États-Unis,Isole Vergini americane,Islas Vírgenes de Estados Unidos,Ilhas Virgens dos EUA,Виргинские острова США,美属维尔京群岛,米領バージン諸島,جزر فيرجن الأمريكية
+UM,UMI,581,United States Minor Outlying Islands,United States Minor Outlying Islands,Iles Mineures Éloignées des États-Unis,Isole minori esterne degli Stati Uniti d'America,Estados Unidos Islas Menores,Ilhas Menores Distantes dos Estados Unidos,Внешние малые острова США,美国本土外小岛屿,アメリカ合衆国外諸島,جزر الولايات المتحدة البعيدة الصغيرة
+VG,VGB,92,British Virgin Islands,Britische Jungferninseln,Iles Vierges britanniques,Isole Vergini britanniche,Islas Vírgenes Británicas,Ilhas Virgens Britânicas,Британские Виргинские острова,英属维尔京群岛,英領ヴァージン諸島,جزر فيرجن البريطانية
+VI,VIR,850,U.S. Virgin Islands,US-Jungferninseln,Iles Vierges des États-Unis,Isole Vergini americane,Islas Vírgenes de Estados Unidos,Ilhas Virgens dos EUA,Виргинские острова США,美属维尔京群岛,米領バージン諸島,جزر فيرجن الأمريكية
 WF,WLF,876,Wallis and Futuna,Wallis und Futuna,Wallis et Futuna,Wallis e Futuna,Islas Wallis y Futuna,Wallis e Futuna,Уоллис и Футуна,瓦利斯和富图纳群岛,ワリー·エ·フトゥーナ,واليس وفوتونا
 EH,ESH,732,Western Sahara,Westsahara,Sahara Occidental,Sahara occidentale,Sáhara Occidental,Saara Ocidental,Западная Сахара,西撒哈拉,西サハラ,الصحراء الغربية
 1A,ARB,NA,Arab World,Arabische Welt,Monde arabe,Mondo arabo,Mundo árabe,Mundo Árabe,Арабский мир,阿拉伯世界,アラブ世界,العالم العربي
@@ -260,7 +260,7 @@ S1,SST,NA,Small states,Kleinstaaten,Les petits états,Piccolo Stati,Pequeños Es
 S2,PSS,NA,Pacific island small states,Pazifik-Insel Kleinstaaten,Petits états insulaires du Pacifique,Piccoli Stati insulari del Pacifico,Pequeños Estados insulares del Pacífico,Estados insulares pequenos do Pacífico,Полинезия,太平洋岛屿小国,太平洋島嶼小国,الدول الجزرية الصغيرة في المحيط الهادئ
 S3,CSS,NA,Caribbean small states,Karibischen Kleinstaaten,Petits états des Caraïbes,Piccoli Stati caraibici,Pequeños Estados del Caribe,Pequenos Estados do Caribe,Малые страны Карибского бассейна,加勒比小国,カリブ海の小国,الدول الصغيرة في منطقة البحر الكاريبي
 S4,OSS,NA,Other small states,Andere Kleinstaaten,Autres petits états,Altri piccoli Stati,Otros pequeños Estados,Outros estados pequenos,Другие малые страны,其他小国,その他の小国,الدول الصغيرة الأخرى
-XC,EMU,NA,Eurozone,Euro-Raum,zone Euro,Eurozona,Eurozona,eurozona,Зона хождения евро,欧元区,ユーロ圏,منطقة اليورو
+XC,EMU,NA,Eurozone,Euro-Raum,Zone Euro,Eurozona,Eurozona,eurozona,Зона хождения евро,欧元区,ユーロ圏,منطقة اليورو
 XD,HIC,NA,High income,Hohes Einkommen,revenu élevé,Reddito alto,Ingreso alto,alta renda,Высокие доходы,高收入,高額所得,ذات الدخل المرتفع
 XE,HPC,NA,Heavily indebted poor countries,Hochverschuldeten armen Länder,Pays pauvres très endettés,Paesi fortemente indebitati,Países muy endeudados,Países pobres altamente endividados,Бедные страны с высоким уровнем задолженности,重债穷国,重債務貧困国,البلدان الفقيرة المثقلة بالديون
 XJ,LAC,NA,Latin America & Caribbean,Lateinamerika & Karibik,Amérique latine et Caraïbes,America Latina e Caraibi,América Latina y el Caribe,América Latina e Caribe,Латинская Америка и Карибские острова,拉美与加勒比地区,ラテンアメリカ·カリブ海,أمريكا اللاتينية والبحر الكاريبي
@@ -268,7 +268,7 @@ XL,LDC,NA,Least developed countries: UN classification,Am wenigsten entwickelte 
 XM,LIC,NA,Low income,Niedriges Einkommen,faible revenu,Reddito basso,Ingreso bajo,baixa renda,Низкие доходы,低收入,低所得,دخل منخفض
 XN,LMC,NA,Lower middle income,Niedrigem mittleren Einkommen,Revenu moyen inférieur,Reddito medio basso,Ingreso medio bajo,Renda média inferior,Низкий средний доход,中等偏下收入,低中所得,ذات الدخل المتوسط ​​أقل
 XO,LMY,NA,Low & middle income,Low & mittlerem Einkommen,Revenu faible et intermédiaire,Reddito basso e medio,Ingreso bajo y medio,Baixa renda e intermediário,Низкий и средний доход,低与中等收入,低・中所得,ذات الدخل المنخفض والمتوسط
-XP,MIC,NA,Middle income,Mittleren Einkommen,revenu intermédiaire,Reddito medio,Ingreso medio ,renda intermediária,Средний доход,中等收入,中所得,ذات الدخل المتوسط
+XP,MIC,NA,Middle income,Mittleren Einkommen,revenu intermédiaire,Reddito medio,Ingreso medio,renda intermediária,Средний доход,中等收入,中所得,ذات الدخل المتوسط
 XQ,MNA,NA,Middle East & North Africa,Naher Osten und Nordafrika,Moyen-Orient et Afrique du Nord,Medio Oriente e Nord Africa,Medio Oriente y África del norte,Oriente Médio e Norte da África,Ближний Восток и Северная Африка,中东和北非,中東·北アフリカ,الشرق الأوسط وشمال أفريقيا
 XR,NOC,NA,High income: non-OECD,Guter Verdienst: nonOECD,Revenu élevé: non OCDE,Reddito alto: non OCSE,Ingreso alto: fuera de la OCDE,Renda alta: Não OCDE,"Высокие заработки (страны, не входящие в ОЭСР)",高收入：非经合组织,高所得：非OECD加盟国,عالية الدخل: nonOECD
 XS,OEC,NA,High income: OECD,Guter Verdienst: OECD,Revenu élevé: OCDE,Reddito alto: OCSE,Ingreso alto: OCDE,Renda alta: OCDE,"Высокие заработки (страны, входящие в ОЭСР)",高收入：经合组织,高所得：OECD加盟国,عالية الدخل:منظمة التعاون والتنمية
