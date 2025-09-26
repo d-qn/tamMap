@@ -152,8 +152,14 @@ geojson_2020 <- getGeojsonPath(2020)
 require(tidyverse)
 require(sf)
 muni_df <- st_read(geojson_2020['municipality']) \%>\% 
-  select(GDENR, GDENAME, BEZNR:KTKZ) \%>\%
+  select(GDENR, GDENAME, BEZNR:KTKZ) 
 plot(muni_df)
+  
+plot(muni_df)
+munip_df <- st_read(geojson_2020['prod_municipality']) \%>\% 
+  select(GDENR, GDENAME, BEZNR:KTKZ) 
+  
+ plot(munip_df)
 }
 }
 \seealso{

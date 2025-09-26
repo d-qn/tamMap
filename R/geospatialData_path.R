@@ -219,8 +219,14 @@ shp_path <- function(
 #' require(tidyverse)
 #' require(sf)
 #' muni_df <- st_read(geojson_2020['municipality']) %>% 
-#'   select(GDENR, GDENAME, BEZNR:KTKZ) %>%
+#'   select(GDENR, GDENAME, BEZNR:KTKZ) 
 #' plot(muni_df)
+#'   
+#' plot(muni_df)
+#' munip_df <- st_read(geojson_2020['prod_municipality']) %>% 
+#'   select(GDENR, GDENAME, BEZNR:KTKZ) 
+#'   
+#'  plot(munip_df)
 #' }
 getGeojsonPath <- function(year = 2025) {
   
@@ -236,9 +242,12 @@ getGeojsonPath <- function(year = 2025) {
   enframe(files) %>% 
     mutate(
       name = case_when(
-        grepl("_bezirk_", value) ~ "district",
-        grepl("_gemeinde_", value) ~ "municipality",
-        grepl("_kanton_", value) ~ "canton",
+        grepl("_bezirk_2056", value) ~ "district",
+        grepl("_bezirk_vf", value) ~ "prod_district",
+        grepl("_gemeinde_2056", value) ~ "municipality",
+        grepl("_gemeinde_vf", value) ~ "prod_municipality",
+        grepl("_kanton_2056", value) ~ "canton",
+        grepl("_kanton_vf", value) ~ "prod_canton",
         grepl("_land_", value) ~ "country",
         grepl("_see_", value) ~ "lake",
         TRUE ~ "unknown"
