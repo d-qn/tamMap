@@ -200,3 +200,48 @@ shp_path <- function(
          " unknown! It must be one of: CH, CH/productive, CH/quartiers, CH/villes, World\n")
   }
 }
+
+
+
+#' @rdname shp_path
+#' @details \code{getGeojsonPath} returns the path to the geojson files in inst/extdata/geojson
+#' @param year a numeric of lenghth 1. The year (as of the 1st of Jan) of geojson data to get. So far only 2025 available
+#' @return a character vector with the full path to the geojson files
+#' @import stringr dplyr tibble
+#' @export
+#' @examples
+#' ### getGeojsonPath
+#' 
+#' geojson_2025 <- getGeojsonPath(2025)
+#' geojson_2020 <- getGeojsonPath(2020)
+#' 
+#' \dontrun{
+#' require(tidyverse)
+#' require(sf)
+#' muni_df <- st_read(geojson_2020['municipality']) %>% 
+#'   select(GDENR, GDENAME, BEZNR:KTKZ) %>%
+#' plot(muni_df)
+#' }
+getGeojsonPath <- function(year = 2025) {
+  
+  stopifnot(is.numeric(year), length(year) == 1)
+  if(year != 2025) {
+    warning("So far only 2025 geojson data available, returning 2025 data path")
+    year <- 2025
+  }
+  
+  geo.path <- file.path("extdata/geojson", year)
+  files <- dir(system.file(geo.path, package="tamMap"), 
+               '.*geojson$', full.names = T) 
+  enframe(files) %>% 
+    mutate(
+      name = case_when(
+        grepl("_bezirk_", value) ~ "district",
+        grepl("_gemeinde_", value) ~ "municipality",
+        grepl("_kanton_", value) ~ "canton",
+        grepl("_land_", value) ~ "country",
+        grepl("_see_", value) ~ "lake",
+        TRUE ~ "unknown"
+      )
+    ) %>% deframe()
+}

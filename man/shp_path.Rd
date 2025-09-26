@@ -2,6 +2,7 @@
 % Please edit documentation in R/geospatialData_path.R
 \name{shp_path}
 \alias{shp_path}
+\alias{getGeojsonPath}
 \title{Return path to (mainly OFS) geospatial data}
 \usage{
 shp_path(
@@ -10,6 +11,8 @@ shp_path(
   features = c("municipalities", "cantons", "lakes", "country"),
   dirGeo = "CH"
 )
+
+getGeojsonPath(year = 2025)
 }
 \arguments{
 \item{y}{a numeric of lenghth 1. The year (as of the 1st of Jan) of geo data to get. It is currently used for dirGeo CH, ignored for the other options}
@@ -19,9 +22,13 @@ shp_path(
 \item{features}{a string vector with the geographical levels' paths to returns, one of municipalities, municipalities_encl, lakes, agglomerations, cantons, largeRegions and country}
 
 \item{dirGeo}{a string of length 1 the directory in the package inst/extdata/shp/ where to look for geo spatial data. Currently: CH, CH/productive (limits of communes without the improductive areas, y 2018 or 2019), CH/ge (all Geneva's subsectors), CH/quartiers, CH/villes or World}
+
+\item{year}{a numeric of lenghth 1. The year (as of the 1st of Jan) of geojson data to get. So far only 2025 available}
 }
 \value{
 a named vector with the full path to the shapefiles, name the geographical levels
+
+a character vector with the full path to the geojson files
 }
 \description{
 NOTE: Should be deprecated as soon the same data is available from swisstopo API!!
@@ -45,6 +52,8 @@ inst/extdata/shp/CH/
 Improductive surface downloaded from: https://www.bfs.admin.ch/bfs/fr/home/statistiques/statistique-regions/fonds-cartes/geometries-base.html
 
 For the CH/quartiers Les limites de quartiers sont fournies pour les communes suivantes : Winterthour (230), Zurich (261), Berne (351), Bienne (371), Lucerne (1061), Bâle (2701), Saint-Gall (3203), Lugano (5192), Lausanne (5586) et Genève (6621)
+
+\code{getGeojsonPath} returns the path to the geojson files in inst/extdata/geojson
 }
 \examples{
 shp_ch_paths_2018 <- shp_path(2018)
@@ -133,6 +142,18 @@ muni_prod <- st_read(shp_path_productive) \%>\%
   st_union()
 muni_2023_prod <- st_intersection(muni_2023, muni_prod) 
 muni_2023_prod \%>\% select() \%>\% plot()
+}
+### getGeojsonPath
+
+geojson_2025 <- getGeojsonPath(2025)
+geojson_2020 <- getGeojsonPath(2020)
+
+\dontrun{
+require(tidyverse)
+require(sf)
+muni_df <- st_read(geojson_2020['municipality']) \%>\% 
+  select(GDENR, GDENAME, BEZNR:KTKZ) \%>\%
+plot(muni_df)
 }
 }
 \seealso{
