@@ -12,7 +12,7 @@ shp_path(
   dirGeo = "CH"
 )
 
-getGeojsonPath(year = 2025)
+getGeojsonPath(year = 2026)
 }
 \arguments{
 \item{y}{a numeric of lenghth 1. The year (as of the 1st of Jan) of geo data to get. It is currently used for dirGeo CH, ignored for the other options}
@@ -23,7 +23,7 @@ getGeojsonPath(year = 2025)
 
 \item{dirGeo}{a string of length 1 the directory in the package inst/extdata/shp/ where to look for geo spatial data. Currently: CH, CH/productive (limits of communes without the improductive areas, y 2018 or 2019), CH/ge (all Geneva's subsectors), CH/quartiers, CH/villes or World}
 
-\item{year}{a numeric of lenghth 1. The year (as of the 1st of Jan) of geojson data to get. So far only 2025 available}
+\item{year}{a numeric of lenghth 1. The year (as of the 1st of Jan) of geojson data to get. So far only 2025 and 2026 available}
 }
 \value{
 a named vector with the full path to the shapefiles, name the geographical levels
@@ -146,20 +146,25 @@ muni_2023_prod \%>\% select() \%>\% plot()
 ### getGeojsonPath
 
 geojson_2025 <- getGeojsonPath(2025)
-geojson_2020 <- getGeojsonPath(2020)
+geojson_2026 <- getGeojsonPath(2026)
 
 \dontrun{
 require(tidyverse)
 require(sf)
-muni_df <- st_read(geojson_2020['municipality']) \%>\% 
+muni_df <- st_read(geojson_2026['municipality']) \%>\% 
   select(GDENR, GDENAME, BEZNR:KTKZ) 
 plot(muni_df)
   
-plot(muni_df)
-munip_df <- st_read(geojson_2020['prod_municipality']) \%>\% 
+  
+munip_df <- st_read(geojson_2026['prod_municipality']) \%>\% 
   select(GDENR, GDENAME, BEZNR:KTKZ) 
   
- plot(munip_df)
+ plot(munip_df)   
+ 
+ 
+ cantp_df <- st_read(geojson_2026['prod_canton']) \%>\%
+   select(KTNR, KTKZ)
+   cantp_df \%>\% select \%>\% plot()
 }
 }
 \seealso{

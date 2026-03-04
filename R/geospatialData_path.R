@@ -205,7 +205,7 @@ shp_path <- function(
 
 #' @rdname shp_path
 #' @details \code{getGeojsonPath} returns the path to the geojson files in inst/extdata/geojson
-#' @param year a numeric of lenghth 1. The year (as of the 1st of Jan) of geojson data to get. So far only 2025 available
+#' @param year a numeric of lenghth 1. The year (as of the 1st of Jan) of geojson data to get. So far only 2025 and 2026 available
 #' @return a character vector with the full path to the geojson files
 #' @import stringr dplyr tibble
 #' @export
@@ -213,44 +213,71 @@ shp_path <- function(
 #' ### getGeojsonPath
 #' 
 #' geojson_2025 <- getGeojsonPath(2025)
-#' geojson_2020 <- getGeojsonPath(2020)
+#' geojson_2026 <- getGeojsonPath(2026)
 #' 
 #' \dontrun{
 #' require(tidyverse)
 #' require(sf)
-#' muni_df <- st_read(geojson_2020['municipality']) %>% 
+#' muni_df <- st_read(geojson_2026['municipality']) %>% 
 #'   select(GDENR, GDENAME, BEZNR:KTKZ) 
 #' plot(muni_df)
 #'   
-#' plot(muni_df)
-#' munip_df <- st_read(geojson_2020['prod_municipality']) %>% 
+#'   
+#' munip_df <- st_read(geojson_2026['prod_municipality']) %>% 
 #'   select(GDENR, GDENAME, BEZNR:KTKZ) 
 #'   
-#'  plot(munip_df)
+#'  plot(munip_df)   
+#'  
+#'  
+#'  cantp_df <- st_read(geojson_2026['prod_canton']) %>%
+#'    select(KTNR, KTKZ)
+#'    cantp_df %>% select %>% plot()
 #' }
-getGeojsonPath <- function(year = 2025) {
+
+getGeojsonPath <- function(year = 2026) {
   
   stopifnot(is.numeric(year), length(year) == 1)
-  if(year != 2025) {
-    warning("So far only 2025 geojson data available, returning 2025 data path")
-    year <- 2025
+  if(year < 2025) {
+    warning("So far only 2025 & 2026 geojson data available, returning 2025 data path")
+    year <- 2026
   }
   
   geo.path <- file.path("extdata/geojson", year)
   files <- dir(system.file(geo.path, package="tamMap"), 
                '.*geojson$', full.names = T) 
-  enframe(files) %>% 
-    mutate(
-      name = case_when(
-        grepl("_bezirk_2056", value) ~ "district",
-        grepl("_bezirk_vf", value) ~ "prod_district",
-        grepl("_gemeinde_2056", value) ~ "municipality",
-        grepl("_gemeinde_vf", value) ~ "prod_municipality",
-        grepl("_kanton_2056", value) ~ "canton",
-        grepl("_kanton_vf", value) ~ "prod_canton",
-        grepl("_land_", value) ~ "country",
-        grepl("_see_", value) ~ "lake",
-        TRUE ~ "unknown"
-      )
-    ) %>% deframe()
+  
+  if(year == 2025) {
+
+    enframe(files) %>% 
+      mutate(
+        name = case_when(
+          grepl("_bezirk_2056", value) ~ "district",
+          grepl("_bezirk_vf", value) ~ "prod_district",
+          grepl("_gemeinde_2056", value) ~ "municipality",
+          grepl("_gemeinde_vf", value) ~ "prod_municipality",
+          grepl("_kanton_2056", value) ~ "canton",
+          grepl("_kanton_vf", value) ~ "prod_canton",
+          grepl("_land_", value) ~ "country",
+          grepl("_see_", value) ~ "lake",
+          TRUE ~ "unknown"
+        )
+      ) %>% deframe()
+  }
+
+  if(year == 2026) {
+    enframe(files) %>% 
+      mutate(
+        name = case_when(
+          grepl("_bezirk_4326", value) ~ "district",
+          grepl("_bezirk_vf", value) ~ "prod_district",
+          grepl("_gemeinde_2056", value) ~ "municipality",
+          grepl("_gemeinde_vf", value) ~ "prod_municipality",
+          grepl("_kanton_4326", value) ~ "canton",
+          grepl("_kanton_vf", value) ~ "prod_canton",
+          grepl("_land_", value) ~ "country",
+          grepl("_see_", value) ~ "lake",
+          TRUE ~ "unknown"
+        )
+      ) %>% deframe()
+  }
 }

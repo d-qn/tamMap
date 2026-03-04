@@ -54,7 +54,7 @@ loadCommunesCHgeographicalLevels <- function() {
   data.path <- dir(system.file("extdata", package="tamMap"), "niveaux_geographiques_communes.xlsx", full.names = T)
   
   # get the data date
-  metadata <- readxl::read_excel(data.path, sheet = "Métadonnées", range = "A10:A10", col_names = F)
+  metadata <- readxl::read_excel(data.path, sheet = "Métadonnées", range = "A9:A9", col_names = F)
   if(length(metadata) == 0) {
     warning(paste0("Metadata of ", data.path, " could not be parsed!\n"))
   } else {
