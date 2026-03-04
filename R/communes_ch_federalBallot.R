@@ -89,7 +89,7 @@ processFederalBallotByCommunes <- function(
     langout = 'fr', 
     attachCode = c(
       "Canton.......District........Commune.........",
-      "Date.et.objet"))
+      "Date.et.objet"), encoding = "UTF-8")
   
   ## subset to take only %oui and municipality results
   dd <- data %>% 

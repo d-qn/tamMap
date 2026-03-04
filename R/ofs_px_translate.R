@@ -44,7 +44,7 @@ ofsPx_wrangle <- function(px.file, langout = 'fr', attachCode = "", ...) {
   }
   
   # Attach code
-  if(attachCode != "") {
+  if(all(attachCode != "")) {
     if(!all(attachCode %in% colnames(pxdata))) {
       stop("\n", "Not all column names to attach code are present. 
            Please provide only one of, ", colnames(pxdata))
