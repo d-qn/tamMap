@@ -128,12 +128,15 @@ processFederalBallotByCommunes <- function(
   code2communeName <- dd %>% 
     dplyr::select(communeID, commune) %>% 
     mutate(commune = gsub("......", "", commune, fixed = T)) %>% 
-    distinct() %>% deframe()    
+    distinct() %>% 
+    mutate(communeID = as.numeric(communeID)) %>% 
+    deframe()    
   
   attr(ddd, "ballotName") <- ballot2ballotName[match(colnames(ddd), names(ballot2ballotName))] %>% unname()
   attr(ddd, "date") <- ballot2date[match(colnames(ddd), names(ballot2date))] %>% unname()
 
-  attr(ddd, "communeName") <- code2communeName[match(rownames(ddd), code2communeName)]
+  attr(ddd, "communeName") <- code2communeName[match(rownames(ddd), names(code2communeName))] %>% 
+    unname()
   rownames(ddd) <- as.numeric(rownames(ddd))
   
   stopifnot(
