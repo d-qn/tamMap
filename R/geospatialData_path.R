@@ -262,9 +262,8 @@ getGeojsonPath <- function(year = 2026) {
           TRUE ~ "unknown"
         )
       ) %>% deframe()
-  }
 
-  if(year == 2026) {
+  } else if(year == 2026) {
     enframe(files) %>% 
       mutate(
         name = case_when(
